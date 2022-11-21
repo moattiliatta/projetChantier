@@ -1,0 +1,5 @@
+Le  projet de gestion de chantier  effectue le suivi du différent intervenant (les maçons les peintres) qui ont été admis. Le système  trace  les programmes de journée
+ (activités journaliers tache a faire, rendez- vous) et  l’état d’avancement  du chantier. Le système contrôle le entrées et sorties des intervenants et il ajout et supprime les employés. 
+Veille au respect des règles de sécurité  botte casque et autre matériel de sécurité spécifique. Le système contrôle  les absences   de différentes spécialités.
+  Le système  établis des statique des taux d’absentéisme  et les rapports des taches accomplis état d’avancement. Le système héberge la base de données  entrées et sorties des stocks
+   ainsi q un processus de gestion de paie.
