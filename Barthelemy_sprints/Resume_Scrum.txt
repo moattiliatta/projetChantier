@@ -1,0 +1,39 @@
+Résumé SCRUM Fotie Fokoua
+
+SRUM est un mot anglais qui en Français signifie mêlée. Il se rapporte à une technique de l’équipe de Rugby pour atteindre son objectif. Mais dans notre contexte, SCRUM est un processus agile qui permet de produire la plus grande valeur métier dans la durée la plus courte. Ce processus comporte un cycle de vie, un processus, des rôles et des pratiques pour mettre en avant la rentabilité et surtout la satisfaction client. Dans sa méthodologie SCRUM, le métier définit les priorités. L'équipe de développement s'organise elle-même pour déterminer la meilleure façon de produire les exigences les plus prioritaires. À chaque fin de sprint, chaque membre de l’équipe a un pouvoir de décision. L'équipe devra décider de livrer le produit en l'état, ou de continuer à améliorer le produit sur une itération supplémentaire. S’il faut parler de son utilité nous citerons
+L'Itératif, lié à des processus incrémentaux, 
+L'Approche basée sur l'équipe,
+ Fait pour développer des produits/applications nécessitant une grande adaptabilité,
+ Fait pour développer des produits/applications nécessitant une grande adaptabilité, Contrôler le chaos résultat de conflits d'intérêt et des différents besoins,
+ Augmenter la communication et maximiser la coopération, 
+Protéger l'équipe des éléments externes perturbateurs,
+ Un moyen d'augmenter la productivité.
+Pour sa mise en place, on a besoin de 
+•	Equipe responsable, en auto-organisation : l'équipe de développement se doit d'être autonome pour pallier aux éventuels changements d'un client trop indécis.
+•	Avancement du produit par une série de « sprints » : les itérations sont courtes, 2 à 4 semaines au plus, pour permettre des interventions rapides en cas de problèmes.
+•	Exigences définies : en fait d'exigences, on parlera surtout d'éléments à mettre en œuvre. Ces éléments sont regroupés sous l'appellation de "Backlog du produit".
+•	Pas de prescription de pratiques d’ingénierie : on reste dans un esprit d'autonomie de développement.
+•	Utilisation de règles génériques : on permet l'établissement d'un environnement agile propre au projet.
+Pour le processus nous avons cinq groupes dont le démarrage, la planification, l'exécution, le contrôle et la clôture.
+Le travail est divisé en sprint mené par des acteur dont le Product owner (Directeur de produit), le scrum master (chef de projet) et l’équipe scrum.Le Directeur de produit, ou Product Owner en anglais, représente à la fois les clients et les utilisateurs. Mais le terme de directeur est ici à prendre au sens de guide plus que de chef hiérarchique. En effet, ses responsabilités se bornent à l'établissement des limites du projets et de chaque itération. L'avantage du Directeur de Produit est sa relation avec le client. Il peut néanmoins et pour des raisons évidentes de productivité travailler dans le même espace que l'équipe de développement. Celui-ci sachant de façon précise les attentes du client, il peut répondre directement interrogations des collaborateurs.
+Finalement, le Directeur de Produit définit les fonctionnalités du produit. Voici une liste de ses responsabilités :
+•	Choisit la date et le contenu de la release
+•	Responsable du retour sur investissement
+•	Définit les priorités dans le backlog en fonction de la valeur « métier »
+•	Ajuste les fonctionnalités et les priorités à chaque sprint si nécessaire
+
+Le SCRUM Master représente le management du projet. On l'assigne bien souvent au rôle de manager de projet ou de Chef d'équipe. Son travail principal consiste remédier aux imprévus. C'est celui qui interviens dans le cas ou une situation ou un événement peut empêcher ou retarder la progression du travail prévu au cours du sprint.
+Voici quelques-unes de ces caractéristiques :
+•	Responsable de faire appliquer par l’équipe les valeurs et les pratiques de Scrum
+•	Résout des problèmes
+•	S'assure que l'équipe est complètement fonctionnelle et productive
+•	Facilite une coopération poussée entre tous les rôles et fonctions
+•	Protège l'équipe des interférences extérieures
+
+Une bonne équipe SCRUM est assez réduite et comporte finalement 5 à 10 personnes. L'échange est un atout primordial dans l'utilisation de SCRUM, il faut donc garder l'aspect dialogue au sein de son équipe de développement. Une équipe trop grande amène souvent plus de dissension que d'approbation.
+Les caractéristiques d'une bonne équipe :
+•	Regroupant tous les rôles : Architecte, concepteur, développeur, spécialiste IHM, testeur, etc.
+•	A plein temps sur le projet, de préférence
+•	Exceptions possibles (administrateur, …)‏
+•	Organisation autonome
+
