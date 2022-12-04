@@ -1,5 +1,5 @@
 ﻿ChantierApp
-1.0.0.0
+
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\ChantierApp\App.xaml
 11407045341
 
-6-655789839
+4-1582599928
 194618410957
 MainWindow.xaml;
 
-True
+False
 
