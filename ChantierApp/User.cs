@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ChantierApp
 {
-    internal class User
+    public class User
     {
 
-        string? nom;
-        string? password;
+       public string nom = "";
+       public string password ="";
 
-        public User(string? nom, string? password)
+        public User(string nom, string password)
         {
             this.nom = nom;
             this.password = password;
