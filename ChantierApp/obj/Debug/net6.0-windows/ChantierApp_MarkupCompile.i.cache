@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Moatt\Documents\GitHub\projetChantier\ChantierApp\App.xaml
-2-1089763978
+61504296435
 
-71755600025
+11911167958
 194-2004305220
-AdministrationInter.xaml;MainWindow.xaml;
+AdministrationInter.xaml;ListeLivraisons.xaml;ListeOuvriers.xaml;ListePeintres.xaml;ListeSousTraitants.xaml;MainWindow.xaml;
 
 True
 
