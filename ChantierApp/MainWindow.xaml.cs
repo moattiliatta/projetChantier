@@ -50,6 +50,8 @@ namespace ChantierApp
             if ((btnAdmin.IsChecked == true) && (autentifier))
             {
                 MessageBox.Show("Option Admin sélectionnée");
+                // Instanciation de l'AdministrationInterface
+                AdministrationInter admin = new AdministrationInter();
 
             }
             else if ((btnChef.IsChecked == true) && (autentifier))
