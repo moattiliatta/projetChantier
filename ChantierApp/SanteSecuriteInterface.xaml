@@ -36,24 +36,31 @@
 
             <TextBlock  Grid.ColumnSpan="2" VerticalAlignment="Center"  HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="#FFE2D4D4"  >Contrôle santé et sécurité</TextBlock>
 
-            <RadioButton x:Name="rdBtnBottes"  GroupName="santeSecure" Grid.Column="0" Grid.Row="1" 
+            <CheckBox x:Name="chkBoxBottes"  Grid.Column="0" Grid.Row="1" 
                          Content="J'atteste que j'ai mis mes bottes confirme" Foreground="#FFE4E622"
-                         VerticalAlignment="Center"  HorizontalAlignment="Center" Grid.ColumnSpan="2"
+                         VerticalAlignment="Center"  HorizontalAlignment="Center" Grid.ColumnSpan="2" 
                          />
 
-            <RadioButton x:Name="rdBtnCasque" GroupName="santeSecure" Grid.Column="0" Grid.Row="2"
+            <CheckBox x:Name="chkBoxCasque" Grid.Column="0" Grid.Row="2"
                          Content="J'atteste que j'ai mis un casque conforme" Height="49" Foreground="#FFE4E622"  
                          VerticalAlignment="Center"  HorizontalAlignment="Center" Grid.ColumnSpan="2"
                          />
 
 
-            <RadioButton x:Name="rdBtnLunettes" GroupName="santeSecure" Grid.Column="0" Grid.Row="3" 
+            <CheckBox x:Name="chkBoxLunettes" Grid.Column="0" Grid.Row="3" 
                          Content="J'atteste que j'ai mis des lunettes conforme" Foreground="#FFE4E622" 
                          VerticalAlignment="Top"  HorizontalAlignment="Center" Grid.ColumnSpan="2"
                          />
+            <!--<CheckBox x:Name="cb1" Grid.Row="1" Margin="5,0,0,0" 
+            Content="Three-state CheckBox" IsThreeState="True"
+            Checked="HandleCheck" Unchecked="HandleUnchecked" 
+            Indeterminate="HandleThirdState" />-->
+            
+
+
 
             <Button x:Name="btnEnvoyer" Grid.Column="0" Grid.Row="3" >Envoyer </Button>
-            <Button x:Name="btnEffacer" Grid.Column="1" Grid.Row="3" >Effacer </Button>
+            <Button x:Name="btnEffacer" Grid.Column="1" Grid.Row="3" Click="btnEffacer_Click" >Effacer </Button>
             
 
         </Grid>

@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -24,11 +25,14 @@ namespace ChantierApp
             InitializeComponent();
         }
 
-        private void rdBtnBottes_Click(object sender, RoutedEventArgs e)
+
+
+        private void btnEffacer_Click(object sender, RoutedEventArgs e)
         {
-            rdBtnBottes.IsChecked = false;
-            rdBtnCasque.IsChecked = false;
-            rdBtnLunettes.IsChecked = false;
+
+            chkBoxBottes.IsChecked = false;
+            chkBoxCasque.IsChecked = false;
+            chkBoxLunettes.IsChecked = false;
         }
     }
 }
