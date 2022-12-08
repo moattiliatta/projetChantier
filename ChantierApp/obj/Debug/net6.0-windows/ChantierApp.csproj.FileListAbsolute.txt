@@ -42,3 +42,7 @@ C:\Users\Moatt\Documents\GitHub\projetChantier\ChantierApp\obj\Debug\net6.0-wind
 C:\Users\Moatt\Documents\GitHub\projetChantier\ChantierApp\obj\Debug\net6.0-windows\ref\ChantierApp.dll
 C:\Users\Moatt\Documents\GitHub\projetChantier\ChantierApp\obj\Debug\net6.0-windows\AdministrationInter.g.cs
 C:\Users\Moatt\Documents\GitHub\projetChantier\ChantierApp\obj\Debug\net6.0-windows\AdministrationInter.baml
+C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\ChantierApp\obj\Debug\net6.0-windows\AdministrationInter.g.cs
+C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\ChantierApp\obj\Debug\net6.0-windows\AdministrationInter.baml
+C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\ChantierApp\obj\Debug\net6.0-windows\SanteSecuriteInterface.g.cs
+C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\ChantierApp\obj\Debug\net6.0-windows\SanteSecuriteInterface.baml

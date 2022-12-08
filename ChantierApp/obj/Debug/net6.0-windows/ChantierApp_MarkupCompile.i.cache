@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\ChantierApp\App.xaml
-2-1089763978
+3-13768853
 
-71755600025
+81622513503
 194618410957
-AdministrationInter.xaml;MainWindow.xaml;
+AdministrationInter.xaml;MainWindow.xaml;SanteSecuriteInterface.xaml;
 
-False
+True
 

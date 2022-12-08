@@ -52,6 +52,7 @@ namespace ChantierApp
                 MessageBox.Show("Option Admin sélectionnée");
                 // Instanciation de l'AdministrationInterface
                 AdministrationInter admin = new AdministrationInter();
+                admin.ShowDialog();
 
             }
             else if ((btnChef.IsChecked == true) && (autentifier))
@@ -62,8 +63,12 @@ namespace ChantierApp
             else if ((btnEmploye.IsChecked == true) && (autentifier))
             {
                 MessageBox.Show("Option Employe sélectionnée");
+                SanteSecuriteInterface sante = new SanteSecuriteInterface();
+                // Instanciation de SanteSecuriteInterface
+                sante.ShowDialog();
 
-            }else
+            }
+            else
             {
                 MessageBox.Show("Veuillez entrer les informations correctes");
             }

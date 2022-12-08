@@ -125,7 +125,7 @@ namespace ChantierApp {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ChantierApp;V1.0.0.0;component/administrationinter.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ChantierApp;component/administrationinter.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\AdministrationInter.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
