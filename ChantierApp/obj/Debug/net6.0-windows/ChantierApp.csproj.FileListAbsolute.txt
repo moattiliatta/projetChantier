@@ -40,3 +40,5 @@ C:\Users\Moatt\Documents\GitHub\projetChantier\ChantierApp\obj\Debug\net6.0-wind
 C:\Users\Moatt\Documents\GitHub\projetChantier\ChantierApp\obj\Debug\net6.0-windows\ChantierApp.pdb
 C:\Users\Moatt\Documents\GitHub\projetChantier\ChantierApp\obj\Debug\net6.0-windows\ChantierApp.genruntimeconfig.cache
 C:\Users\Moatt\Documents\GitHub\projetChantier\ChantierApp\obj\Debug\net6.0-windows\ref\ChantierApp.dll
+C:\Users\Moatt\Documents\GitHub\projetChantier\ChantierApp\obj\Debug\net6.0-windows\AdministrationInter.g.cs
+C:\Users\Moatt\Documents\GitHub\projetChantier\ChantierApp\obj\Debug\net6.0-windows\AdministrationInter.baml

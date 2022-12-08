@@ -17,7 +17,7 @@
             <Setter Property="Opacity" Value="0.5"/>
             <Setter Property="Background" Value="Bisque"/>
             <Setter Property="FontWeight" Value="Bold"/>
-         
+
 
             <!--<Setter Property="ClickMode" Value="Press"/>-->
         </Style>
@@ -31,6 +31,12 @@
     </Window.Resources>
 
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF2D6D6C" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid Margin="20,20,20,20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -44,13 +50,13 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.ColumnSpan="3" Grid.Column="0" VerticalAlignment="Center"  HorizontalAlignment="Center">Veuillez entrer vos informations</TextBlock>
-            <RadioButton x:Name="btnAdmin"  GroupName="typeUser" Grid.Column="0" Grid.Row="1" Content="Administration"/>
-            <RadioButton x:Name="btnChef" GroupName="typeUser" Grid.Column="1" Grid.Row="1" Content="Chef Equipe" Height="49"   />
-            <RadioButton x:Name="btnEmploye" GroupName="typeUser" Grid.Column="2" Grid.Row="1" Content="Employes" />
-            <TextBlock Grid.Column="0" Grid.Row="2" Margin="20,27,20,20">Nom d'utilisateur : </TextBlock>
+            <TextBlock Grid.ColumnSpan="3" Grid.Column="0" VerticalAlignment="Center"  HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="#FFE2D4D4">Veuillez entrer vos informations</TextBlock>
+            <RadioButton x:Name="btnAdmin"  GroupName="typeUser" Grid.Column="0" Grid.Row="1" Content="Administration" Foreground="#FFE4E622"/>
+            <RadioButton x:Name="btnChef" GroupName="typeUser" Grid.Column="1" Grid.Row="1" Content="Chef Equipe" Height="49" Foreground="#FFE4E622"   />
+            <RadioButton x:Name="btnEmploye" GroupName="typeUser" Grid.Column="2" Grid.Row="1" Content="Employes" Foreground="#FFE4E622" />
+            <TextBlock Grid.Column="0" Grid.Row="2" Margin="20,27,20,20" Foreground="#FFF1E3E3">Nom d'utilisateur :</TextBlock>
             <TextBox x:Name="txtBoxNomUser" Grid.Column="1" Grid.Row="2" Width="130" Height="20"/>
-            <TextBlock Grid.Column="0" Grid.Row="3" Margin="20,5,20,20">Mot de passe  :</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="3" Margin="20,5,20,20" Foreground="#FFF1E3E3">Mot de passe  :</TextBlock>
             <TextBox x:Name="txtBoxPassword" Grid.Column="1" Grid.Row="3" Width="130" Height="20" Margin="0,-45,0,0"/>
 
             <Button x:Name="btnValider" Grid.Column="1" Grid.Row="3"  HorizontalAlignment="Left" Content="Valider" Click="btnValider_Click"  />

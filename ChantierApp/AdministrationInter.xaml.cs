@@ -18,7 +18,7 @@ namespace ChantierApp
     /// <summary>
     /// Interaction logic for AdministrationInter.xaml
     /// </summary>
-    public partial class AdministrationInter : Page
+    public partial class AdministrationInter : Window
     {
         public AdministrationInter()
         {
