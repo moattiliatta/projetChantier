@@ -1,0 +1,23 @@
+﻿<Window x:Class="liste_deslste.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:liste_deslste"
+        mc:Ignorable="d"
+        Title="Window2" Height="450" Width="800">
+    <Grid>
+        <Grid x:Name="listes_des_sous_traitant">
+            <Button Content="ajouter" HorizontalAlignment="Left" Margin="591,24,0,0" VerticalAlignment="Top" Click="Button_Click" Height="28" Width="157"/>
+            <Button Content="supprimer" HorizontalAlignment="Left" Margin="591,74,0,0" VerticalAlignment="Top" Click="Button_Click" Height="32" Width="157"/>
+            <Button Content="trier par present /absent" HorizontalAlignment="Left" Margin="591,126,0,0" VerticalAlignment="Top" Click="Button_Click" Height="36" Width="157"/>
+            <Button Content="modifier" HorizontalAlignment="Left" Margin="591,182,0,0" VerticalAlignment="Top" Click="Button_Click" Height="35" Width="157"/>
+            <Button Content="taux" HorizontalAlignment="Left" Margin="591,233,0,0" VerticalAlignment="Top" Click="Button_Click" Height="31" Width="157"/>
+            <Button Content="annuler" HorizontalAlignment="Left" Margin="354,277,0,0" VerticalAlignment="Top" Click="Button_Click" Height="33" Width="130"/>
+            <Button Content="ok" HorizontalAlignment="Left" Margin="190,277,0,0" VerticalAlignment="Top" Click="Button_Click" Height="33" Width="130"/>
+            <Label Content="LES LISTES  DES SOUS TRAITANTS" HorizontalAlignment="Left" Margin="21,24,0,0" VerticalAlignment="Top" FontSize="16" Foreground="#FF2B58" FontWeight="Bold" Height="28" Width="316"/>
+
+        </Grid>
+
+    </Grid>
+</Window>

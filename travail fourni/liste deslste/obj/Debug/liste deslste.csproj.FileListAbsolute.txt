@@ -1,0 +1,11 @@
+C:\Users\ACER\Desktop\projet construction\liste deslste\obj\Debug\liste deslste.csproj.AssemblyReference.cache
+C:\Users\ACER\Desktop\projet construction\liste deslste\obj\Debug\liste deslste.csproj.SuggestedBindingRedirects.cache
+C:\Users\ACER\Desktop\projet construction\liste deslste\obj\Debug\MainWindow.g.cs
+C:\Users\ACER\Desktop\projet construction\liste deslste\obj\Debug\Window1.g.cs
+C:\Users\ACER\Desktop\projet construction\liste deslste\obj\Debug\Window2.g.cs
+C:\Users\ACER\Desktop\projet construction\liste deslste\obj\Debug\Window3.g.cs
+C:\Users\ACER\Desktop\projet construction\liste deslste\obj\Debug\Window4.g.cs
+C:\Users\ACER\Desktop\projet construction\liste deslste\obj\Debug\Window5.g.cs
+C:\Users\ACER\Desktop\projet construction\liste deslste\obj\Debug\App.g.cs
+C:\Users\ACER\Desktop\projet construction\liste deslste\obj\Debug\liste deslste_MarkupCompile.cache
+C:\Users\ACER\Desktop\projet construction\liste deslste\obj\Debug\liste deslste_MarkupCompile.lref
