@@ -4,17 +4,26 @@
 winexe
 C#
 .cs
-C:\Users\Moatt\Documents\GitHub\projetChantier\ChantierApp\obj\Debug\net6.0-windows\
+C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\ChantierApp\obj\Debug\net6.0-windows\
 ChantierApp
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+<<<<<<< .merge_file_9ASs73
 C:\Users\Moatt\Documents\GitHub\projetChantier\ChantierApp\App.xaml
-7-1714675736
+61504296435
 
-12778081436
-194-1797456590
-AdministrationInter.xaml;ListeLivraisons.xaml;ListeOuvriers.xaml;ListePeintres.xaml;ListeSousTraitants.xaml;MainWindow.xaml;SanteSecuriteInterface.xaml;
+11911167958
+194-2004305220
+AdministrationInter.xaml;ListeLivraisons.xaml;ListeOuvriers.xaml;ListePeintres.xaml;ListeSousTraitants.xaml;MainWindow.xaml;
+=======
+C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\ChantierApp\App.xaml
+3-13768853
 
-False
+81622513503
+194618410957
+AdministrationInter.xaml;MainWindow.xaml;SanteSecuriteInterface.xaml;
+>>>>>>> .merge_file_BdQvet
+
+True
 
