@@ -8,6 +8,8 @@ namespace ProjetChantierApp1._1
 {
     public class User
     {
+
+    // this class is only to test fonctionalities 
         public string nom = "";
         public string password = "";
        
