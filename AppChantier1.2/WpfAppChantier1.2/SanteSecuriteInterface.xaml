@@ -1,0 +1,69 @@
+﻿<Window x:Class="WpfAppChantier1._2.SanteSecuriteInterface"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppChantier1._2"
+        mc:Ignorable="d"
+        Title="SanteSecuriteInterface" Height="450" Width="450">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF2D6D6C" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid Margin=" 20,20,20,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock  Grid.ColumnSpan="2" VerticalAlignment="Center"  HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="#FFE2D4D4"  >Contrôle santé et sécurité</TextBlock>
+
+            <CheckBox x:Name="chkBoxBottes"  Grid.Column="0" Grid.Row="1" 
+                         Content="J'atteste que j'ai mis mes bottes confirme" Foreground="#FFE4E622"
+                         VerticalAlignment="Center"  HorizontalAlignment="Center" Grid.ColumnSpan="2" 
+                         />
+
+            <CheckBox x:Name="chkBoxCasque" Grid.Column="0" Grid.Row="2"
+                         Content="J'atteste que j'ai mis un casque conforme" Height="49" Foreground="#FFE4E622"  
+                         VerticalAlignment="Center"  HorizontalAlignment="Center" Grid.ColumnSpan="2"
+                         />
+
+
+            <CheckBox x:Name="chkBoxLunettes" Grid.Column="0" Grid.Row="3" 
+                         Content="J'atteste que j'ai mis des lunettes conforme" Foreground="#FFE4E622" 
+                         VerticalAlignment="Top"  HorizontalAlignment="Center" Grid.ColumnSpan="2"
+                         />
+            <!--<CheckBox x:Name="cb1" Grid.Row="1" Margin="5,0,0,0" 
+            Content="Three-state CheckBox" IsThreeState="True"
+            Checked="HandleCheck" Unchecked="HandleUnchecked" 
+            Indeterminate="HandleThirdState" />-->
+
+
+
+
+            <Button x:Name="btnEnvoyer" Grid.Column="0" Grid.Row="3" >Envoyer</Button>
+            <Button x:Name="btnEffacer" Grid.Column="1" Grid.Row="3" Click="btnEffacer_Click" >Effacer</Button>
+
+
+        </Grid>
+
+    </Grid>
+</Window>
