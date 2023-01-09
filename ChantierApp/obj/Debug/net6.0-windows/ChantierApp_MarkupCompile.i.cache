@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Moatt\Documents\GitHub\projetChantier\ChantierApp\obj\Debug\net6.0-windows\
+C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\ChantierApp\obj\Debug\net6.0-windows\
 ChantierApp
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\Moatt\Documents\GitHub\projetChantier\ChantierApp\App.xaml
+C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\ChantierApp\App.xaml
 7-1714675736
 
 12778081436
-194-1797456590
+194618410957
 AdministrationInter.xaml;ListeLivraisons.xaml;ListeOuvriers.xaml;ListePeintres.xaml;ListeSousTraitants.xaml;MainWindow.xaml;SanteSecuriteInterface.xaml;
 
-False
+True
 
