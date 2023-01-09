@@ -10,8 +10,7 @@ namespace ProjetChantierApp1._1
     {
         public string nom = "";
         public string password = "";
-        private string test = "";
-
+       
         public User(string nom, string password)
         {
             this.nom = nom;
