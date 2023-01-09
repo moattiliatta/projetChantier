@@ -55,18 +55,61 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SanteSecuriteInterface.xaml.cs">
+      <DependentUpon>SanteSecuriteInterface.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs" />
+    <Page Include="AdministrationInter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListeLivraisons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListeOuvriers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListePeintres.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListeSousTraitants.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AdministrationInter.xaml.cs">
+      <DependentUpon>AdministrationInter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListeLivraisons.xaml.cs">
+      <DependentUpon>ListeLivraisons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListeOuvriers.xaml.cs">
+      <DependentUpon>ListeOuvriers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListePeintres.xaml.cs">
+      <DependentUpon>ListePeintres.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListeSousTraitants.xaml.cs">
+      <DependentUpon>ListeSousTraitants.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SanteSecuriteInterface.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
