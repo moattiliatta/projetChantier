@@ -21,6 +21,8 @@ namespace WpfChantierApp1._2
     public partial class MainWindow : Window
     {
 
+        //TEST FOR BDD
+
             //liste temporaire d'utilisateurs pour vérifier les informations saisies par l'utilisateur 
             public List<User> userList = new List<User>();
             User user1 = new User("Nelson", "123");
