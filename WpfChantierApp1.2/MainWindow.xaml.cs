@@ -29,7 +29,9 @@ namespace WpfChantierApp1._2
             User user2 = new User("Alfonso", "321");
             User user3 = new User("Cuervo", "963");
 
-            public MainWindow()
+        ProjetChantierEntities dbEntities = new ProjetChantierEntities();
+
+        public MainWindow()
             {
                 InitializeComponent();
                 userList.Add(user1);
@@ -86,28 +88,44 @@ namespace WpfChantierApp1._2
                 txtBoxPassword.Text = "";
             }
 
-            // vérification du nom d'utilisateur et du mot de passe
-            private bool authentificateur(string nomUser, string psswrdUser)
+        // vérification du nom d'utilisateur et du mot de passe
+        private bool authentificateur(string nomUser, string psswrdUser)
+        {
+            //bool existe = false;
+
+            //User userVerif = new User(nomUser, psswrdUser);
+
+            //foreach (User user in userList)
+            //{
+            //    if (user.nom == userVerif.nom && user.password == userVerif.password)
+            //    {
+            //        return existe = true;
+            //    }
+            //    else
+            //    {
+            //        return existe = false;
+            //    }
+            //}
+            //return existe;
+
+            bool existe = false;
+            
+            Employe userVerif = new Employe(nomUser, psswrdUser );
+
+            if (userVerif != null)
             {
-                bool existe = false;
-
-                User userVerif = new User(nomUser, psswrdUser);
-
-                foreach (User user in userList)
-                {
-                    if (user.nom == userVerif.nom && user.password == userVerif.password)
-                    {
-                        return existe = true;
-                    }
-                    else
-                    {
-                        return existe = false;
-                    }
-                }
-                return existe;
+                //dbEntities
+                Employe emplFinder = dbEntities.Employes.FirstOrDefault(empl => empl.Nom == userVerif.Nom); // *** LINKQ *******
+                if (emplFinder != null) { existe = true; }
+                else { existe = false; }
 
             }
 
+            return existe;
         }
+
     }
+
+}
+   
 

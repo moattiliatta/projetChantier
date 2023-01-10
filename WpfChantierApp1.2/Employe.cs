@@ -24,5 +24,11 @@ namespace WpfChantierApp1._2
         public string EmployeMotPasse { get; set; }
     
         public virtual Equipe Equipe { get; set; }
+
+        public Employe(string Nom, string EmployeMotPasse)
+        {
+            this.Nom = Nom;
+            this.EmployeMotPasse = EmployeMotPasse;
+        }
     }
 }
