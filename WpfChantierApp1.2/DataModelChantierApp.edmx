@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProjetChantierModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Employes">
+          <Key>
+            <PropertyRef Name="EmployeID" />
+          </Key>
+          <Property Name="EmployeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DateEmbauche" Type="datetime" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="24" />
+          <Property Name="EquipeID" Type="int" />
+          <Property Name="PosteEmploi" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmployeMotPasse" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Equipe">
+          <Key>
+            <PropertyRef Name="EquipeID" />
+          </Key>
+          <Property Name="EquipeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomDepartement" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\MOATT\DOCUMENTS\GITHUB\PROJETCHANTIER\WPFCHANTIERAPP1.2\PROJETCHANTIER.MDF.dbo.Fournir' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Fournir">
+          <Key>
+            <PropertyRef Name="MateriauxID" />
+            <PropertyRef Name="DateReception" />
+          </Key>
+          <Property Name="MateriauxID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OuvrageID" Type="int" />
+          <Property Name="DateReception" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Materiaux">
+          <Key>
+            <PropertyRef Name="MateriauxID" />
+          </Key>
+          <Property Name="MateriauxID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomMateriaux" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="DateReception" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="OuvrageID" Type="int" />
+        </EntityType>
+        <EntityType Name="Ouvrage">
+          <Key>
+            <PropertyRef Name="OuvrageID" />
+          </Key>
+          <Property Name="OuvrageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomOuvrage" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Description Ouvrage" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="EquipeID" Type="int" />
+          <Property Name="Date_Debut_Ouvrage" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Date_Fin_Ouvrage" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Projet">
+          <Key>
+            <PropertyRef Name="ProjetID" />
+          </Key>
+          <Property Name="ProjetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EquipeID" Type="int" />
+          <Property Name="NomProjet" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Date_Debut_Projet" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Date_Fin_Projet" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Realiser">
+          <Key>
+            <PropertyRef Name="RealiserID" />
+          </Key>
+          <Property Name="RealiserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EquipeID" Type="int" />
+          <Property Name="OuvrageID" Type="int" />
+          <Property Name="Observations" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sous-Traitant">
+          <Key>
+            <PropertyRef Name="SousTraitantID" />
+          </Key>
+          <Property Name="SousTraitantID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DomainSousTraitant" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="OuvrageID" Type="int" />
+          <Property Name="Date_Debut_SousTraitant" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Date_Fin_SousTraitant" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Employes_Equipe">
+          <End Role="Equipe" Type="Self.Equipe" Multiplicity="0..1" />
+          <End Role="Employes" Type="Self.Employes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipe">
+              <PropertyRef Name="EquipeID" />
+            </Principal>
+            <Dependent Role="Employes">
+              <PropertyRef Name="EquipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fournir_Materiaux">
+          <End Role="Materiaux" Type="Self.Materiaux" Multiplicity="1" />
+          <End Role="Fournir" Type="Self.Fournir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materiaux">
+              <PropertyRef Name="MateriauxID" />
+            </Principal>
+            <Dependent Role="Fournir">
+              <PropertyRef Name="MateriauxID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fournir_Ouvrage">
+          <End Role="Ouvrage" Type="Self.Ouvrage" Multiplicity="0..1" />
+          <End Role="Fournir" Type="Self.Fournir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrage">
+              <PropertyRef Name="OuvrageID" />
+            </Principal>
+            <Dependent Role="Fournir">
+              <PropertyRef Name="OuvrageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materiaux_Ouvrage">
+          <End Role="Ouvrage" Type="Self.Ouvrage" Multiplicity="0..1" />
+          <End Role="Materiaux" Type="Self.Materiaux" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrage">
+              <PropertyRef Name="OuvrageID" />
+            </Principal>
+            <Dependent Role="Materiaux">
+              <PropertyRef Name="OuvrageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ouvrage_Equipe">
+          <End Role="Equipe" Type="Self.Equipe" Multiplicity="0..1" />
+          <End Role="Ouvrage" Type="Self.Ouvrage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipe">
+              <PropertyRef Name="EquipeID" />
+            </Principal>
+            <Dependent Role="Ouvrage">
+              <PropertyRef Name="EquipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projet_Equipe">
+          <End Role="Equipe" Type="Self.Equipe" Multiplicity="0..1" />
+          <End Role="Projet" Type="Self.Projet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipe">
+              <PropertyRef Name="EquipeID" />
+            </Principal>
+            <Dependent Role="Projet">
+              <PropertyRef Name="EquipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Realiser_Equipe">
+          <End Role="Equipe" Type="Self.Equipe" Multiplicity="0..1" />
+          <End Role="Realiser" Type="Self.Realiser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipe">
+              <PropertyRef Name="EquipeID" />
+            </Principal>
+            <Dependent Role="Realiser">
+              <PropertyRef Name="EquipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Realiser_Ouvrage">
+          <End Role="Ouvrage" Type="Self.Ouvrage" Multiplicity="0..1" />
+          <End Role="Realiser" Type="Self.Realiser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrage">
+              <PropertyRef Name="OuvrageID" />
+            </Principal>
+            <Dependent Role="Realiser">
+              <PropertyRef Name="OuvrageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sous-Traitant_Ouvrage">
+          <End Role="Ouvrage" Type="Self.Ouvrage" Multiplicity="0..1" />
+          <End Role="Sous-Traitant" Type="Self.Sous-Traitant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrage">
+              <PropertyRef Name="OuvrageID" />
+            </Principal>
+            <Dependent Role="Sous-Traitant">
+              <PropertyRef Name="OuvrageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjetChantierModelStoreContainer">
+          <EntitySet Name="Employes" EntityType="Self.Employes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equipe" EntityType="Self.Equipe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Materiaux" EntityType="Self.Materiaux" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ouvrage" EntityType="Self.Ouvrage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projet" EntityType="Self.Projet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Realiser" EntityType="Self.Realiser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sous-Traitant" EntityType="Self.Sous-Traitant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fournir" EntityType="Self.Fournir" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Fournir].[MateriauxID] AS [MateriauxID], 
+    [Fournir].[OuvrageID] AS [OuvrageID], 
+    [Fournir].[DateReception] AS [DateReception]
+    FROM [dbo].[Fournir] AS [Fournir]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Employes_Equipe" Association="Self.FK_Employes_Equipe">
+            <End Role="Equipe" EntitySet="Equipe" />
+            <End Role="Employes" EntitySet="Employes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fournir_Materiaux" Association="Self.FK_Fournir_Materiaux">
+            <End Role="Materiaux" EntitySet="Materiaux" />
+            <End Role="Fournir" EntitySet="Fournir" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fournir_Ouvrage" Association="Self.FK_Fournir_Ouvrage">
+            <End Role="Ouvrage" EntitySet="Ouvrage" />
+            <End Role="Fournir" EntitySet="Fournir" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materiaux_Ouvrage" Association="Self.FK_Materiaux_Ouvrage">
+            <End Role="Ouvrage" EntitySet="Ouvrage" />
+            <End Role="Materiaux" EntitySet="Materiaux" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ouvrage_Equipe" Association="Self.FK_Ouvrage_Equipe">
+            <End Role="Equipe" EntitySet="Equipe" />
+            <End Role="Ouvrage" EntitySet="Ouvrage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projet_Equipe" Association="Self.FK_Projet_Equipe">
+            <End Role="Equipe" EntitySet="Equipe" />
+            <End Role="Projet" EntitySet="Projet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Realiser_Equipe" Association="Self.FK_Realiser_Equipe">
+            <End Role="Equipe" EntitySet="Equipe" />
+            <End Role="Realiser" EntitySet="Realiser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Realiser_Ouvrage" Association="Self.FK_Realiser_Ouvrage">
+            <End Role="Ouvrage" EntitySet="Ouvrage" />
+            <End Role="Realiser" EntitySet="Realiser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sous-Traitant_Ouvrage" Association="Self.FK_Sous-Traitant_Ouvrage">
+            <End Role="Ouvrage" EntitySet="Ouvrage" />
+            <End Role="Sous-Traitant" EntitySet="Sous-Traitant" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProjetChantierModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Employe">
+          <Key>
+            <PropertyRef Name="EmployeID" />
+          </Key>
+          <Property Name="EmployeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prenom" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateEmbauche" Type="DateTime" Precision="3" />
+          <Property Name="Telephone" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="EquipeID" Type="Int32" />
+          <Property Name="PosteEmploi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeMotPasse" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Equipe" Relationship="Self.FK_Employes_Equipe" FromRole="Employes" ToRole="Equipe" />
+        </EntityType>
+        <EntityType Name="Equipe">
+          <Key>
+            <PropertyRef Name="EquipeID" />
+          </Key>
+          <Property Name="EquipeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomDepartement" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Employes" Relationship="Self.FK_Employes_Equipe" FromRole="Equipe" ToRole="Employes" />
+          <NavigationProperty Name="Ouvrages" Relationship="Self.FK_Ouvrage_Equipe" FromRole="Equipe" ToRole="Ouvrage" />
+          <NavigationProperty Name="Projets" Relationship="Self.FK_Projet_Equipe" FromRole="Equipe" ToRole="Projet" />
+          <NavigationProperty Name="Realisers" Relationship="Self.FK_Realiser_Equipe" FromRole="Equipe" ToRole="Realiser" />
+        </EntityType>
+        <EntityType Name="Materiaux">
+          <Key>
+            <PropertyRef Name="MateriauxID" />
+          </Key>
+          <Property Name="MateriauxID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomMateriaux" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateReception" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OuvrageID" Type="Int32" />
+          <NavigationProperty Name="Fournirs" Relationship="Self.FK_Fournir_Materiaux" FromRole="Materiaux" ToRole="Fournir" />
+          <NavigationProperty Name="Ouvrage" Relationship="Self.FK_Materiaux_Ouvrage" FromRole="Materiaux" ToRole="Ouvrage" />
+        </EntityType>
+        <EntityType Name="Ouvrage">
+          <Key>
+            <PropertyRef Name="OuvrageID" />
+          </Key>
+          <Property Name="OuvrageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomOuvrage" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description_Ouvrage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EquipeID" Type="Int32" />
+          <Property Name="Date_Debut_Ouvrage" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_Fin_Ouvrage" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Equipe" Relationship="Self.FK_Ouvrage_Equipe" FromRole="Ouvrage" ToRole="Equipe" />
+          <NavigationProperty Name="Materiauxes" Relationship="Self.FK_Materiaux_Ouvrage" FromRole="Ouvrage" ToRole="Materiaux" />
+          <NavigationProperty Name="Fournirs" Relationship="Self.FK_Fournir_Ouvrage" FromRole="Ouvrage" ToRole="Fournir" />
+          <NavigationProperty Name="Realisers" Relationship="Self.FK_Realiser_Ouvrage" FromRole="Ouvrage" ToRole="Realiser" />
+          <NavigationProperty Name="Sous_Traitant" Relationship="Self.FK_Sous_Traitant_Ouvrage" FromRole="Ouvrage" ToRole="Sous_Traitant" />
+        </EntityType>
+        <EntityType Name="Projet">
+          <Key>
+            <PropertyRef Name="ProjetID" />
+          </Key>
+          <Property Name="ProjetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EquipeID" Type="Int32" />
+          <Property Name="NomProjet" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_Debut_Projet" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_Fin_Projet" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Equipe" Relationship="Self.FK_Projet_Equipe" FromRole="Projet" ToRole="Equipe" />
+        </EntityType>
+        <EntityType Name="Realiser">
+          <Key>
+            <PropertyRef Name="RealiserID" />
+          </Key>
+          <Property Name="RealiserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EquipeID" Type="Int32" />
+          <Property Name="OuvrageID" Type="Int32" />
+          <Property Name="Observations" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Equipe" Relationship="Self.FK_Realiser_Equipe" FromRole="Realiser" ToRole="Equipe" />
+          <NavigationProperty Name="Ouvrage" Relationship="Self.FK_Realiser_Ouvrage" FromRole="Realiser" ToRole="Ouvrage" />
+        </EntityType>
+        <EntityType Name="Sous_Traitant">
+          <Key>
+            <PropertyRef Name="SousTraitantID" />
+          </Key>
+          <Property Name="SousTraitantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DomainSousTraitant" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OuvrageID" Type="Int32" />
+          <Property Name="Date_Debut_SousTraitant" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_Fin_SousTraitant" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Ouvrage" Relationship="Self.FK_Sous_Traitant_Ouvrage" FromRole="Sous_Traitant" ToRole="Ouvrage" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Fournir">
+          <Key>
+            <PropertyRef Name="MateriauxID" />
+            <PropertyRef Name="DateReception" />
+          </Key>
+          <Property Name="MateriauxID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OuvrageID" Type="Int32" />
+          <Property Name="DateReception" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Materiaux" Relationship="Self.FK_Fournir_Materiaux" FromRole="Fournir" ToRole="Materiaux" />
+          <NavigationProperty Name="Ouvrage" Relationship="Self.FK_Fournir_Ouvrage" FromRole="Fournir" ToRole="Ouvrage" />
+        </EntityType>
+        <Association Name="FK_Employes_Equipe">
+          <End Role="Equipe" Type="Self.Equipe" Multiplicity="0..1" />
+          <End Role="Employes" Type="Self.Employe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipe">
+              <PropertyRef Name="EquipeID" />
+            </Principal>
+            <Dependent Role="Employes">
+              <PropertyRef Name="EquipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ouvrage_Equipe">
+          <End Role="Equipe" Type="Self.Equipe" Multiplicity="0..1" />
+          <End Role="Ouvrage" Type="Self.Ouvrage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipe">
+              <PropertyRef Name="EquipeID" />
+            </Principal>
+            <Dependent Role="Ouvrage">
+              <PropertyRef Name="EquipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projet_Equipe">
+          <End Role="Equipe" Type="Self.Equipe" Multiplicity="0..1" />
+          <End Role="Projet" Type="Self.Projet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipe">
+              <PropertyRef Name="EquipeID" />
+            </Principal>
+            <Dependent Role="Projet">
+              <PropertyRef Name="EquipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Realiser_Equipe">
+          <End Role="Equipe" Type="Self.Equipe" Multiplicity="0..1" />
+          <End Role="Realiser" Type="Self.Realiser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipe">
+              <PropertyRef Name="EquipeID" />
+            </Principal>
+            <Dependent Role="Realiser">
+              <PropertyRef Name="EquipeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fournir_Materiaux">
+          <End Role="Materiaux" Type="Self.Materiaux" Multiplicity="1" />
+          <End Role="Fournir" Type="Self.Fournir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materiaux">
+              <PropertyRef Name="MateriauxID" />
+            </Principal>
+            <Dependent Role="Fournir">
+              <PropertyRef Name="MateriauxID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materiaux_Ouvrage">
+          <End Role="Ouvrage" Type="Self.Ouvrage" Multiplicity="0..1" />
+          <End Role="Materiaux" Type="Self.Materiaux" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrage">
+              <PropertyRef Name="OuvrageID" />
+            </Principal>
+            <Dependent Role="Materiaux">
+              <PropertyRef Name="OuvrageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fournir_Ouvrage">
+          <End Role="Ouvrage" Type="Self.Ouvrage" Multiplicity="0..1" />
+          <End Role="Fournir" Type="Self.Fournir" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrage">
+              <PropertyRef Name="OuvrageID" />
+            </Principal>
+            <Dependent Role="Fournir">
+              <PropertyRef Name="OuvrageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Realiser_Ouvrage">
+          <End Role="Ouvrage" Type="Self.Ouvrage" Multiplicity="0..1" />
+          <End Role="Realiser" Type="Self.Realiser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrage">
+              <PropertyRef Name="OuvrageID" />
+            </Principal>
+            <Dependent Role="Realiser">
+              <PropertyRef Name="OuvrageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sous_Traitant_Ouvrage">
+          <End Role="Ouvrage" Type="Self.Ouvrage" Multiplicity="0..1" />
+          <End Role="Sous_Traitant" Type="Self.Sous_Traitant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ouvrage">
+              <PropertyRef Name="OuvrageID" />
+            </Principal>
+            <Dependent Role="Sous_Traitant">
+              <PropertyRef Name="OuvrageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjetChantierEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employes" EntityType="Self.Employe" />
+          <EntitySet Name="Equipes" EntityType="Self.Equipe" />
+          <EntitySet Name="Materiauxes" EntityType="Self.Materiaux" />
+          <EntitySet Name="Ouvrages" EntityType="Self.Ouvrage" />
+          <EntitySet Name="Projets" EntityType="Self.Projet" />
+          <EntitySet Name="Realisers" EntityType="Self.Realiser" />
+          <EntitySet Name="Sous_Traitant" EntityType="Self.Sous_Traitant" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Fournirs" EntityType="Self.Fournir" />
+          <AssociationSet Name="FK_Employes_Equipe" Association="Self.FK_Employes_Equipe">
+            <End Role="Equipe" EntitySet="Equipes" />
+            <End Role="Employes" EntitySet="Employes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ouvrage_Equipe" Association="Self.FK_Ouvrage_Equipe">
+            <End Role="Equipe" EntitySet="Equipes" />
+            <End Role="Ouvrage" EntitySet="Ouvrages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projet_Equipe" Association="Self.FK_Projet_Equipe">
+            <End Role="Equipe" EntitySet="Equipes" />
+            <End Role="Projet" EntitySet="Projets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Realiser_Equipe" Association="Self.FK_Realiser_Equipe">
+            <End Role="Equipe" EntitySet="Equipes" />
+            <End Role="Realiser" EntitySet="Realisers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fournir_Materiaux" Association="Self.FK_Fournir_Materiaux">
+            <End Role="Materiaux" EntitySet="Materiauxes" />
+            <End Role="Fournir" EntitySet="Fournirs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materiaux_Ouvrage" Association="Self.FK_Materiaux_Ouvrage">
+            <End Role="Ouvrage" EntitySet="Ouvrages" />
+            <End Role="Materiaux" EntitySet="Materiauxes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fournir_Ouvrage" Association="Self.FK_Fournir_Ouvrage">
+            <End Role="Ouvrage" EntitySet="Ouvrages" />
+            <End Role="Fournir" EntitySet="Fournirs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Realiser_Ouvrage" Association="Self.FK_Realiser_Ouvrage">
+            <End Role="Ouvrage" EntitySet="Ouvrages" />
+            <End Role="Realiser" EntitySet="Realisers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sous_Traitant_Ouvrage" Association="Self.FK_Sous_Traitant_Ouvrage">
+            <End Role="Ouvrage" EntitySet="Ouvrages" />
+            <End Role="Sous_Traitant" EntitySet="Sous_Traitant" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjetChantierModelStoreContainer" CdmEntityContainer="ProjetChantierEntities">
+          <EntitySetMapping Name="Employes">
+            <EntityTypeMapping TypeName="ProjetChantierModel.Employe">
+              <MappingFragment StoreEntitySet="Employes">
+                <ScalarProperty Name="EmployeID" ColumnName="EmployeID" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="DateEmbauche" ColumnName="DateEmbauche" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="EquipeID" ColumnName="EquipeID" />
+                <ScalarProperty Name="PosteEmploi" ColumnName="PosteEmploi" />
+                <ScalarProperty Name="EmployeMotPasse" ColumnName="EmployeMotPasse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipes">
+            <EntityTypeMapping TypeName="ProjetChantierModel.Equipe">
+              <MappingFragment StoreEntitySet="Equipe">
+                <ScalarProperty Name="EquipeID" ColumnName="EquipeID" />
+                <ScalarProperty Name="NomDepartement" ColumnName="NomDepartement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Materiauxes">
+            <EntityTypeMapping TypeName="ProjetChantierModel.Materiaux">
+              <MappingFragment StoreEntitySet="Materiaux">
+                <ScalarProperty Name="MateriauxID" ColumnName="MateriauxID" />
+                <ScalarProperty Name="NomMateriaux" ColumnName="NomMateriaux" />
+                <ScalarProperty Name="DateReception" ColumnName="DateReception" />
+                <ScalarProperty Name="OuvrageID" ColumnName="OuvrageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ouvrages">
+            <EntityTypeMapping TypeName="ProjetChantierModel.Ouvrage">
+              <MappingFragment StoreEntitySet="Ouvrage">
+                <ScalarProperty Name="OuvrageID" ColumnName="OuvrageID" />
+                <ScalarProperty Name="NomOuvrage" ColumnName="NomOuvrage" />
+                <ScalarProperty Name="Description_Ouvrage" ColumnName="Description Ouvrage" />
+                <ScalarProperty Name="EquipeID" ColumnName="EquipeID" />
+                <ScalarProperty Name="Date_Debut_Ouvrage" ColumnName="Date_Debut_Ouvrage" />
+                <ScalarProperty Name="Date_Fin_Ouvrage" ColumnName="Date_Fin_Ouvrage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projets">
+            <EntityTypeMapping TypeName="ProjetChantierModel.Projet">
+              <MappingFragment StoreEntitySet="Projet">
+                <ScalarProperty Name="ProjetID" ColumnName="ProjetID" />
+                <ScalarProperty Name="EquipeID" ColumnName="EquipeID" />
+                <ScalarProperty Name="NomProjet" ColumnName="NomProjet" />
+                <ScalarProperty Name="Date_Debut_Projet" ColumnName="Date_Debut_Projet" />
+                <ScalarProperty Name="Date_Fin_Projet" ColumnName="Date_Fin_Projet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Realisers">
+            <EntityTypeMapping TypeName="ProjetChantierModel.Realiser">
+              <MappingFragment StoreEntitySet="Realiser">
+                <ScalarProperty Name="RealiserID" ColumnName="RealiserID" />
+                <ScalarProperty Name="EquipeID" ColumnName="EquipeID" />
+                <ScalarProperty Name="OuvrageID" ColumnName="OuvrageID" />
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sous_Traitant">
+            <EntityTypeMapping TypeName="ProjetChantierModel.Sous_Traitant">
+              <MappingFragment StoreEntitySet="Sous-Traitant">
+                <ScalarProperty Name="SousTraitantID" ColumnName="SousTraitantID" />
+                <ScalarProperty Name="DomainSousTraitant" ColumnName="DomainSousTraitant" />
+                <ScalarProperty Name="OuvrageID" ColumnName="OuvrageID" />
+                <ScalarProperty Name="Date_Debut_SousTraitant" ColumnName="Date_Debut_SousTraitant" />
+                <ScalarProperty Name="Date_Fin_SousTraitant" ColumnName="Date_Fin_SousTraitant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ProjetChantierModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fournirs">
+            <EntityTypeMapping TypeName="ProjetChantierModel.Fournir">
+              <MappingFragment StoreEntitySet="Fournir">
+                <ScalarProperty Name="MateriauxID" ColumnName="MateriauxID" />
+                <ScalarProperty Name="OuvrageID" ColumnName="OuvrageID" />
+                <ScalarProperty Name="DateReception" ColumnName="DateReception" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
