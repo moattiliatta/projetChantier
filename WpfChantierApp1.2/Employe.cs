@@ -14,6 +14,16 @@ namespace WpfChantierApp1._2
     
     public partial class Employe
     {
+        private string nomUser;
+        private string psswrdUser;
+
+        //Constructeur
+        public Employe(string nomUser, string psswrdUser)
+        {
+            this.nomUser = nomUser;
+            this.psswrdUser = psswrdUser;
+        }
+
         public int EmployeID { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
@@ -24,11 +34,5 @@ namespace WpfChantierApp1._2
         public string EmployeMotPasse { get; set; }
     
         public virtual Equipe Equipe { get; set; }
-
-        public Employe(string Nom, string EmployeMotPasse)
-        {
-            this.Nom = Nom;
-            this.EmployeMotPasse = EmployeMotPasse;
-        }
     }
 }

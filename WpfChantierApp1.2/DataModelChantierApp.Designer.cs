@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\DataModelChantierApp.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\DataModelChantierApp.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

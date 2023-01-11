@@ -23,5 +23,7 @@ namespace WpfChantierApp1._2
         {
             InitializeComponent();
         }
+
+
     }
 }

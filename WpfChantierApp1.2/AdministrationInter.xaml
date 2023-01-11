@@ -38,17 +38,25 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.ColumnSpan="2" Grid.Column="1" VerticalAlignment="Top"  HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="#FFE4E3DA" Margin="0,29,0,0"><Run Text="L"/><Run Language="fr-ca" Text="'"/><Run Text="iste general d'Administration"/></TextBlock>
-            <Button x:Name="btnListAbsents" Grid.Column="0" Grid.Row="0"  HorizontalAlignment="Left" Content="Liste  Abscents" Margin="42,0,0,72" Grid.RowSpan="2" Width="138" Background="#FFA7BD4B" Height="30"/>
-            <Button x:Name="btnListPresents" Grid.Column="0" Grid.Row="1"  HorizontalAlignment="Left" Content="Liste  Presents" Margin="42,0,0,15" Width="138" Background="#FFA7BD4B" Height="30"/>
+
+            <!--<Button x:Name="btnListAbsents" Grid.Column="0" Grid.Row="0"  HorizontalAlignment="Left" Content="Liste  Abscents" Margin="42,0,0,72" Grid.RowSpan="2" Width="138" Background="#FFA7BD4B" Height="30"/>-->
+            <!--<Button x:Name="btnListPresents" Grid.Column="0" Grid.Row="1"  HorizontalAlignment="Left" Content="Liste  Presents" Margin="42,0,0,15" Width="138" Background="#FFA7BD4B" Height="30"/>-->
+
             <Button x:Name="btnRegleSecurite" Grid.Row="2"  HorizontalAlignment="Left" Content="Regles Securité" Margin="42,19,0,0" Width="138" VerticalAlignment="Top" Background="#FFE82121" Height="30"/>
+            <!--Barthelemy-->
             <Button x:Name="btnListMacons" Grid.Column="3" Grid.Row="0"  HorizontalAlignment="Left" Content="Liste  Macons" Margin="0,0,0,71" Grid.RowSpan="2" Width="138" Background="#FF9BBB59" Height="30"/>
+
+            <!--Ben-->
             <Button x:Name="btnListPeintres" Grid.Column="3" Grid.Row="1"  HorizontalAlignment="Left" Content="Liste  Peintres" VerticalAlignment="Top" Width="138" Margin="0,54,0,0" Background="#FF9BBB59" Height="30"/>
+            <!--Anouar-->
             <Button x:Name="btnListSoutraitent" Grid.Column="3" Grid.Row="2"  HorizontalAlignment="Left" Content="Liste Sous-traitent" Margin="0,2,0,0" VerticalAlignment="Top" Width="138" Background="#FF9BBB59" Height="30"/>
+
+
             <Button x:Name="btnLivraison" Grid.Column="3" Grid.Row="2"  HorizontalAlignment="Left" Content="Livraisons" VerticalAlignment="Top" Width="138" Background="#FF6330A4" Height="30" Margin="0,50,0,0"/>
-            <Button x:Name="btnAjoutListe" Grid.Column="3" Grid.Row="2"  HorizontalAlignment="Left" Content="Ajouter Liste" Margin="0,97,0,0" VerticalAlignment="Top" Width="138" Background="#FFF95682" Height="30" Grid.RowSpan="2"/>
-            <Button x:Name="btnSupprimListe" Grid.Column="3" Grid.Row="3"  HorizontalAlignment="Left" Content="Supprimer Liste" VerticalAlignment="Top" Width="138" Background="#FFF95682" Height="30" Margin="0,56,0,0"/>
+            <!--<Button x:Name="btnAjoutListe" Grid.Column="3" Grid.Row="2"  HorizontalAlignment="Left" Content="Ajouter Liste" Margin="0,97,0,0" VerticalAlignment="Top" Width="138" Background="#FFF95682" Height="30" Grid.RowSpan="2" />-->
+            <!--<Button x:Name="btnSupprimListe" Grid.Column="3" Grid.Row="3"  HorizontalAlignment="Left" Content="Supprimer Liste" VerticalAlignment="Top" Width="138" Background="#FFF95682" Height="30" Margin="0,56,0,0"/>-->
 
         </Grid>
-
     </Grid>
+    
 </Window>
