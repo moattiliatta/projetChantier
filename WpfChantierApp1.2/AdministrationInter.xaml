@@ -51,7 +51,7 @@
             <!--Anouar-->
             <Button x:Name="btnListSoutraitent" Grid.Column="3" Grid.Row="2"  HorizontalAlignment="Left" Content="Liste Sous-traitent" Margin="0,2,0,0" VerticalAlignment="Top" Width="138" Background="#FF9BBB59" Height="30"/>
 
-
+            <!--Verifier avec la BD-->
             <Button x:Name="btnLivraison" Grid.Column="3" Grid.Row="2"  HorizontalAlignment="Left" Content="Livraisons" VerticalAlignment="Top" Width="138" Background="#FF6330A4" Height="30" Margin="0,50,0,0"/>
             <!--<Button x:Name="btnAjoutListe" Grid.Column="3" Grid.Row="2"  HorizontalAlignment="Left" Content="Ajouter Liste" Margin="0,97,0,0" VerticalAlignment="Top" Width="138" Background="#FFF95682" Height="30" Grid.RowSpan="2" />-->
             <!--<Button x:Name="btnSupprimListe" Grid.Column="3" Grid.Row="3"  HorizontalAlignment="Left" Content="Supprimer Liste" VerticalAlignment="Top" Width="138" Background="#FFF95682" Height="30" Margin="0,56,0,0"/>-->
