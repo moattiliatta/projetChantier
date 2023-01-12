@@ -14,15 +14,15 @@ namespace WpfChantierApp1._2
     
     public partial class Employe
     {
-        private string nomUser;
-        private string psswrdUser;
+        //private string nomUser;
+        //private string psswrdUser;
 
-        //Constructeur
-        public Employe(string nomUser, string psswrdUser)
-        {
-            this.nomUser = nomUser;
-            this.psswrdUser = psswrdUser;
-        }
+        ////Constructeur
+        //public Employe(string nomUser, string psswrdUser)
+        //{
+        //    this.nomUser = nomUser;
+        //    this.psswrdUser = psswrdUser;
+        //}
 
         public int EmployeID { get; set; }
         public string Nom { get; set; }

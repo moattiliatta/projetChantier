@@ -7,11 +7,34 @@
         mc:Ignorable="d"
         Title="ListeOuvriers" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
+       
+           
+        
 
         <Grid>
-            <Button Content="ajouter" HorizontalAlignment="Left" Margin="49,114,0,0" VerticalAlignment="Top"  Height="33" Width="157"/>
-            <Button Content="supprimer" HorizontalAlignment="Left" Margin="592,116,0,0" VerticalAlignment="Top"  Height="33" Width="157"/>
-            <Button Content="modifier" HorizontalAlignment="Left" Margin="309,116,0,0" VerticalAlignment="Top" Height="33" Width="157"/>
+
+            <Label Content="Employe ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="54,71,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtBoxEmployeID" HorizontalAlignment="Left" Margin="159,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Employe nom" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="54,102,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtBoxEmployeNom" HorizontalAlignment="Left" Margin="159,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Employe Prenom" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="54,135,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtBoxEmployePreNom" HorizontalAlignment="Left" Margin="159,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Date Embauche" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="308,71,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtBoxDateEmbauche" HorizontalAlignment="Left" Margin="413,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Telephone" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="308,105,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtBoxTelephone" HorizontalAlignment="Left" Margin="413,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Equipe ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="308,138,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtBoxEquipeID" HorizontalAlignment="Left" Margin="413,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Poste Emploi" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="559,75,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtBoxPosteEmploi" HorizontalAlignment="Left" Margin="654,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Mot passe" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="559,105,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtBoxMotPasse" HorizontalAlignment="Left" Margin="654,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+
+            <Button x:Name="btnAjouter"  Content="ajouter" HorizontalAlignment="Left" Margin="15,182,0,0" VerticalAlignment="Top"  Height="28" Width="157" Click="btnAjouter_Click" />
+            <Button x:Name="btnSupprimer"  Content="supprimer" HorizontalAlignment="Left" Margin="625,182,0,0" VerticalAlignment="Top"  Height="28" Width="157" Click="btnSupprimer_Click" />
+            <Button x:Name="btnModifier"  Content="modifier" HorizontalAlignment="Left" Margin="227,182,0,0" VerticalAlignment="Top"  Height="28" Width="156" Click="btnModifier_Click" />
+            <Button x:Name="btnEffacer" Content="effacer" HorizontalAlignment="Left" Margin="428,182,0,0" VerticalAlignment="Top"  Height="28" Width="156" Click="btnEffacer_Click" />
             <Label x:Name="___LISTES_DES_OUVRIERS_" Content="LES LISTES  DES OUVRIERS" HorizontalAlignment="Left" Margin="21,24,0,0" VerticalAlignment="Top" FontSize="16" Foreground="#FF2B58" FontWeight="Bold" Height="28" Width="213"/>
 
             <Grid.Background>
@@ -22,19 +45,17 @@
             </Grid.Background>
         </Grid>
 
-        <ListView x:Name="ListViewOuvriers" Margin="0,241,0,0"  >
+        <ListView x:Name="ListViewOuvriers" Margin="0,241,0,0"   >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Employe ID" Width="80" />
-                    <GridViewColumn Header="Nom" Width="100" />
-                    <GridViewColumn Header="Prenom" Width="100"/>
-                    <GridViewColumn Header="Date Embauche " Width="100"/>
-                    <GridViewColumn Header="Telephone" Width="100" />
-                    <GridViewColumn Header="Equipe ID" Width="100" />
-                    <GridViewColumn Header="Poste Emploi" Width="100" />
-                    <GridViewColumn Header="Employe Mot Passe" Width="100" />
-
-
+                    <GridViewColumn Header="Employe ID" Width="80"  DisplayMemberBinding="{Binding EmployeID }" />
+                    <GridViewColumn Header="Nom" Width="100" DisplayMemberBinding="{Binding Nom  }" />
+                    <GridViewColumn Header="Prenom" Width="100" DisplayMemberBinding="{Binding Prenom }"  />
+                    <GridViewColumn Header="Date Embauche " Width="100" DisplayMemberBinding="{Binding DateEmbauche }"  />
+                    <GridViewColumn Header="Telephone" Width="100" DisplayMemberBinding="{Binding Telephone }"  />
+                    <GridViewColumn Header="Equipe ID" Width="100" DisplayMemberBinding="{Binding EquipeID }"  />
+                    <GridViewColumn Header="Poste Emploi" Width="100" DisplayMemberBinding="{Binding PosteEmploi }"  />
+                    <GridViewColumn Header="Employe Mot Passe" Width="100" DisplayMemberBinding="{Binding EmployeMotPasse }"  />
                 </GridView>
             </ListView.View>
         </ListView>
