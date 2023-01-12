@@ -28,7 +28,19 @@ namespace WpfChantierApp1._2
 
         private void ListViewOuvriers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Employe employeSelected = (Employe)ListViewOuvriers.SelectedItem;
+           // Employe employeSelected = (Employe)ListViewOuvriers.SelectedItem;
+
+            //if (ListViewOuvriers.SelectedItem is Employe employe)
+            //{
+            //    txtBoxDateEmbauche.Text = employe.DateEmbauche.ToString();
+            //    txtBoxEmployeID.Text = employe.EmployeID.ToString();
+            //    txtBoxEmployeNom.Text = employe.Nom;
+            //    txtBoxEmployePreNom.Text = employe.Prenom;
+            //    txtBoxTelephone.Text = employe.Telephone;
+            //    txtBoxEquipeID.Text = employe.EquipeID.ToString();
+            //    txtBoxMotPasse.Text = employe.EmployeMotPasse.ToString();
+
+            //}
 
             if (ListViewOuvriers.SelectedItem is Employe employe)
             {
@@ -39,7 +51,6 @@ namespace WpfChantierApp1._2
                 txtBoxTelephone.Text = employe.Telephone;
                 txtBoxEquipeID.Text = employe.EquipeID.ToString();
                 txtBoxMotPasse.Text = employe.EmployeMotPasse.ToString();
-
             }
         }
 
