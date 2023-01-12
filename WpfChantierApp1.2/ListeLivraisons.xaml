@@ -6,38 +6,41 @@
         xmlns:local="clr-namespace:WpfChantierApp1._2"
         mc:Ignorable="d"
         Title="ListeLivraisons" Height="450" Width="800" WindowStartupLocation="CenterScreen">
-    
+
     <Grid>
-        
-        
+
+
         <Grid>
-            <Button Content="ajouter" HorizontalAlignment="Left" Margin="591,24,0,0" VerticalAlignment="Top"  Height="28" Width="157"/>
-            <Button Content="supprimer" HorizontalAlignment="Left" Margin="591,74,0,0" VerticalAlignment="Top"  Height="32" Width="157"/>
-            <Button Content="modifier" HorizontalAlignment="Left" Margin="591,182,0,0" VerticalAlignment="Top"  Height="35" Width="157"/>
-            <Label Content="Liste  Livraisons" HorizontalAlignment="Left" Margin="21,24,0,0" VerticalAlignment="Top" FontSize="16" Foreground="#FF2B58" FontWeight="Bold" Height="28" Width="354"/>
+            <Button Content="ajouter" HorizontalAlignment="Left" Margin="21,143,0,0" VerticalAlignment="Top"  Height="33" Width="157"/>
+            <Button Content="supprimer" HorizontalAlignment="Left" Margin="605,143,0,0" VerticalAlignment="Top"  Height="33" Width="157"/>
+            <Button Content="modifier" HorizontalAlignment="Left" Margin="324,142,0,0" VerticalAlignment="Top"  Height="33" Width="156"/>
+            <Label Content="Liste  Materiaux&#xD;&#xA;" HorizontalAlignment="Left" Margin="21,24,0,0" VerticalAlignment="Top" FontSize="16" Foreground="#FF2B58" FontWeight="Bold" Height="28" Width="354"/>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF2D6D6C" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
         </Grid>
 
-        <!--<ListView x:Name="ListViewEmployes" Grid.Row="1"  >
+        <ListView x:Name="ListViewMateriaux" Margin="0,241,0,0"  >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" Width="30"/>
-                    <GridViewColumn Header="Nom" Width="80" />
-                    <GridViewColumn Header="Prénom" Width="80"/>
-                    <GridViewColumn Header="Titre" Width="80"/>
-                    <GridViewColumn Header="Date naissance" Width="90"/>
-                    <GridViewColumn Header="Adresse" Width="90" />
-                    <GridViewColumn Header="Téléphone" Width="85" />
-                    <GridViewColumn Header="Ext." Width="90" />
-                    <GridViewColumn Header="Province" Width="90" />
-                    <GridViewColumn Header="Date D`embauche " Width="90" />
-                    <GridViewColumn Header="present/absents" Width="100"/>
+                    <GridViewColumn Header="ID" Width="80" />
+                    <GridViewColumn Header="Materiaux ID" Width="150" />
+                    <GridViewColumn Header="Nom Materiaux" Width="150"/>
+                    <GridViewColumn Header="Date Reception " Width="150"/>
+                    <GridViewColumn Header="Ouvrage ID" Width="150" />
+                   
+                  
                 </GridView>
-            </ListView.View>-->
+            </ListView.View>
+        </ListView>
 
 
     </Grid>
 
-    
-    
-    
+
+
+
 </Window>

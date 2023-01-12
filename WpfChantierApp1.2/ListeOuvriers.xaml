@@ -7,15 +7,37 @@
         mc:Ignorable="d"
         Title="ListeOuvriers" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="ajouter" HorizontalAlignment="Left" Margin="591,24,0,0" VerticalAlignment="Top"  Height="28" Width="157"/>
-        <Button Content="supprimer" HorizontalAlignment="Left" Margin="591,74,0,0" VerticalAlignment="Top"  Height="32" Width="157"/>
-        <Button Content="trier par present /absent" HorizontalAlignment="Left" Margin="591,126,0,0" VerticalAlignment="Top" Height="36" Width="157"/>
-        <Button Content="modifier" HorizontalAlignment="Left" Margin="591,182,0,0" VerticalAlignment="Top" Height="35" Width="157"/>
-        <Button Content="taux" HorizontalAlignment="Left" Margin="591,233,0,0" VerticalAlignment="Top"  Height="31" Width="157"/>
-        <Button Content="annuler" HorizontalAlignment="Left" Margin="354,277,0,0" VerticalAlignment="Top"  Height="33" Width="130"/>
-        <Button Content="ok" HorizontalAlignment="Left" Margin="190,277,0,0" VerticalAlignment="Top"  Height="33" Width="130"/>
-        <Label x:Name="___LISTES_DES_OUVRIERS_" Content="LES LISTES  DES OUVRIERS" HorizontalAlignment="Left" Margin="21,24,0,0" VerticalAlignment="Top" FontSize="16" Foreground="#FF2B58" FontWeight="Bold" Height="28" Width="213"/>
+
+        <Grid>
+            <Button Content="ajouter" HorizontalAlignment="Left" Margin="49,114,0,0" VerticalAlignment="Top"  Height="33" Width="157"/>
+            <Button Content="supprimer" HorizontalAlignment="Left" Margin="592,116,0,0" VerticalAlignment="Top"  Height="33" Width="157"/>
+            <Button Content="modifier" HorizontalAlignment="Left" Margin="309,116,0,0" VerticalAlignment="Top" Height="33" Width="157"/>
+            <Label x:Name="___LISTES_DES_OUVRIERS_" Content="LES LISTES  DES OUVRIERS" HorizontalAlignment="Left" Margin="21,24,0,0" VerticalAlignment="Top" FontSize="16" Foreground="#FF2B58" FontWeight="Bold" Height="28" Width="213"/>
+
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF2D6D6C" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
+
+        <ListView x:Name="ListViewOuvriers" Margin="0,241,0,0"  >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Employe ID" Width="80" />
+                    <GridViewColumn Header="Nom" Width="100" />
+                    <GridViewColumn Header="Prenom" Width="100"/>
+                    <GridViewColumn Header="Date Embauche " Width="100"/>
+                    <GridViewColumn Header="Telephone" Width="100" />
+                    <GridViewColumn Header="Equipe ID" Width="100" />
+                    <GridViewColumn Header="Poste Emploi" Width="100" />
+                    <GridViewColumn Header="Employe Mot Passe" Width="100" />
+
+
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
-    
 </Window>
