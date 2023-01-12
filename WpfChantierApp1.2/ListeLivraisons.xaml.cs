@@ -126,7 +126,7 @@ namespace WpfChantierApp1._2
                 Materiaux newMateriel = new Materiaux()
                 {
 
-                    MateriauxID = dbEntities.Materiauxes.LastOrDefault<Materiaux>().MateriauxID + 1,
+                   // MateriauxID = dbEntities.Materiauxes.LastOrDefault<Materiaux>().MateriauxID + 1,
                     NomMateriaux = txtBoxNomMateriaux.Text,
                     DateReception = txtBoxDateRecept.Text,
                     OuvrageID = int.Parse(txtBoxOuvrageID.Text),
