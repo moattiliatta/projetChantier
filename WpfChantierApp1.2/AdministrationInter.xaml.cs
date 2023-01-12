@@ -24,6 +24,48 @@ namespace WpfChantierApp1._2
             InitializeComponent();
         }
 
+        //private void btnListMacons_Click(object sender, RoutedEventArgs e)
+        //{
+        //    //AdministrationInter admin = new AdministrationInter();
+        //    //admin.ShowDialog();
+        //    MessageBox.Show("Liste macons sélectionnée");
+        //}
 
+        private void btnListPeintres_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Liste Peintres sélectionnée");
+            ListePeintres peintres = new ListePeintres();
+            peintres.ShowDialog();
+           
+        }
+
+        private void btnListSoutraitent_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Liste Soutraitent sélectionnée");
+            ListeSousTraitants soustraitent = new ListeSousTraitants();
+            soustraitent.ShowDialog();
+            
+        }
+
+        private void btnLivraison_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Liste Livraison sélectionnée");
+            ListeLivraisons livraisons = new ListeLivraisons();
+            livraisons.ShowDialog();
+            
+        }
+
+        private void btnRegleSecurite_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Regle Securite sélectionnée, est en cours de développement ");
+        }
+
+        private void btnListOuvriers_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Liste Ouvriers sélectionnée");
+            ListeOuvriers ouvriers = new ListeOuvriers();
+            ouvriers.ShowDialog();
+           
+        }
     }
 }

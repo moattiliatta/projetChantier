@@ -21,111 +21,113 @@ namespace WpfChantierApp1._2
     public partial class MainWindow : Window
     {
 
-        //TEST FOR BDD
+        //TEST USING USER CLASS
+        //liste temporaire d'utilisateurs pour vérifier les informations saisies par l'utilisateur 
+        //public List<User> userList = new List<User>();
+        //User user1 = new User("Nelson", "123");
+        //User user2 = new User("Alfonso", "321");
+        //User user3 = new User("Cuervo", "963");
 
-            //liste temporaire d'utilisateurs pour vérifier les informations saisies par l'utilisateur 
-            public List<User> userList = new List<User>();
-            User user1 = new User("Nelson", "123");
-            User user2 = new User("Alfonso", "321");
-            User user3 = new User("Cuervo", "963");
-
-        ProjetChantierEntities dbEntities = new ProjetChantierEntities();
 
         public MainWindow()
+        {
+            InitializeComponent();
+            //userList.Add(user1);
+            //userList.Add(user2);
+            //userList.Add(user3);
+        }
+
+        //événement qui valide les informations saisies par l'utilisateur dans l'interface,
+        //crée un objet du même type et le compare avec la liste des employés, instancie chaque interface selon le choix de l'utilisateur. 
+        private void btnValider_Click(object sender, RoutedEventArgs e)
+        {
+            string nomUser = txtBoxNomUser.Text;
+            string psswrdUser = txtBoxPassword.Text;
+            // variable vraie ou fausse selon la vérification de la fonction 
+            bool autentifier = authentificateur(nomUser, psswrdUser);
+
+
+            if ((btnAdmin.IsChecked == true) && (autentifier))
             {
-                InitializeComponent();
-                userList.Add(user1);
-                userList.Add(user2);
-                userList.Add(user3);
-            }
+                MessageBox.Show("Option Admin sélectionnée");
+                // Instanciation de l'AdministrationInterface
+                AdministrationInter admin = new AdministrationInter();
+                admin.ShowDialog();
 
-            //événement qui valide les informations saisies par l'utilisateur dans l'interface,
-            //crée un objet du même type et le compare avec la liste des employés, instancie chaque interface selon le choix de l'utilisateur. 
-            private void btnValider_Click(object sender, RoutedEventArgs e)
+            }
+            else if ((btnChef.IsChecked == true) && (autentifier))
             {
-                string nomUser = txtBoxNomUser.Text;
-                string psswrdUser = txtBoxPassword.Text;
-                bool autentifier = authentificateur(nomUser, psswrdUser);
+                MessageBox.Show("Option Chef sélectionnée");
 
-                //MessageBox.Show(nomUser);
-                //MessageBox.Show(psswrdUser);
-                //MessageBox.Show(" autentifier  = "+autentifier);
-
-                if ((btnAdmin.IsChecked == true) && (autentifier))
-                {
-                    MessageBox.Show("Option Admin sélectionnée");
-                    // Instanciation de l'AdministrationInterface
-                    AdministrationInter admin = new AdministrationInter();
-                    admin.ShowDialog();
-
-                }
-                else if ((btnChef.IsChecked == true) && (autentifier))
-                {
-                    MessageBox.Show("Option Chef sélectionnée");
-
-                }
-                else if ((btnEmploye.IsChecked == true) && (autentifier))
-                {
-                    MessageBox.Show("Option Employe sélectionnée");
-                    SanteSecuriteInterface sante = new SanteSecuriteInterface();
-                    // Instanciation de SanteSecuriteInterface
-                    sante.ShowDialog();
-
-                }
-                else
-                {
-                    MessageBox.Show("Veuillez entrer les informations correctes");
-                }
             }
-
-            // l'événement supprime les informations dans l'interface
-            private void btnEffacer_Click(object sender, RoutedEventArgs e)
+            else if ((btnEmploye.IsChecked == true) && (autentifier))
             {
-                btnAdmin.IsChecked = false;
-                btnChef.IsChecked = false;
-                btnEmploye.IsChecked = false;
-                txtBoxNomUser.Text = "";
-                txtBoxPassword.Text = "";
+                MessageBox.Show("Option Employe sélectionnée");
+                SanteSecuriteInterface sante = new SanteSecuriteInterface();
+                // Instanciation de SanteSecuriteInterface
+                sante.ShowDialog();
+
             }
+            else
+            {
+                MessageBox.Show("Veuillez entrer les informations correctes");
+            }
+        }
+
+        // l'événement supprime les informations dans l'interface
+        private void btnEffacer_Click(object sender, RoutedEventArgs e)
+        {
+            btnAdmin.IsChecked = false;
+            btnChef.IsChecked = false;
+            btnEmploye.IsChecked = false;
+            txtBoxNomUser.Text = "";
+            txtBoxPassword.Text = "";
+        }
 
         // vérification du nom d'utilisateur et du mot de passe
         private bool authentificateur(string nomUser, string psswrdUser)
         {
-            //bool existe = false;
-
-            //User userVerif = new User(nomUser, psswrdUser);
-
-            //foreach (User user in userList)
-            //{
-            //    if (user.nom == userVerif.nom && user.password == userVerif.password)
-            //    {
-            //        return existe = true;
-            //    }
-            //    else
-            //    {
-            //        return existe = false;
-            //    }
-            //}
-            //return existe;
-
             bool existe = false;
-            
-            Employe userVerif = new Employe(nomUser, psswrdUser );
-
-            if (userVerif != null)
+            // connexion à la base de données 
+            using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
             {
-                //dbEntities
-                Employe emplFinder = dbEntities.Employes.FirstOrDefault(empl => empl.Nom == userVerif.Nom); // *** LINKQ *******
-                if (emplFinder != null) { existe = true; }
-                else { existe = false; }
-
+                // Requête qui recherche les valeurs saisies par l'utilisateur dans la base de données. 
+                var query = from employe in dbEntities.Employes
+                            where employe.Prenom == nomUser && employe.EmployeMotPasse == psswrdUser
+                            select employe;
+                // si des correspondances sont trouvées, l'employé est validé. 
+                if (query.Count() > 0)
+                {
+                    existe = true;
+                }
+                else
+                {
+                    existe = false;
+                }
             }
-
             return existe;
         }
 
     }
-
 }
-   
+
+
+//test d'authentification avec la classe User de test 
+//bool existe = false;
+
+//User userVerif = new User(nomUser, psswrdUser);
+
+//foreach (User user in userList)
+//{
+//    if (user.nom == userVerif.nom && user.password == userVerif.password)
+//    {
+//        return existe = true;
+//    }
+//    else
+//    {
+//        return existe = false;
+//    }
+//}
+//return existe;
+
 
