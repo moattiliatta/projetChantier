@@ -23,5 +23,37 @@ namespace WpfChantierApp1._2
         {
             InitializeComponent();
         }
+
+    //    private void btnAjouter_Click(object sender, RoutedEventArgs e)
+    //    {
+
+    //    }
+
+    //    private void btnSupprimer_Click(object sender, RoutedEventArgs e)
+    //    {
+
+    //        txtBoxSousTraitantID.Text = "";
+    //        txtBoxDomainSousTraitant.Text = "";
+    //        txtBoxOuvrageID.Text = "";
+    //        txtBoxDebutSousTraitant.Text = "";
+    //        txtBoxFinSousTraitant.Text = "";
+
+
+    //    }
+
+    //    private void btnModifier_Click(object sender, RoutedEventArgs e)
+    //    {
+
+    //    }
+
+    //    private void btnEffacer_Click(object sender, RoutedEventArgs e)
+    //    {
+
+    //    }
+
+    //    private void ListViewSousTraitants_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    //    {
+
+    //    }
     }
 }
