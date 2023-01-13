@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3c48e924b93a409bae252b482382b15a" Name="Diagram1">
+        <EntityTypeShape EntityType="ProjetChantierModel.Employe" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetChantierModel.Equipe" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetChantierModel.Materiaux" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetChantierModel.Ouvrage" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetChantierModel.Projet" Width="1.5" PointX="2.875" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetChantierModel.Realiser" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetChantierModel.Sous_Traitant" Width="1.5" PointX="5.625" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetChantierModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetChantierModel.Fournir" Width="1.5" PointX="7.5" PointY="7.625" IsExpanded="true" />
+        <AssociationConnector Association="ProjetChantierModel.FK_Employes_Equipe" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetChantierModel.FK_Ouvrage_Equipe" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetChantierModel.FK_Projet_Equipe" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetChantierModel.FK_Realiser_Equipe" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetChantierModel.FK_Fournir_Materiaux" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetChantierModel.FK_Materiaux_Ouvrage" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetChantierModel.FK_Fournir_Ouvrage" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetChantierModel.FK_Realiser_Ouvrage" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjetChantierModel.FK_Sous_Traitant_Ouvrage" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

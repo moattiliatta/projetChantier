@@ -1,0 +1,58 @@
+﻿<Window x:Class="WpfChantierApp1._2.ListeSousTraitants"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfChantierApp1._2"
+        mc:Ignorable="d"
+        Title="ListeSousTraitants" Height="550" Width="900" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid x:Name="listeSousTraitant">
+            <Button Content="ajouter" HorizontalAlignment="Left" Margin="39,421,0,0" VerticalAlignment="Top"  Height="28" Width="157" Click="Button_Click_Ajouter"/>
+            <Button Content="supprimer" HorizontalAlignment="Left" Margin="244,421,0,0" VerticalAlignment="Top"  Height="32" Width="157" Click="Button_supprimer"/>
+            <Button Content="trier par present /absent" HorizontalAlignment="Left" Margin="435,421,0,0" VerticalAlignment="Top"  Height="36" Width="157" Click="Button_Trier"/>
+            <Button Content="modifier" HorizontalAlignment="Left" Margin="639,419,0,0" VerticalAlignment="Top" Height="34" Width="157" Click="Button_modifier"/>
+            <Button Content="Quitter" HorizontalAlignment="Left" Margin="244,479,0,0" VerticalAlignment="Top"  Height="33" Width="130" Click="Button_Annuler"/>
+            <Button Content="Afficher" HorizontalAlignment="Left" Margin="486,479,0,0" VerticalAlignment="Top"  Height="33" Width="130" Click="Button_Afficher"/>
+
+            <Label Content="LES LISTES  DES SOUS TRAITANTS" HorizontalAlignment="Left" Margin="309,24,0,0" VerticalAlignment="Top" FontSize="16" Foreground="#FF2B58" FontWeight="Bold" Height="32" Width="316"/>
+
+            <!-- Les Label : la classe TextBlock -->
+            <TextBlock x:Name="textBlockDomainSousTraitant" HorizontalAlignment="Left" Height="23" Margin="20,76,0,0" TextWrapping="Wrap" 
+                   Text="Domainne Sous Traitant :" VerticalAlignment="Top" Width="161"/>
+
+            <!-- -->
+            <TextBlock x:Name="textBlockOuvrageID" HorizontalAlignment="Left" Height="23" Margin="72,135,0,0" TextWrapping="Wrap" 
+                   Text="Ouvrage ID :" VerticalAlignment="Top" Width="90"/>
+
+            <!-- -->
+            <TextBlock x:Name="textBlockDate_Debut" HorizontalAlignment="Left" Height="23" Margin="570,81,0,0" TextWrapping="Wrap" 
+                   Text="Date Debut :" VerticalAlignment="Top" Width="104"/>
+            <TextBlock x:Name="textBlockDate_Fin" Text="Date Fin :" HorizontalAlignment="Left" Margin="575,137,0,0" VerticalAlignment="Top" Width="83"/>
+
+
+
+            <!-- Les champs de saisie : TextBox -->
+            <TextBox x:Name="textBoxDomainSousTraitant" HorizontalAlignment="Left" Margin="186,76,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="136" />
+            <!-- -->
+            <TextBox x:Name="textBoxOuvrageID" HorizontalAlignment="Left" Margin="186,137,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="136" RenderTransformOrigin="0.251,0.496"/>
+            <!-- -->
+            <DatePicker x:Name="textBoxDate_Debut" HorizontalAlignment="Left" Margin="689,76,0,0"   VerticalAlignment="Top" Width="160" RenderTransformOrigin="0.546,1.88"/>
+
+            <DatePicker x:Name="textBoxDate_Fin" HorizontalAlignment="Left" Margin="688,137,0,0"   VerticalAlignment="Top" Width="160" RenderTransformOrigin="0.546,1.88"/>
+
+            <!-- La ListView -->
+            <ListView x:Name="listViewDataBase" Margin="24,188,24,132" SelectionChanged="listViewDataBase_SelectionChanged"  >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="SousTraitantID" Width="150" DisplayMemberBinding="{Binding SousTraitantID}"/>
+                        <GridViewColumn Header="DomainSousTraitant" Width="160" DisplayMemberBinding="{Binding DomainSousTraitant}"/>
+                        <GridViewColumn Header="OuvrageID" Width="110" DisplayMemberBinding="{Binding OuvrageID}"/>
+                        <GridViewColumn Header="Date_Debut_SousTraitant" Width="250" DisplayMemberBinding="{Binding Date_Debut_SousTraitant}"/>
+                        <GridViewColumn Header="Date_Fin_SousTraitant" Width="200" DisplayMemberBinding="{Binding Date_Fin_SousTraitant}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Grid>
+</Window>
