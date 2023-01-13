@@ -21,6 +21,8 @@
                 <TextBox x:Name="txtBoxSousTraitantID" HorizontalAlignment="Left" Margin="159,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
                 <Label Content="Domain Sous Traitant" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="33,109,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtBoxDomainSousTraitant" HorizontalAlignment="Left" Margin="159,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                <!-- ********  MODIFIER : includ Ouvrage ID into a combo box to avoid furute bugs-->
+                <!-- ********  MODIFIER : includ Ouvrage ID into a combo box to avoid furute bugs-->
                 <Label Content="Ouvrage ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="490,72,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtBoxOuvrageID" HorizontalAlignment="Left" Margin="606,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
                 <Label Content="Date debut Sous Traitant" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="446,107,0,0" VerticalAlignment="Top"/>
@@ -41,11 +43,11 @@
         <ListView x:Name="ListViewSousTraitants" Margin="0,241,0,0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="SousTraitanID" Width="150"  />
-                    <GridViewColumn Header="Domain Sous Traitant" Width="150"  />
-                    <GridViewColumn Header="OuvrageID" Width="150"  />
-                    <GridViewColumn Header="Date Debut Sous Traitant" Width="150" />
-                    <GridViewColumn Header="Date Fin Sous Traitant" Width="150" />
+                    <GridViewColumn Header="SousTraitanID" Width="150"  DisplayMemberBinding="{Binding SousTraitantID }"/>
+                    <GridViewColumn Header="Domain Sous Traitant" Width="150"  DisplayMemberBinding="{Binding DomainSousTraitant }"/>
+                    <GridViewColumn Header="OuvrageID" Width="150"   DisplayMemberBinding="{Binding OuvrageID }"/>
+                    <GridViewColumn Header="Date Debut Sous Traitant" Width="150" DisplayMemberBinding="{Binding Date_Debut_SousTraitant }"/>
+                    <GridViewColumn Header="Date Fin Sous Traitant" Width="150" DisplayMemberBinding="{Binding Date_Fin_SousTraitant }"/>
                 </GridView>
             </ListView.View>
         </ListView>
