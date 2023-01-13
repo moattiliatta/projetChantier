@@ -10,10 +10,10 @@
 
 
         <Grid>
-            <Button x:Name="btnAjouter"  Content="ajouter" HorizontalAlignment="Left" Margin="15,182,0,0" VerticalAlignment="Top"  Height="28" Width="157"  />
-            <Button x:Name="btnSupprimer"  Content="supprimer" HorizontalAlignment="Left" Margin="625,182,0,0" VerticalAlignment="Top"  Height="28" Width="157"  />
-            <Button x:Name="btnModifier"  Content="modifier" HorizontalAlignment="Left" Margin="227,182,0,0" VerticalAlignment="Top"  Height="28" Width="156" />
-            <Button x:Name="btnEffacer" Content="effacer" HorizontalAlignment="Left" Margin="428,182,0,0" VerticalAlignment="Top"  Height="28" Width="156" />
+            <Button x:Name="btnAjouter"  Content="ajouter" HorizontalAlignment="Left" Margin="15,182,0,0" VerticalAlignment="Top"  Height="28" Width="157" Click="btnAjouter_Click"  />
+            <Button x:Name="btnSupprimer"  Content="supprimer" HorizontalAlignment="Left" Margin="625,182,0,0" VerticalAlignment="Top"  Height="28" Width="157" Click="btnSupprimer_Click"  />
+            <Button x:Name="btnModifier"  Content="modifier" HorizontalAlignment="Left" Margin="227,182,0,0" VerticalAlignment="Top"  Height="28" Width="156" Click="btnModifier_Click" />
+            <Button x:Name="btnEffacer" Content="effacer" HorizontalAlignment="Left" Margin="428,182,0,0" VerticalAlignment="Top"  Height="28" Width="156" Click="btnEffacer_Click" />
             <Label Content="Liste Sous Traitants" HorizontalAlignment="Left" Margin="21,24,0,0" VerticalAlignment="Top" FontSize="16" Foreground="#FF2B58" FontWeight="Bold" Height="28" Width="354"/>
 
             <Grid>
