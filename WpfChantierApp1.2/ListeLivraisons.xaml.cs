@@ -23,6 +23,8 @@ namespace WpfChantierApp1._2
 
        // ProjetChantierEntities dbEntities1 = new ProjetChantierEntities();
 
+        // cualquier cosa
+
         public ListeLivraisons()
         {
             InitializeComponent();

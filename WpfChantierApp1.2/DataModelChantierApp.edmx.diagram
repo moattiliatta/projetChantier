@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="ProjetChantierModel.Equipe" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjetChantierModel.Materiaux" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjetChantierModel.Ouvrage" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProjetChantierModel.Projet" Width="1.5" PointX="2.875" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjetChantierModel.Projet" Width="1.5" PointX="2.875" PointY="11.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjetChantierModel.Realiser" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjetChantierModel.Sous_Traitant" Width="1.5" PointX="5.625" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjetChantierModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
