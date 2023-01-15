@@ -72,3 +72,5 @@ C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfC
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\WpfChantierApp1.2.pdb
 C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\ListeOuvrage.g.cs
 C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\ListeOuvrage.baml
+C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\ListeOuvrage.g.cs
+C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\ListeOuvrage.baml
