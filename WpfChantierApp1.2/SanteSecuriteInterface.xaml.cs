@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfChantierApp1._2;
 
 namespace WpfChantierApp1._2
 {
@@ -21,22 +22,15 @@ namespace WpfChantierApp1._2
     {
         Employe employeSession;
         int employeID;
+        string message = "Bienvenue : ";
 
         public SanteSecuriteInterface(Employe employeSession)
         {
             this.employeSession = employeSession;
             this.employeID = employeSession.EmployeID;
 
-
-            //MISSING : establecer coneccion entre mi instancia in la informacion real en mi base de datos 
-            using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
-            {
-
-                
-
-                InitializeComponent();
-                AfficherEmployeSession();
-            }
+            InitializeComponent();
+            AfficherEmployeSession();
 
         }
 
@@ -44,7 +38,6 @@ namespace WpfChantierApp1._2
 
         private void btnEffacer_Click(object sender, RoutedEventArgs e)
         {
-
             chkBoxBottes.IsChecked = false;
             chkBoxCasque.IsChecked = false;
             chkBoxLunettes.IsChecked = false;
@@ -52,11 +45,45 @@ namespace WpfChantierApp1._2
 
         private void AfficherEmployeSession()
         {
-            string message = "Bienvenue : ";
+            //string message = "Bienvenue : ";
             txtBlockPrenom.Text = message + employeSession.Prenom + " " + employeSession.Nom;
-           // MessageBox.Show(message + " " +employeSession.Prenom + " "+employeSession.EmployeID);
+            // MessageBox.Show(message + " " +employeSession.Prenom + " "+employeSession.EmployeID);
 
         }
 
+        private void btnEnvoyer_Click(object sender, RoutedEventArgs e)
+        {
+            //MISSING : establecer coneccion entre mi instancia in la informacion real en mi base de datos 
+            using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+            {
+                Employe emploAsistence = dbEntities.Employes.FirstOrDefault(empl => empl.EmployeID == employeSession.EmployeID);
+
+                if (chkBoxBottes.IsChecked != true || chkBoxCasque.IsChecked != true || chkBoxLunettes.IsChecked != true)
+                {
+
+                    message = "l'employé : " + employeSession.Prenom + " " + employeSession.EmployeID + "\n" +
+                               "ne respectent pas les règles de sécurité\n" + "présence quotidienne refusée";
+                    MessageBox.Show(message);
+
+                    //emploAsistence.EmplAssistence = "Absent";
+
+                }
+                else
+                {
+
+                    //Employe employeAsistence
+                    message = "l'employé : " + employeSession.Prenom + " " + employeSession.EmployeID + "\n" +
+                         "respecte toutes les règles de sécurité\n" + "Présence quotidienne OK ";
+                    MessageBox.Show(message);
+
+                   // emploAsistence.EmplAssistence = "Present";
+                }
+
+            }
+
+            //Application.Current.Shutdown();
+
+        }
     }
 }
+

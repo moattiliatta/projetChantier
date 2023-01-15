@@ -61,7 +61,7 @@
 
 
 
-            <Button x:Name="btnEnvoyer" Grid.Column="0" Grid.Row="3" >Envoyer</Button>
+            <Button x:Name="btnEnvoyer" Grid.Column="0" Grid.Row="3" Click="btnEnvoyer_Click" >Envoyer</Button>
             <Button x:Name="btnEffacer" Grid.Column="1" Grid.Row="3" Click="btnEffacer_Click" >Effacer</Button>
 
 
