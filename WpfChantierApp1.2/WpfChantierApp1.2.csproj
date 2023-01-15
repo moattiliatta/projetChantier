@@ -106,6 +106,9 @@
     <Compile Include="Fournir.cs">
       <DependentUpon>DataModelChantierApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="ListeOuvrage.xaml.cs">
+      <DependentUpon>ListeOuvrage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Materiaux.cs">
       <DependentUpon>DataModelChantierApp.tt</DependentUpon>
     </Compile>
@@ -133,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ListeLivraisons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListeOuvrage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

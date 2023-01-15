@@ -31,11 +31,11 @@ namespace WpfChantierApp1._2
         //    MessageBox.Show("Liste macons sélectionnée");
         //}
 
-        private void btnListPeintres_Click(object sender, RoutedEventArgs e)
+        private void btnListOuvrage_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Liste Ouvrages sélectionnée");
-            ListePeintres peintres = new ListePeintres();
-            peintres.ShowDialog();
+            ListeOuvrage ouvrage = new ListeOuvrage();
+            ouvrage.ShowDialog();
            
         }
 
