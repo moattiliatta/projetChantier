@@ -20,12 +20,23 @@ namespace WpfChantierApp1._2
     public partial class SanteSecuriteInterface : Window
     {
         Employe employeSession;
+        int employeID;
 
         public SanteSecuriteInterface(Employe employeSession)
         {
             this.employeSession = employeSession;
-            InitializeComponent();
-            AfficherEmployeSession();
+            this.employeID = employeSession.EmployeID;
+
+
+            //MISSING : establecer coneccion entre mi instancia in la informacion real en mi base de datos 
+            using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+            {
+
+                
+
+                InitializeComponent();
+                AfficherEmployeSession();
+            }
 
         }
 
