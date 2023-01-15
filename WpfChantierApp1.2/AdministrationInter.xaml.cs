@@ -33,7 +33,7 @@ namespace WpfChantierApp1._2
 
         private void btnListPeintres_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Liste Peintres sélectionnée");
+            MessageBox.Show("Liste Ouvrages sélectionnée");
             ListePeintres peintres = new ListePeintres();
             peintres.ShowDialog();
            
