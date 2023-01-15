@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfChantierApp1._2;
 
 namespace WpfChantierApp1._2
 {
@@ -19,9 +20,18 @@ namespace WpfChantierApp1._2
     /// </summary>
     public partial class AdministrationInter : Window
     {
+        Employe employeSession;
+
         public AdministrationInter()
         {
             InitializeComponent();
+            AfficherEmployeSession();
+           // MessageBox.Show(this.employeSession.Prenom + this.employeSession.EmployeID);
+        }
+
+        public AdministrationInter(Employe employeSession)
+        {
+            this.employeSession = employeSession;
         }
 
         //private void btnListMacons_Click(object sender, RoutedEventArgs e)
@@ -36,7 +46,7 @@ namespace WpfChantierApp1._2
             MessageBox.Show("Liste Ouvrages sélectionnée");
             ListeOuvrage ouvrage = new ListeOuvrage();
             ouvrage.ShowDialog();
-           
+
         }
 
         private void btnListSoutraitent_Click(object sender, RoutedEventArgs e)
@@ -44,7 +54,7 @@ namespace WpfChantierApp1._2
             MessageBox.Show("Liste Soutraitent sélectionnée");
             ListeSousTraitants soustraitent = new ListeSousTraitants();
             soustraitent.ShowDialog();
-            
+
         }
 
         private void btnLivraison_Click(object sender, RoutedEventArgs e)
@@ -52,7 +62,7 @@ namespace WpfChantierApp1._2
             MessageBox.Show("Liste Livraison sélectionnée");
             ListeLivraisons livraisons = new ListeLivraisons();
             livraisons.ShowDialog();
-            
+
         }
 
         private void btnRegleSecurite_Click(object sender, RoutedEventArgs e)
@@ -65,7 +75,22 @@ namespace WpfChantierApp1._2
             MessageBox.Show("Liste Ouvriers sélectionnée");
             ListeOuvriers ouvriers = new ListeOuvriers();
             ouvriers.ShowDialog();
-           
+
+        }
+
+        private void AfficherEmployeSession()
+        {
+            string message = "Bienvenue : ";
+            txtBlockPrenom.Text = message + employeSession.Prenom;
+            MessageBox.Show(employeSession.Prenom + employeSession.EmployeID);
+
         }
     }
 }
+
+
+//using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+//{
+//    txtBlockPrenom.Text = employeSession.Prenom;
+
+//}

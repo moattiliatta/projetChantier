@@ -35,7 +35,9 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock  Grid.ColumnSpan="2" VerticalAlignment="Center"  HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="#FFE2D4D4"  >Contrôle santé et sécurité</TextBlock>
-
+            <TextBlock x:Name="txtBlockPrenom" Grid.ColumnSpan="2" Grid.Column="1" VerticalAlignment="Top"  HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="#FFE4E3DA" Margin="-240,55,0,0" 
+                    Text="{Binding Prenom}"   />
+            
             <CheckBox x:Name="chkBoxBottes"  Grid.Column="0" Grid.Row="1" 
                          Content="J'atteste que j'ai mis mes bottes confirme" Foreground="#FFE4E622"
                          VerticalAlignment="Center"  HorizontalAlignment="Center" Grid.ColumnSpan="2" 

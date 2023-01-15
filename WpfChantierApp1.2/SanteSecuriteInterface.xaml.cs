@@ -19,10 +19,17 @@ namespace WpfChantierApp1._2
     /// </summary>
     public partial class SanteSecuriteInterface : Window
     {
-        public SanteSecuriteInterface()
+        Employe employeSession;
+
+        public SanteSecuriteInterface(Employe employeSession)
         {
+            this.employeSession = employeSession;
             InitializeComponent();
+            AfficherEmployeSession();
+
         }
+
+
 
         private void btnEffacer_Click(object sender, RoutedEventArgs e)
         {
@@ -30,6 +37,14 @@ namespace WpfChantierApp1._2
             chkBoxBottes.IsChecked = false;
             chkBoxCasque.IsChecked = false;
             chkBoxLunettes.IsChecked = false;
+        }
+
+        private void AfficherEmployeSession()
+        {
+            string message = "Bienvenue : ";
+            txtBlockPrenom.Text = message + employeSession.Prenom + " " + employeSession.Nom;
+           // MessageBox.Show(message + " " +employeSession.Prenom + " "+employeSession.EmployeID);
+
         }
 
     }

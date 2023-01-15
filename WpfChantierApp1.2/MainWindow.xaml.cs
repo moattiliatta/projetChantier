@@ -70,7 +70,7 @@ namespace WpfChantierApp1._2
                         MessageBox.Show("Option Admin sélectionnée, bienvenue : " + nomMessage + " Equipe id : " + employeFound.EquipeID);
 
                         // Instanciation de l'AdministrationInterface
-                        AdministrationInter admin = new AdministrationInter();
+                        AdministrationInter admin = new AdministrationInter(employeFound);
                         admin.ShowDialog();
 
                     }
@@ -83,7 +83,7 @@ namespace WpfChantierApp1._2
                     {
 
                         MessageBox.Show("Option Employe sélectionnée, bienvenue : " + employeFound.Nom + " Equipe id : " + employeFound.EquipeID);
-                        SanteSecuriteInterface sante = new SanteSecuriteInterface();
+                        SanteSecuriteInterface sante = new SanteSecuriteInterface(employeFound);
                         // Instanciation de SanteSecuriteInterface
                         sante.ShowDialog();
 
