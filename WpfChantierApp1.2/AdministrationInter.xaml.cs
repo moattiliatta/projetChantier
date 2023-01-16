@@ -22,17 +22,15 @@ namespace WpfChantierApp1._2
     {
         Employe employeSession;
 
-        public AdministrationInter()
+        public AdministrationInter(Employe employeSession)
         {
+            this.employeSession = employeSession;
             InitializeComponent();
             AfficherEmployeSession();
            // MessageBox.Show(this.employeSession.Prenom + this.employeSession.EmployeID);
         }
 
-        public AdministrationInter(Employe employeSession)
-        {
-            this.employeSession = employeSession;
-        }
+
 
         //private void btnListMacons_Click(object sender, RoutedEventArgs e)
         //{
@@ -81,8 +79,8 @@ namespace WpfChantierApp1._2
         private void AfficherEmployeSession()
         {
             string message = "Bienvenue : ";
-            txtBlockPrenom.Text = message + employeSession.Prenom;
-            MessageBox.Show(employeSession.Prenom + employeSession.EmployeID);
+            txtBlockPrenom.Text = message + employeSession.Prenom + " " +employeSession.Nom;
+           // MessageBox.Show(employeSession.Prenom + employeSession.EmployeID);
 
         }
     }
