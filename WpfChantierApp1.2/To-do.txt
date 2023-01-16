@@ -1,0 +1,43 @@
+1. Liste des ouvriers :
+   - Binding textbox
+   - Botones (funcionales)
+   - Date Embauche cambiar tipo textbox a DatePicker (Binding)
+   - Equipe ID cambiar de textbox a Combo box (Binding)
+
+2. Liste des ouvrages :
+
+   - ListView = Ajustar Binding.
+   - Date Ouvrage cambiar tipo textbox a DatePicker (Binding)
+   - Fin Ouvrage cambiar tipo textbox a DatePicker (Binding)
+   - Equipe ID = Ajustar Binding
+   - Equipe ID cambiar de textbox a Combo box (Binding)
+   - Botones (funcionales)
+
+
+3 Liste Sous Traitansts
+
+   - Ouvrage ID cambiar de textbox a Combo box (Binding)
+   - Date debut cambiar tipo textbox a DatePicker (Binding)
+   - Date Fin cambiar tipo textbox a DatePicker (Binding)
+   - Binding textbox 
+   - Botones (funcionales)
+   - Add NomCompagnie : DataBase, class, modelo entity.
+   - ListView : binding nombre de NomCompagie.
+
+4. Liste Materiaux
+ 
+   - Ouvrage ID cambiar de textbox a Combo box (Binding)
+   - Date Reception cambiar tipo textbox a DatePicker (Binding)
+   - Botones (funcionales).
+
+5. Regles Securite et Assistence 
+
+   - Desarrollar interface.
+
+6. Chef Equipe
+
+   - Desarrollar interface.
+
+7. Control Sante Securite
+
+   -  Agregar valores ausente presente de la sesion de empleado en la base de datos 
