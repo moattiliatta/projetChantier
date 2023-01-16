@@ -1,0 +1,30 @@
+public partial class MainWindow : Window
+{
+    public ObservableCollection<Employee> employees { get; set; }
+
+    public MainWindow()
+    {
+        InitializeComponent();
+        employees = new ObservableCollection<Employee>();
+        dataGrid.ItemsSource = employees;
+    }
+
+    private void AddButton_Click(object sender, RoutedEventArgs e)
+    {
+        Employee newEmployee = new Employee();
+        newEmployee.ID = employees.Count + 1;
+        newEmployee.Name = "New Employee";
+        newEmployee.Speciality = "N/A";
+        employees.Add(newEmployee);
+    }
+}
+
+
+// instance employee est:
+public class Employee
+{
+    public int ID { get; set; }
+    public string Name { get; set; }
+    public string Speciality { get; set; }
+
+}
