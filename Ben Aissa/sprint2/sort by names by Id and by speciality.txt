@@ -1,0 +1,39 @@
+public partial class MainWindow : Window
+{
+    public ObservableCollection<Employee> employees { get; set; }
+    private int sortBy = 0;
+
+    public MainWindow()
+    {
+        InitializeComponent();
+        employees = new ObservableCollection<Employee>();
+        dataGrid.ItemsSource = employees;
+    }
+    private void SortButton_Click(object sender, RoutedEventArgs e)
+    {
+        sortBy = (sortBy + 1) % 3;
+        if (sortBy == 0)
+        {
+            employees = new ObservableCollection<Employee>(employees.OrderBy(x => x.Name));
+        }
+        else if(sortBy == 1)
+        {
+            employees = new ObservableCollection<Employee>(employees.OrderBy(x => x.ID));
+        }
+        else
+        {
+            employees = new ObservableCollection<Employee>(employees.OrderBy(x => x.Speciality));
+        }
+        dataGrid.ItemsSource = employees;
+    }
+}
+//Avec ce code on peut basculer d un  triage a l autre 
+//il faut ajouter specilaity dans instance speciality comme suit
+
+public class Employee
+{
+    public int ID { get; set; }
+    public string Name { get; set; }
+    public string Speciality { get; set; }
+}
+

@@ -1,0 +1,20 @@
+public partial class MainWindow : Window
+{
+    public ObservableCollection<Employee> employees { get; set; }
+
+    public MainWindow()
+    {
+        InitializeComponent();
+        employees = new ObservableCollection<Employee>();
+        dataGrid.ItemsSource = employees;
+    }
+
+    private void DeleteButton_Click(object sender, RoutedEventArgs e)
+    {
+        // Get the selected item in the DataGrid
+        Employee selectedEmployee = dataGrid.SelectedItem as Employee;
+        // enlever lacelluleselectionner de la source
+        if(selectedEmployee!=null)
+        employees.Remove(selectedEmployee);
+    }
+}
