@@ -30,7 +30,7 @@ namespace WpfChantierApp1._2
             
             if(ListViewOuvrage.SelectedItem is Ouvrage ouvrage)
             {
-               txtBoxOuvrageID.Text = ouvrage.OuvrageID.ToString();
+                txtBoxOuvrageID.Text = ouvrage.OuvrageID.ToString();
                 txtBoxNomOuvrage.Text = ouvrage.NomOuvrage;
                 txtBoxDescOuvrage.Text = ouvrage.Description_Ouvrage;
                 txtBoxEquipeId.Text = ouvrage.EquipeID.ToString();
@@ -45,22 +45,21 @@ namespace WpfChantierApp1._2
             {
                 ListViewOuvrage.ItemsSource = dbEntities.Ouvrages.ToList();
             }
-
         }
 
         private void btnAjouter_Click(object sender, RoutedEventArgs e)
         {
-           
+            MessageBox.Show("btn Ajouter en cours de developpement");
         }
 
         private void btnSupprimer_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("btn Supprimer en cours de developpement");
         }
 
         private void btnModifier_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("btn Modifier en cours de developpement");
         }
 
         private void btnEffacer_Click(object sender, RoutedEventArgs e)

@@ -47,12 +47,12 @@
         <ListView x:Name="ListViewOuvrage" Margin="0,241,0,0" SelectionChanged="ListViewOuvrage_SelectionChanged"  >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Ouvrage Id" Width="80" DisplayMemberBinding="{Binding OuvrageId}" />
+                    <GridViewColumn Header="Ouvrage Id" Width="80" DisplayMemberBinding="{Binding OuvrageID}" />
                     <GridViewColumn Header="Nom Ouvrage" Width="100" DisplayMemberBinding="{Binding NomOuvrage}" />
-                    <GridViewColumn Header="Description Ouvrage" Width="280" DisplayMemberBinding="{Binding DescriptionOuvrage}" />
-                    <GridViewColumn Header="Equipe Id " Width="90" DisplayMemberBinding="{Binding EquipeId}"  />
-                    <GridViewColumn Header="Date_Debut_Ouvrage" Width="135" DisplayMemberBinding="{Binding DebutOuvrage}"  />
-                    <GridViewColumn Header="Date_Fin_Ouvrage" Width="110" DisplayMemberBinding="{Binding FinOuvrage}"  />
+                    <GridViewColumn Header="Description Ouvrage" Width="280" DisplayMemberBinding="{Binding Description_Ouvrage}" />
+                    <GridViewColumn Header="Equipe Id " Width="90" DisplayMemberBinding="{Binding EquipeID}"  />
+                    <GridViewColumn Header="Date_Debut_Ouvrage" Width="135" DisplayMemberBinding="{Binding Date_Debut_Ouvrage}"  />
+                    <GridViewColumn Header="Date_Fin_Ouvrage" Width="110" DisplayMemberBinding="{Binding Date_Fin_Ouvrage}"  />
 
                 </GridView>
             </ListView.View>
@@ -60,3 +60,5 @@
 
     </Grid>
 </Window>
+
+
