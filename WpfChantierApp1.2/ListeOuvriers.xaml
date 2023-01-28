@@ -20,8 +20,10 @@
             <Label Content="Employe Prenom" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="54,135,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="txtBoxEmployePreNom" HorizontalAlignment="Left" Margin="159,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
             <Label Content="Date Embauche" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="308,71,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtBoxDateEmbauche" HorizontalAlignment="Left" Margin="413,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+            <DatePicker x:Name="datePkrDateEmbauche" HorizontalAlignment="Left" Margin="413,79,0,0"  VerticalAlignment="Top" Width="120"/>
             <Label Content="Telephone" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="308,105,0,0" VerticalAlignment="Top"/>
+            
             <TextBox x:Name="txtBoxTelephone" HorizontalAlignment="Left" Margin="413,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
             <Label Content="Equipe ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="308,138,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="txtBoxEquipeID" HorizontalAlignment="Left" Margin="413,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>

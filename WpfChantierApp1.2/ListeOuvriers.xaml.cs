@@ -32,13 +32,14 @@ namespace WpfChantierApp1._2
 
             if (ListViewOuvriers.SelectedItem is Employe employe)
             {
-                txtBoxDateEmbauche.Text = employe.DateEmbauche.ToString();
+                datePkrDateEmbauche.Text = employe.DateEmbauche.ToString();
                 txtBoxEmployeID.Text = employe.EmployeID.ToString();
                 txtBoxEmployeNom.Text = employe.Nom;
                 txtBoxEmployePreNom.Text = employe.Prenom;
                 txtBoxTelephone.Text = employe.Telephone;
                 txtBoxEquipeID.Text = employe.EquipeID.ToString();
-                txtBoxMotPasse.Text = employe.EmployeMotPasse.ToString();             
+                txtBoxMotPasse.Text = employe.EmployeMotPasse.ToString();
+                txtBoxPosteEmploi.Text = employe.PosteEmploi;
             }
         }
 
@@ -48,49 +49,125 @@ namespace WpfChantierApp1._2
             {
                 ListViewOuvriers.ItemsSource = dbEntities.Employes.ToList();
             }
-
         }
 
+        // Verifier intanciation de Employe dans l'atribut Employe ID
         private void btnAjouter_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("btn ajouter");
+
+            Employe newEmploye = new Employe()
+            {
+
+                // EmployeID = Employes.LastOrDefault<Employe>().EmployeID + 1,
+                Nom = txtBoxEmployeNom.Text,
+                Prenom = txtBoxEmployePreNom.Text,
+                Telephone = txtBoxTelephone.Text,
+                EmployeMotPasse = txtBoxEquipeID.Text,
+                PosteEmploi = txtBoxPosteEmploi.Text,
+                DateEmbauche = datePkrDateEmbauche.SelectedDate.Value,
+                EquipeID = int.Parse(txtBoxEquipeID.Text),
+
+            };
+
+            using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+            {
+
+
+                if (newEmploye != null)
+                {
+                    dbEntities.Employes.Add(newEmploye);
+
+                    int resultat = dbEntities.SaveChanges();
+                    if (resultat > 0)
+                    {
+                        this.AfficherEmployes();
+                        string message = $"L'employé {newEmploye.Nom} a été enregistré dans le système";
+                        MessageBox.Show(message);
+                    }
+                }
+            }
         }
 
         private void btnSupprimer_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("btn supprimer");
+
+            Employe employeSelected = (Employe)ListViewOuvriers.SelectedItem;
+
+            if (employeSelected != null)
+            {
+                using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+                {
+                    Employe emplDeleted = dbEntities.Employes.SingleOrDefault(empl => empl.EmployeID == employeSelected.EmployeID);
+
+                    if (emplDeleted != null)
+                    {
+                        dbEntities.Employes.Remove(emplDeleted);
+                        int resultat = dbEntities.SaveChanges();
+                        if (resultat > 0)
+                        {
+                            this.AfficherEmployes();
+                            string message = $"L'employe {emplDeleted.Nom} a ete supprime";
+                            MessageBox.Show(message);
+                        }
+                    }
+                }
+            }
         }
 
         private void btnModifier_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("btn modifier");
+
+            Employe employeSelected = (Employe)ListViewOuvriers.SelectedItem;
+
+            if (employeSelected != null)
+            {
+                using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+                {
+                    Employe emplModifier = dbEntities.Employes.FirstOrDefault(empl => empl.EmployeID == employeSelected.EmployeID); // **** LINQ  **** 
+
+                    if (emplModifier != null)
+                    {
+                      
+                        emplModifier.DateEmbauche = datePkrDateEmbauche.SelectedDate.Value;
+                        emplModifier.Nom = txtBoxEmployeNom.Text;
+                        emplModifier.Prenom = txtBoxEmployePreNom.Text;
+                        emplModifier.EmployeID = int.Parse(txtBoxEmployeID.Text);
+                        emplModifier.Telephone = txtBoxTelephone.Text;
+           
+                        emplModifier.PosteEmploi = txtBoxPosteEmploi.Text;
+                        emplModifier.EquipeID = int.Parse(txtBoxEquipeID.Text);
+                        emplModifier.EmployeMotPasse = txtBoxMotPasse.Text;
+
+               
+                        int resultat = dbEntities.SaveChanges();
+                        if (resultat > 0)
+                        {
+                            this.AfficherEmployes();
+                            string message = $"L'employe {emplModifier.Nom} a ete modifie";
+                            MessageBox.Show(message);
+                        }
+                    }
+                }
+            }
+
         }
 
         private void btnEffacer_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("btn effacer");
+            datePkrDateEmbauche.Text = "";
+            txtBoxEmployeID.Text = "";
+            txtBoxEmployeNom.Text = "";
+            txtBoxEmployePreNom.Text = "";
+            txtBoxTelephone.Text = "";
+            txtBoxEquipeID.Text = "";
+            txtBoxMotPasse.Text = "";
+            txtBoxPosteEmploi.Text = "";
+
         }
     }
 }
 
 
-//private void ListViewMateriaux_SelectionChanged(object sender, SelectionChangedEventArgs e)
-//{
-//    Materiaux materiauxSelected = (Materiaux)ListViewMateriaux.SelectedItem;
-
-//    if (ListViewMateriaux.SelectedItem is Materiaux materiaux)
-//    {
-//        txtBoxMateriauxID.Text = materiaux.MateriauxID.ToString();
-//        txtBoxNomMateriaux.Text = materiaux.NomMateriaux;
-//        txtBoxDateRecept.Text = materiaux.DateReception.ToString();
-//        txtBoxOuvrageID.Text = materiaux.OuvrageID.ToString();
-//    }
-//}
-
-//public void AfficherMateriaux()
-//{
-//    using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
-//    {
-//        ListViewMateriaux.ItemsSource = dbEntities.Materiauxes.ToList();
-//    }
-//}

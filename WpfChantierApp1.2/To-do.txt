@@ -3,6 +3,8 @@
    - Botones (funcionales)
    - Date Embauche cambiar tipo textbox a DatePicker (Binding)
    - Equipe ID cambiar de textbox a Combo box (Binding)
+   - Verificar instanciacion new Employe en el campo de Employe ID y base de datos 
+	
 
 2. Liste des ouvrages :
 
