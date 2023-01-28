@@ -21,20 +21,11 @@ namespace WpfChantierApp1._2
     public partial class MainWindow : Window
     {
 
-        //TEST USING USER CLASS
-        //liste temporaire d'utilisateurs pour vérifier les informations saisies par l'utilisateur 
-        //public List<User> userList = new List<User>();
-        //User user1 = new User("Nelson", "123");
-        //User user2 = new User("Alfonso", "321");
-        //User user3 = new User("Cuervo", "963");
-
 
         public MainWindow()
         {
             InitializeComponent();
-            //userList.Add(user1);
-            //userList.Add(user2);
-            //userList.Add(user3);
+
         }
 
         //événement qui valide les informations saisies par l'utilisateur dans l'interface,
@@ -133,168 +124,7 @@ namespace WpfChantierApp1._2
             return existe;
         }
 
-        //private IEnumerable<Employe> GetEmploye(string nomEmp, string psswrdEmp)
-        //{          
-        //    using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
-        //    {
-        //        return (from empl in dbEntities.Set<Employe>()
-        //                where empl.Nom == nomEmp && empl.EmployeMotPasse == psswrdEmp
-        //                select new
-        //                {
-        //                    EmployeID = empl.EmployeID,
-        //                    Nom = empl.Nom,
-        //                    Prenom = empl.Prenom,
-        //                    DateEmbauche = empl.DateEmbauche,
-        //                    Telephone = empl.Telephone,
-        //                    EquipeID = empl.EquipeID,
-        //                    PosteEmploi = empl.PosteEmploi,
-        //                    EmployeMotPasse = empl.EmployeMotPasse,
-        //                    ValiderSanteSecuritaire = empl.ValiderSanteSecuritaire,
-        //                    Equipe = empl.Equipe
-
-        //                }).ToList().Select(x => new Employe
-        //                {
-        //                    EmployeID = x.EmployeID,
-        //                    Nom = x.Nom,
-        //                    Prenom = x.Prenom,
-        //                    DateEmbauche = x.DateEmbauche,
-        //                    Telephone = x.Telephone,
-        //                    EquipeID = x.EquipeID,
-        //                    PosteEmploi = x.PosteEmploi,
-        //                    EmployeMotPasse = x.EmployeMotPasse,
-        //                    ValiderSanteSecuritaire = x.ValiderSanteSecuritaire,
-        //                    Equipe = x.Equipe
-        //                });
-        //    }
-        //}
-
-        /*
-                private Employe GetEmploye(string nomEmp, string psswrdEmp)
-                {
-                     Employe getEmploye;
-
-                    using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
-                    {                
-                      return  getEmploye = (from empl in dbEntities.Employes
-                                      where empl.Nom == nomEmp && empl.EmployeMotPasse == psswrdEmp
-                                      select new Employe
-                                      {
-                                          EmployeID = empl.EmployeID,
-                                          Nom = empl.Nom,
-                                          Prenom = empl.Prenom,
-                                          DateEmbauche = empl.DateEmbauche,
-                                          Telephone = empl.Telephone,
-                                          EquipeID = empl.EquipeID,
-                                          PosteEmploi = empl.PosteEmploi,
-                                          EmployeMotPasse = empl.EmployeMotPasse,
-                                          ValiderSanteSecuritaire = empl.ValiderSanteSecuritaire,
-                                          Equipe = empl.Equipe
-
-                                      }).ToList().Select(x => new Employe
-                                      {
-                                          EmployeID = x.EmployeID,
-                                          Nom = x.Nom,
-                                          Prenom = x.Prenom,
-                                          DateEmbauche = x.DateEmbauche,
-                                          Telephone = x.Telephone,
-                                          EquipeID = x.EquipeID,
-                                          PosteEmploi = x.PosteEmploi,
-                                          EmployeMotPasse = x.EmployeMotPasse,
-                                          ValiderSanteSecuritaire = x.ValiderSanteSecuritaire,
-                                          Equipe = x.Equipe
-
-                                      }).FirstOrDefault();
-
-                    }
-
-                }
-        */
     }
 }
 
-
-//test d'authentification avec la classe User de test 
-//bool existe = false;
-
-//User userVerif = new User(nomUser, psswrdUser);
-
-//foreach (User user in userList)
-//{
-//    if (user.nom == userVerif.nom && user.password == userVerif.password)
-//    {
-//        return existe = true;
-//    }
-//    else
-//    {
-//        return existe = false;
-//    }
-//}
-//return existe;
-
-
-//var query = (Employe)(from empl in dbEntities.Employes
-//            where empl.Nom == nomUser && empl.EmployeMotPasse == psswrdUser
-//            select new Employe
-//            {
-//                EmployeID = empl.EmployeID,
-//                Nom = empl.Nom,
-//                Prenom = empl.Prenom,
-//                DateEmbauche = empl.DateEmbauche,
-//                Telephone = empl.Telephone,
-//                EquipeID = empl.EquipeID,
-//                PosteEmploi = empl.PosteEmploi,
-//                EmployeMotPasse = empl.EmployeMotPasse,
-//                ValiderSanteSecuritaire = empl.ValiderSanteSecuritaire,
-//                Equipe = empl.Equipe
-//            }).FirstOrDefault();
-
-//Employe employeFound = query;
-//Employe employeFound = GetEmploye(nomUser, psswrdUser);
-
-
-/*
- var employe = (from empl in dbEntities.Employes
-                where empl.Nom == nomEmp && empl.EmployeMotPasse == psswrdEmp
-                select new
-                {
-                    EmployeID = empl.EmployeID,
-                    Nom = empl.Nom,
-                    Prenom = empl.Prenom,
-                    DateEmbauche = empl.DateEmbauche,
-                    Telephone = empl.Telephone,
-                    EquipeID = empl.EquipeID,
-                    PosteEmploi = empl.PosteEmploi,
-                    EmployeMotPasse = empl.EmployeMotPasse,
-                    ValiderSanteSecuritaire = empl.ValiderSanteSecuritaire,
-                    Equipe = empl.Equipe
-
-                }).ToList().Select(x => new Employe()
-                {
-                    EmployeID = x.EmployeID,
-                    Nom = x.Nom,
-                    Prenom = x.Prenom,
-                    DateEmbauche = x.DateEmbauche,
-                    Telephone = x.Telephone,
-                    EquipeID = x.EquipeID,
-                    PosteEmploi = x.PosteEmploi,
-                    EmployeMotPasse = x.EmployeMotPasse,
-                    ValiderSanteSecuritaire = x.ValiderSanteSecuritaire,
-                    Equipe = x.Equipe
-                });
-
- return View(employe.ToList());
-}
-
-*/
-
-
-//Employe employeFound = dbEntities.Employes.FirstOrDefault(emp => emp.Nom == employeFinder.Nom && emp.EmployeMotPasse == employeFinder.EmployeMotPasse);
-//Employe employeFound = dbEntities.Employes.FirstOrDefault(emp => emp.Nom.Equals(nomUser) && emp.EmployeMotPasse.Equals(psswrdUser));
-//Employe employeFound = dbEntities.Employes.FirstOrDefault(emp => emp.Nom.Equals(nomUser) && emp.EmployeMotPasse.Equals(psswrdUser));
-//Employe employeFound = dbEntities.Employes.SingleOrDefault(emp => emp.Nom.Equals(nomUser) && emp.EmployeMotPasse.Equals(psswrdUser));
-
-//int result = (from p in dbEntities.Employes
-//              where p.Nom == nomUser && p.EmployeMotPasse == psswrdUser
-//              orderby p.EmployeID descending
-//              select p.EmployeID).FirstOrDefault();
 

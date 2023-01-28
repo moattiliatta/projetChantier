@@ -41,3 +41,4 @@
 7. Control Sante Securite
 
    -  Agregar valores ausente presente de la sesion de empleado en la base de datos 
+   -  Ajustar textblock Bienvenida
