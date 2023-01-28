@@ -37,7 +37,8 @@ namespace WpfChantierApp1._2
                 txtBoxEmployeNom.Text = employe.Nom;
                 txtBoxEmployePreNom.Text = employe.Prenom;
                 txtBoxTelephone.Text = employe.Telephone;
-                txtBoxEquipeID.Text = employe.EquipeID.ToString();
+                // txtBoxEquipeID.Text = employe.EquipeID.ToString();
+                comboBoxEquipeID.Text = employe.EquipeID.ToString();
                 txtBoxMotPasse.Text = employe.EmployeMotPasse.ToString();
                 txtBoxPosteEmploi.Text = employe.PosteEmploi;
             }
@@ -48,6 +49,7 @@ namespace WpfChantierApp1._2
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
             {
                 ListViewOuvriers.ItemsSource = dbEntities.Employes.ToList();
+                comboBoxEquipeID.ItemsSource = dbEntities.Equipes.ToList();
             }
         }
 
@@ -63,10 +65,11 @@ namespace WpfChantierApp1._2
                 Nom = txtBoxEmployeNom.Text,
                 Prenom = txtBoxEmployePreNom.Text,
                 Telephone = txtBoxTelephone.Text,
-                EmployeMotPasse = txtBoxEquipeID.Text,
+                EmployeMotPasse = txtBoxMotPasse.Text,
                 PosteEmploi = txtBoxPosteEmploi.Text,
                 DateEmbauche = datePkrDateEmbauche.SelectedDate.Value,
-                EquipeID = int.Parse(txtBoxEquipeID.Text),
+                // EquipeID = int.Parse(txtBoxEquipeID.Text),
+                EquipeID = int.Parse(comboBoxEquipeID.SelectedValue.ToString()),
 
             };
 
@@ -138,8 +141,10 @@ namespace WpfChantierApp1._2
                         emplModifier.Telephone = txtBoxTelephone.Text;
            
                         emplModifier.PosteEmploi = txtBoxPosteEmploi.Text;
-                        emplModifier.EquipeID = int.Parse(txtBoxEquipeID.Text);
+                        //emplModifier.EquipeID = int.Parse(txtBoxEquipeID.Text);
+                        emplModifier.EquipeID = int.Parse(comboBoxEquipeID.SelectedValue.ToString());
                         emplModifier.EmployeMotPasse = txtBoxMotPasse.Text;
+                       // EquipeID = int.Parse(comboBoxEquipeID.SelectedValue.ToString()),
 
                
                         int resultat = dbEntities.SaveChanges();
@@ -162,7 +167,7 @@ namespace WpfChantierApp1._2
             txtBoxEmployeNom.Text = "";
             txtBoxEmployePreNom.Text = "";
             txtBoxTelephone.Text = "";
-            txtBoxEquipeID.Text = "";
+           // txtBoxEquipeID.Text = "";
             txtBoxMotPasse.Text = "";
             txtBoxPosteEmploi.Text = "";
 

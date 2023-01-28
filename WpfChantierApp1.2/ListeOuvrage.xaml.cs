@@ -44,6 +44,7 @@ namespace WpfChantierApp1._2
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
             {
                 ListViewOuvrage.ItemsSource = dbEntities.Ouvrages.ToList();
+
             }
         }
 

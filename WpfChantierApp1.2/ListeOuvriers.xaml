@@ -26,7 +26,22 @@
             
             <TextBox x:Name="txtBoxTelephone" HorizontalAlignment="Left" Margin="413,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
             <Label Content="Equipe ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="308,138,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtBoxEquipeID" HorizontalAlignment="Left" Margin="413,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <!--<TextBox x:Name="txtBoxEquipeID" HorizontalAlignment="Left" Margin="413,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>-->
+            <ComboBox x:Name="comboBoxEquipeID" HorizontalAlignment="Left" Margin="413,144,0,0"  Text="1" VerticalAlignment="Top" Width="120">
+
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock  Text="{Binding EquipeID}"  />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+                
+                
+                
+            </ComboBox>
+            
+            
             <Label Content="Poste Emploi" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="559,75,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="txtBoxPosteEmploi" HorizontalAlignment="Left" Margin="654,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
             <Label Content="Mot passe" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="559,105,0,0" VerticalAlignment="Top"/>
