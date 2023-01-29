@@ -28,20 +28,33 @@ namespace WpfChantierApp1._2
 
         private void ListViewOuvriers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           // Employe employeSelected = (Employe)ListViewOuvriers.SelectedItem;
+            Employe employeSelected = (Employe)ListViewOuvriers.SelectedItem;
 
-            if (ListViewOuvriers.SelectedItem is Employe employe)
+            if(employeSelected != null)
             {
-                datePkrDateEmbauche.Text = employe.DateEmbauche.ToString();
-                txtBoxEmployeID.Text = employe.EmployeID.ToString();
-                txtBoxEmployeNom.Text = employe.Nom;
-                txtBoxEmployePreNom.Text = employe.Prenom;
-                txtBoxTelephone.Text = employe.Telephone;
+                datePkrDateEmbauche.Text = employeSelected.DateEmbauche.ToString();
+                txtBoxEmployeID.Text = employeSelected.EmployeID.ToString();
+                txtBoxEmployeNom.Text = employeSelected.Nom;
+                txtBoxEmployePreNom.Text = employeSelected.Prenom;
+                txtBoxTelephone.Text = employeSelected.Telephone;
                 // txtBoxEquipeID.Text = employe.EquipeID.ToString();
-                comboBoxEquipeID.Text = employe.EquipeID.ToString();
-                txtBoxMotPasse.Text = employe.EmployeMotPasse.ToString();
-                txtBoxPosteEmploi.Text = employe.PosteEmploi;
+                comboBoxEquipeID.Text = employeSelected.EquipeID.ToString();
+                txtBoxMotPasse.Text = employeSelected.EmployeMotPasse.ToString();
+                txtBoxPosteEmploi.Text = employeSelected.PosteEmploi;
             }
+
+            //if (ListViewOuvriers.SelectedItem is Employe employe)
+            //{
+            //    datePkrDateEmbauche.Text = employe.DateEmbauche.ToString();
+            //    txtBoxEmployeID.Text = employe.EmployeID.ToString();
+            //    txtBoxEmployeNom.Text = employe.Nom;
+            //    txtBoxEmployePreNom.Text = employe.Prenom;
+            //    txtBoxTelephone.Text = employe.Telephone;
+            //    txtBoxEquipeID.Text = employe.EquipeID.ToString();
+            //    comboBoxEquipeID.Text = employe.EquipeID.ToString();
+            //    txtBoxMotPasse.Text = employe.EmployeMotPasse.ToString();
+            //    txtBoxPosteEmploi.Text = employe.PosteEmploi;
+            //}
         }
 
         public void AfficherEmployes()
@@ -76,9 +89,16 @@ namespace WpfChantierApp1._2
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
             {
 
+                Employe lastEmploye = dbEntities.Employes.ToArray().LastOrDefault();
+
+                int lastnumber = lastEmploye.EmployeID + 1;
 
                 if (newEmploye != null)
                 {
+
+                    newEmploye.EmployeID = lastEmploye.EmployeID + 1;
+
+
                     dbEntities.Employes.Add(newEmploye);
 
                     int resultat = dbEntities.SaveChanges();
