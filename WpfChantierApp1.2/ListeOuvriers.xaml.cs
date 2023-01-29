@@ -26,37 +26,6 @@ namespace WpfChantierApp1._2
             AfficherEmployes();
         }
 
-        private void ListViewOuvriers_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Employe employeSelected = (Employe)ListViewOuvriers.SelectedItem;
-
-            if(employeSelected != null)
-            {
-                datePkrDateEmbauche.Text = employeSelected.DateEmbauche.ToString();
-                txtBoxEmployeID.Text = employeSelected.EmployeID.ToString();
-                txtBoxEmployeNom.Text = employeSelected.Nom;
-                txtBoxEmployePreNom.Text = employeSelected.Prenom;
-                txtBoxTelephone.Text = employeSelected.Telephone;
-                // txtBoxEquipeID.Text = employe.EquipeID.ToString();
-                comboBoxEquipeID.Text = employeSelected.EquipeID.ToString();
-                txtBoxMotPasse.Text = employeSelected.EmployeMotPasse.ToString();
-                txtBoxPosteEmploi.Text = employeSelected.PosteEmploi;
-            }
-
-            //if (ListViewOuvriers.SelectedItem is Employe employe)
-            //{
-            //    datePkrDateEmbauche.Text = employe.DateEmbauche.ToString();
-            //    txtBoxEmployeID.Text = employe.EmployeID.ToString();
-            //    txtBoxEmployeNom.Text = employe.Nom;
-            //    txtBoxEmployePreNom.Text = employe.Prenom;
-            //    txtBoxTelephone.Text = employe.Telephone;
-            //    txtBoxEquipeID.Text = employe.EquipeID.ToString();
-            //    comboBoxEquipeID.Text = employe.EquipeID.ToString();
-            //    txtBoxMotPasse.Text = employe.EmployeMotPasse.ToString();
-            //    txtBoxPosteEmploi.Text = employe.PosteEmploi;
-            //}
-        }
-
         public void AfficherEmployes()
         {
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
@@ -197,6 +166,23 @@ namespace WpfChantierApp1._2
            // txtBoxEquipeID.Text = "";
             txtBoxMotPasse.Text = "";
             txtBoxPosteEmploi.Text = "";
+
+        }
+
+        private void ListViewOuvriers_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            if (ListViewOuvriers.SelectedItem is Employe employe)
+            {
+                datePkrDateEmbauche.Text = employe.DateEmbauche.ToString();
+                txtBoxEmployeID.Text = employe.EmployeID.ToString();
+                txtBoxEmployeNom.Text = employe.Nom;
+                txtBoxEmployePreNom.Text = employe.Prenom;
+                txtBoxTelephone.Text = employe.Telephone;
+               // txtBoxEquipeID.Text = employe.EquipeID.ToString();
+                comboBoxEquipeID.SelectedValue = employe.EquipeID.ToString();
+                txtBoxMotPasse.Text = employe.EmployeMotPasse.ToString();
+                txtBoxPosteEmploi.Text = employe.PosteEmploi;
+            }
 
         }
     }

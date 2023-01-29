@@ -64,7 +64,7 @@
             </Grid.Background>
         </Grid>
 
-        <ListView x:Name="ListViewOuvriers" Margin="0,241,0,0"   >
+        <ListView x:Name="ListViewOuvriers" Margin="0,241,0,0" SelectionChanged="ListViewOuvriers_SelectionChanged_1"   >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Employe ID" Width="80"  DisplayMemberBinding="{Binding EmployeID }" />
