@@ -27,17 +27,9 @@ namespace WpfChantierApp1._2
             this.employeSession = employeSession;
             InitializeComponent();
             AfficherEmployeSession();
-           // MessageBox.Show(this.employeSession.Prenom + this.employeSession.EmployeID);
+
         }
 
-
-
-        //private void btnListMacons_Click(object sender, RoutedEventArgs e)
-        //{
-        //    //AdministrationInter admin = new AdministrationInter();
-        //    //admin.ShowDialog();
-        //    MessageBox.Show("Liste macons sélectionnée");
-        //}
 
         private void btnListOuvrage_Click(object sender, RoutedEventArgs e)
         {
@@ -86,9 +78,3 @@ namespace WpfChantierApp1._2
     }
 }
 
-
-//using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
-//{
-//    txtBlockPrenom.Text = employeSession.Prenom;
-
-//}
