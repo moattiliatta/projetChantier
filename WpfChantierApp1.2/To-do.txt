@@ -1,18 +1,18 @@
 1. Liste des ouvriers :
-   - Binding textbox - OK
-   - Botones (funcionales) - OK
-   - Date Embauche cambiar tipo textbox a DatePicker (Binding)  - OK
-   - Equipe ID cambiar de textbox a Combo box (Binding) - OK 
-   - Verificar instanciacion new Employe en el campo de Employe ID y base de datos  - OK
+ ok  - Binding textbox - OK
+ ok  - Botones (funcionales) - OK
+ ok  - Date Embauche cambiar tipo textbox a DatePicker (Binding)  - OK
+ ok  - Equipe ID cambiar de textbox a Combo box (Binding) - OK 
+ ok  - Verificar instanciacion new Employe en el campo de Employe ID y base de datos  - OK
 	
 
 2. Liste des ouvrages :
 
-   - ListView = Ajustar Binding.
-   - Date Ouvrage cambiar tipo textbox a DatePicker (Binding)
-   - Fin Ouvrage cambiar tipo textbox a DatePicker (Binding)
-   - Equipe ID = Ajustar Binding
-   - Equipe ID cambiar de textbox a Combo box (Binding)
+ok   - ListView = Ajustar Binding.  - OK
+ok   - Date Ouvrage cambiar tipo textbox a DatePicker (Binding)  - OK
+ok   - Fin Ouvrage cambiar tipo textbox a DatePicker (Binding)  - OK
+ok   - Equipe ID = Ajustar Binding  - OK
+ok   - Equipe ID cambiar de textbox a Combo box (Binding) - OK
    - Botones (funcionales)
 
 
@@ -44,3 +44,25 @@
 
    -  Agregar valores ausente presente de la sesion de empleado en la base de datos 
    -  Ajustar textblock Bienvenida
+
+
+
+**********************************************************
+
+            <ComboBox x:Name="comboBoxEquipeID" HorizontalAlignment="Left" Margin="413,144,0,0"  Text="1" VerticalAlignment="Top" Width="120"
+                      SelectedValue="{Binding EquipeID  }"
+                      SelectedValuePath="EquipeID">
+
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock x:Name="comboTxtBoxEquipeID" Text="{Binding EquipeID}"  />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+       
+            </ComboBox>
+
+***********************************************************
+
+  <DatePicker x:Name="datePkrDateEmbauche" HorizontalAlignment="Left" Margin="413,79,0,0"  VerticalAlignment="Top" Width="120"/>

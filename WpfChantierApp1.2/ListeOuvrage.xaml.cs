@@ -26,16 +26,16 @@ namespace WpfChantierApp1._2
         }
         private void ListViewOuvrage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Ouvrage ouvrageSelected = (Ouvrage)ListViewOuvrage.SelectedItem;
+
             
             if(ListViewOuvrage.SelectedItem is Ouvrage ouvrage)
             {
                 txtBoxOuvrageID.Text = ouvrage.OuvrageID.ToString();
                 txtBoxNomOuvrage.Text = ouvrage.NomOuvrage;
                 txtBoxDescOuvrage.Text = ouvrage.Description_Ouvrage;
-                txtBoxEquipeId.Text = ouvrage.EquipeID.ToString();
-                txtBoxDebutOuvrage.Text = ouvrage.Date_Debut_Ouvrage.ToString();
-                txtBoxFinOuvrage.Text = ouvrage.Date_Fin_Ouvrage.ToString() ;
+                //txtBoxEquipeId.Text = ouvrage.EquipeID.ToString();
+                //txtBoxDebutOuvrage.Text = ouvrage.Date_Debut_Ouvrage.ToString();
+                //txtBoxFinOuvrage.Text = ouvrage.Date_Fin_Ouvrage.ToString() ;
             }
         }
 
@@ -44,6 +44,8 @@ namespace WpfChantierApp1._2
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
             {
                 ListViewOuvrage.ItemsSource = dbEntities.Ouvrages.ToList();
+                // remplir notre combobox avec les ID des appareils existants dans la base de données 
+                comboBoxEquipeID.ItemsSource = dbEntities.Equipes.ToList();
 
             }
         }
@@ -68,9 +70,9 @@ namespace WpfChantierApp1._2
             txtBoxOuvrageID.Text = "";
             txtBoxNomOuvrage.Text = "";
             txtBoxDescOuvrage.Text = "";
-            txtBoxEquipeId.Text = "";
-            txtBoxDebutOuvrage.Text = "";
-            txtBoxFinOuvrage.Text = "";
+            //txtBoxEquipeId.Text = "";
+            //txtBoxDebutOuvrage.Text = "";
+            //txtBoxFinOuvrage.Text = "";
 
         }
 
