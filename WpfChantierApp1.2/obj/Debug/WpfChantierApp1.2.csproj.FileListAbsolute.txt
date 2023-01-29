@@ -34,6 +34,8 @@ C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\WpfCh
 C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\WpfChantierApp1.2.csproj.CopyComplete
 C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\WpfChantierApp1.2.exe
 C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\WpfChantierApp1.2.pdb
+C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\ListeOuvrage.g.cs
+C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\ListeOuvrage.baml
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\bin\Debug\ProjetChantier.mdf
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\bin\Debug\ProjetChantier_log.ldf
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\bin\Debug\WpfChantierApp1.2.exe.config
@@ -47,6 +49,7 @@ C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfC
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\WpfChantierApp1.2.csproj.SuggestedBindingRedirects.cache
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\AdministrationInter.g.cs
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\ListeLivraisons.g.cs
+C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\ListeOuvrage.g.cs
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\ListeOuvriers.g.cs
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\ListePeintres.g.cs
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\ListeSousTraitants.g.cs
@@ -58,6 +61,7 @@ C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfC
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\WpfChantierApp1.2_MarkupCompile.lref
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\AdministrationInter.baml
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\ListeLivraisons.baml
+C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\ListeOuvrage.baml
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\ListeOuvriers.baml
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\ListePeintres.baml
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\ListeSousTraitants.baml
@@ -70,7 +74,3 @@ C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfC
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\WpfChantierApp1.2.csproj.CopyComplete
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\WpfChantierApp1.2.exe
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\WpfChantierApp1.2.pdb
-C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\ListeOuvrage.g.cs
-C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\ListeOuvrage.baml
-C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\ListeOuvrage.g.cs
-C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\ListeOuvrage.baml

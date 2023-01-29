@@ -24,37 +24,53 @@ namespace WpfChantierApp1._2
             InitializeComponent();
             AfficherOuvrage();
         }
+
         private void ListViewOuvrage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
             Ouvrage ouvrageSelected = (Ouvrage)ListViewOuvrage.SelectedItem;
-
+            int selectedEquipeID = 0;
 
             if (ListViewOuvrage.SelectedItem is Ouvrage ouvrage)
             {
                 txtBoxOuvrageID.Text = ouvrage.OuvrageID.ToString();
                 txtBoxNomOuvrage.Text = ouvrage.NomOuvrage;
                 txtBoxDescOuvrage.Text = ouvrage.Description_Ouvrage;
-                //txtBoxEquipeId.Text = ouvrage.EquipeID.ToString();
-                //txtBoxDebutOuvrage.Text = ouvrage.Date_Debut_Ouvrage.ToString();
-                //txtBoxFinOuvrage.Text = ouvrage.Date_Fin_Ouvrage.ToString() ;
+                selectedEquipeID = ouvrage.EquipeID.Value;
             }
-
             AfficherMateriaux(ouvrageSelected);
+            AfficherEmployes(selectedEquipeID);
+        }
 
+        private void AfficherEmployes(int selectedEquipeID)
+        {
+            using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+            {
+                var query = from empl in dbEntities.Employes
+                            where empl.EmployeID == selectedEquipeID
+                            select new
+                            {
+                                EmployeID = empl.EmployeID,
+                                Nom = empl.Nom,
+                                Prenom = empl.Prenom,
+                                DateEmbauche = empl.DateEmbauche,
+                                Telephone = empl.Telephone,
+                                EquipeID = empl.EquipeID,
+                                PosteEmploi = empl.PosteEmploi,
+                                EmployeMotPasse = empl.EmployeMotPasse,
+                               // ValiderSanteSecuritaire = empl.ValiderSanteSecuritaire,
+                                Equipe = empl.Equipe
+                            };
+                ListViewTravailleurs.ItemsSource = query.ToList();
+            }
         }
 
         private void AfficherMateriaux(Ouvrage ouvrageSelected)
         {
-
-
-
             int ouvrageID = ouvrageSelected.OuvrageID;
 
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
             {
-                comboBoxOuvrageID.ItemsSource = dbEntities.Ouvrages.ToList();
-
+               // comboBoxOuvrageID.ItemsSource = dbEntities.Ouvrages.ToList();
                 var query = from materiau in dbEntities.Materiauxes
                             where materiau.OuvrageID == ouvrageID
                             select new
@@ -65,9 +81,7 @@ namespace WpfChantierApp1._2
                                 OuvrageID = materiau.OuvrageID,
                             };
                 ListViewMateriaux.ItemsSource = query.ToList();
-
             }
-
         }
 
         public void AfficherOuvrage()
@@ -172,7 +186,6 @@ namespace WpfChantierApp1._2
                         ouvrModifier.Date_Debut_Ouvrage = datePkrDebutOuvrage.SelectedDate.Value.ToString();
                         ouvrModifier.Date_Fin_Ouvrage = datePkrFinOuvrage.SelectedDate.Value.ToString();
 
-
                         int resultat = dbEntities.SaveChanges();
                         if (resultat > 0)
                         {
@@ -192,26 +205,26 @@ namespace WpfChantierApp1._2
             txtBoxDescOuvrage.Text = "";
             datePkrDebutOuvrage.Text = "";
             datePkrFinOuvrage.Text = "";
-            //comboBoxEquipeID.Text = "";
+            comboBoxEquipeID.Text = "";
 
         }
 
         private void ListViewMateriaux_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            if (ListViewMateriaux.SelectedItem is Materiaux materiau)
-            {
+            //if (ListViewMateriaux.SelectedItem is Materiaux materiau)
+            //{
 
-                txtBoxMateriauxID.Text = materiau.MateriauxID.ToString();
-                txtBoxMateriauxNom.Text = materiau.NomMateriaux.ToString();
+            //    //txtBoxMateriauxID.Text = materiau.MateriauxID.ToString();
+            //    //txtBoxMateriauxNom.Text = materiau.NomMateriaux.ToString();
 
-                //txtBoxOuvrageID.Text = ouvrage.OuvrageID.ToString();
-                //txtBoxNomOuvrage.Text = ouvrage.NomOuvrage;
-                //txtBoxDescOuvrage.Text = ouvrage.Description_Ouvrage;
-                //txtBoxEquipeId.Text = ouvrage.EquipeID.ToString();
-                //txtBoxDebutOuvrage.Text = ouvrage.Date_Debut_Ouvrage.ToString();
-                //txtBoxFinOuvrage.Text = ouvrage.Date_Fin_Ouvrage.ToString() ;
-            }
+            //    //txtBoxOuvrageID.Text = ouvrage.OuvrageID.ToString();
+            //    //txtBoxNomOuvrage.Text = ouvrage.NomOuvrage;
+            //    //txtBoxDescOuvrage.Text = ouvrage.Description_Ouvrage;
+            //    //txtBoxEquipeId.Text = ouvrage.EquipeID.ToString();
+            //    //txtBoxDebutOuvrage.Text = ouvrage.Date_Debut_Ouvrage.ToString();
+            //    //txtBoxFinOuvrage.Text = ouvrage.Date_Fin_Ouvrage.ToString() ;
+            //}
 
         }
     }

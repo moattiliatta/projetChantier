@@ -69,16 +69,16 @@
         <Separator></Separator>
         <Grid>
 
-            <Label Content="Matériau ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="139,464,0,0" VerticalAlignment="Top"/>
+            <!--<Label Content="Matériau ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="139,464,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="txtBoxMateriauxID" HorizontalAlignment="Left" Margin="234,468,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
             <Label Content="Nom Matériau" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="138,496,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtBoxMateriauxNom" HorizontalAlignment="Left" Margin="234,501,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
+            <TextBox x:Name="txtBoxMateriauxNom" HorizontalAlignment="Left" Margin="234,501,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" />-->
 
-            <Label Content="Date Reception" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="400,468,0,0" VerticalAlignment="Top"/>
-            <DatePicker x:Name="datePkrDateReception" HorizontalAlignment="Left"   Margin="509,470,0,0"  VerticalAlignment="Top" Width="120"/>
+            <!--<Label Content="Date Reception" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="400,468,0,0" VerticalAlignment="Top"/>
+            <DatePicker x:Name="datePkrDateReception" HorizontalAlignment="Left"   Margin="509,470,0,0"  VerticalAlignment="Top" Width="120"/>-->
 
-            <Label Content="Ouvrage ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="400,499,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="comboBoxOuvrageID" HorizontalAlignment="Left" Margin="509,503,0,0"  Text="1" VerticalAlignment="Top" Width="120"
+            <!--<Label Content="Ouvrage ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="400,499,0,0" VerticalAlignment="Top"/>-->
+            <!--<ComboBox x:Name="comboBoxOuvrageID" HorizontalAlignment="Left" Margin="509,503,0,0"  Text="1" VerticalAlignment="Top" Width="120"
                       SelectedValue="{Binding OuvrageID  }"
                       SelectedValuePath="OuvrageID">
 
@@ -90,9 +90,9 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
 
-            </ComboBox>
+            </ComboBox>-->
 
-            <ListView x:Name="ListViewMateriaux" Margin="10,544,10,90"  Height="150" Width="520" SelectionChanged="ListViewMateriaux_SelectionChanged" >
+            <ListView x:Name="ListViewMateriaux" Margin="140,450,140,234"  Height="100" Width="520" SelectionChanged="ListViewMateriaux_SelectionChanged" >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Matériaux Id" Width="70" DisplayMemberBinding="{Binding MateriauxID }" />
@@ -102,7 +102,22 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <TextBlock HorizontalAlignment="Left" Margin="37,411,0,0" TextWrapping="Wrap" Text="liste des matériaux pour ce chantier" VerticalAlignment="Top" Foreground="#FFAD0A0A" FontWeight="Bold" FontSize="16"/>
+            <TextBlock HorizontalAlignment="Left" Margin="37,411,0,0" TextWrapping="Wrap" Text="Liste des matériaux utilisés dans cet ouvrage" VerticalAlignment="Top" Foreground="#FFAD0A0A" FontWeight="Bold" FontSize="16"/>
+
+            
+            
+            <TextBlock HorizontalAlignment="Left" Margin="37,576,0,0" TextWrapping="Wrap" Text="Liste des travailleurs impliqués dans cet ouvrage " VerticalAlignment="Top" Foreground="#FFAD0A0A" FontWeight="Bold" FontSize="16"/>
+            <ListView x:Name="ListViewTravailleurs" Margin="91,622,91,26"  >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Employe ID" Width="70" DisplayMemberBinding="{Binding EmployeID  }" />
+                        <GridViewColumn Header="Nom   " Width="140" DisplayMemberBinding="{Binding Nom  }" />
+                        <GridViewColumn Header="Prenom" Width="140" DisplayMemberBinding="{Binding Prenom  }" />
+                        <GridViewColumn Header="Telephone " Width="100" DisplayMemberBinding="{Binding Telephone  }"  />
+                        <GridViewColumn Header="Poste Emploi " Width="120" DisplayMemberBinding="{Binding PosteEmploi  }"  />
+                    </GridView>
+                </ListView.View>
+            </ListView>
 
         </Grid>
 
