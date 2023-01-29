@@ -33,6 +33,8 @@ namespace WpfChantierApp1._2
                 ListViewOuvriers.ItemsSource = dbEntities.Employes.ToList();
                 // remplir notre combobox avec les ID des appareils existants dans la base de données 
                 comboBoxEquipeID.ItemsSource = dbEntities.Equipes.ToList();
+
+               
             }
         }
 

@@ -66,3 +66,53 @@ ok   - Equipe ID cambiar de textbox a Combo box (Binding) - OK
 ***********************************************************
 
   <DatePicker x:Name="datePkrDateEmbauche" HorizontalAlignment="Left" Margin="413,79,0,0"  VerticalAlignment="Top" Width="120"/>
+
+**********************************************************
+
+        public Ouvrage()
+        {
+            this.Materiauxes = new HashSet<Materiaux>();
+            this.Fournirs = new HashSet<Fournir>();
+            this.Realisers = new HashSet<Realiser>();
+            this.Sous_Traitant = new HashSet<Sous_Traitant>();
+        }
+    
+        public int OuvrageID { get; set; }
+        public string NomOuvrage { get; set; }
+        public string Description_Ouvrage { get; set; }
+        public Nullable<int> EquipeID { get; set; }
+        public string Date_Debut_Ouvrage { get; set; }
+        public string Date_Fin_Ouvrage { get; set; }
+    
+        public virtual Equipe Equipe { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Materiaux> Materiauxes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Fournir> Fournirs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Realiser> Realisers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sous_Traitant> Sous_Traitant { get; set; }
+
+
+
+
+    public partial class Fournir
+    {
+        public int MateriauxID { get; set; }
+        public Nullable<int> OuvrageID { get; set; }
+        public string DateReception { get; set; }
+    
+        public virtual Materiaux Materiaux { get; set; }
+        public virtual Ouvrage Ouvrage { get; set; }
+    }
+
+
+        public int MateriauxID { get; set; }
+        public string NomMateriaux { get; set; }
+        public string DateReception { get; set; }
+        public Nullable<int> OuvrageID { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Fournir> Fournirs { get; set; }
+        public virtual Ouvrage Ouvrage { get; set; }

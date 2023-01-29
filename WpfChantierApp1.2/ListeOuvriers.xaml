@@ -35,6 +35,8 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" >
                             <TextBlock x:Name="comboTxtBoxEquipeID" Text="{Binding EquipeID}"  />
+                            <TextBlock  Text=" - "  />
+                            <TextBlock  Text="{Binding NomDepartement}"  />
                         </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>

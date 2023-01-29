@@ -5,15 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfChantierApp1._2"
         mc:Ignorable="d"
-        Title="ListeOuvrage" Height="450" Width="800">
+        Title="ListeOuvrage" Height="800" Width="800">
     <Grid>
         <Grid>
-
             <Label Content="Ouvrage ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="54,71,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="txtBoxOuvrageID" HorizontalAlignment="Left" Margin="159,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
             <Label Content="Nom Ouvrage" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="324,72,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="txtBoxNomOuvrage" HorizontalAlignment="Left" Margin="418,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-            
+
             <Label Content="Equipe Id" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="558,72,0,0" VerticalAlignment="Top"/>
             <ComboBox x:Name="comboBoxEquipeID" HorizontalAlignment="Left" Margin="654,75,0,0"  Text="1" VerticalAlignment="Top" Width="120"
                       SelectedValue="{Binding EquipeID  }"
@@ -23,6 +22,8 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" >
                             <TextBlock x:Name="comboTxtBoxEquipeID" Text="{Binding EquipeID}"  />
+                            <TextBlock  Text=" - "  />
+                            <TextBlock  Text="{Binding NomDepartement}"  />
                         </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
@@ -34,7 +35,7 @@
 
             <Label Content="Fin Ouvrage" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="559,141,0,0" VerticalAlignment="Top"/>
             <DatePicker x:Name="datePkrFinOuvrage" HorizontalAlignment="Left"  Margin="654,149,0,0"  VerticalAlignment="Top" Width="120"/>
-                            
+
             <Label Content="Description Ouvrage" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="31,105,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="txtBoxDescOuvrage" HorizontalAlignment="Left" Margin="159,118,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="49" Width="379"/>
 
@@ -52,19 +53,58 @@
             </Grid.Background>
         </Grid>
 
-        <ListView x:Name="ListViewOuvrage" Margin="0,241,0,0" SelectionChanged="ListViewOuvrage_SelectionChanged"   >
+        <ListView x:Name="ListViewOuvrage" Margin="10,233,10,401" SelectionChanged="ListViewOuvrage_SelectionChanged" Height="150" Width="780" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Ouvrage Id" Width="80" DisplayMemberBinding="{Binding OuvrageID}" />
+                    <GridViewColumn Header="Ouvrage Id" Width="70" DisplayMemberBinding="{Binding OuvrageID}" />
                     <GridViewColumn Header="Nom Ouvrage" Width="100" DisplayMemberBinding="{Binding NomOuvrage}" />
                     <GridViewColumn Header="Description Ouvrage" Width="280" DisplayMemberBinding="{Binding Description_Ouvrage}" />
-                    <GridViewColumn Header="Equipe Id " Width="90" DisplayMemberBinding="{Binding EquipeID}"  />
-                    <GridViewColumn Header="Date_Debut_Ouvrage" Width="135" DisplayMemberBinding="{Binding Date_Debut_Ouvrage}"  />
-                    <GridViewColumn Header="Date_Fin_Ouvrage" Width="110" DisplayMemberBinding="{Binding Date_Fin_Ouvrage}"  />
-
+                    <GridViewColumn Header="Equipe Id " Width="90" DisplayMemberBinding="{Binding EquipeID }"  />
+                    <GridViewColumn Header="Debut Ouvrage" Width="135" DisplayMemberBinding="{Binding Date_Debut_Ouvrage}"  />
+                    <GridViewColumn Header="Fin Ouvrage" Width="110" DisplayMemberBinding="{Binding Date_Fin_Ouvrage}"  />
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <Separator></Separator>
+        <Grid>
+
+            <Label Content="Matériau ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="139,464,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtBoxMateriauxID" HorizontalAlignment="Left" Margin="234,468,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
+            <Label Content="Nom Matériau" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="138,496,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtBoxMateriauxNom" HorizontalAlignment="Left" Margin="234,501,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
+
+            <Label Content="Date Reception" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="400,468,0,0" VerticalAlignment="Top"/>
+            <DatePicker x:Name="datePkrDateReception" HorizontalAlignment="Left"   Margin="509,470,0,0"  VerticalAlignment="Top" Width="120"/>
+
+            <Label Content="Ouvrage ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="400,499,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="comboBoxOuvrageID" HorizontalAlignment="Left" Margin="509,503,0,0"  Text="1" VerticalAlignment="Top" Width="120"
+                      SelectedValue="{Binding OuvrageID  }"
+                      SelectedValuePath="OuvrageID">
+
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock x:Name="comboTxtBoxEquipeID" Text="{Binding OuvrageID}"  />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+
+            </ComboBox>
+
+            <ListView x:Name="ListViewMateriaux" Margin="10,544,10,90"  Height="150" Width="520" SelectionChanged="ListViewMateriaux_SelectionChanged" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Matériaux Id" Width="70" DisplayMemberBinding="{Binding MateriauxID }" />
+                        <GridViewColumn Header="Nom des matériaux  " Width="170" DisplayMemberBinding="{Binding NomMateriaux }" />
+                        <GridViewColumn Header="Date Reception" Width="180" DisplayMemberBinding="{Binding DateReception }" />
+                        <GridViewColumn Header="Ouvrage Id " Width="90" DisplayMemberBinding="{Binding OuvrageID }"  />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <TextBlock HorizontalAlignment="Left" Margin="37,411,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFAD0A0A" FontWeight="Bold" FontSize="16"> liste des matériaux pour ce chantier </TextBlock>
+
+        </Grid>
 
     </Grid>
 </Window>
