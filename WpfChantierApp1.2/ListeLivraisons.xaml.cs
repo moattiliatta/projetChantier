@@ -21,10 +21,6 @@ namespace WpfChantierApp1._2
     public partial class ListeLivraisons : Window
     {
 
-       // ProjetChantierEntities dbEntities1 = new ProjetChantierEntities();
-
-        // cualquier cosa
-
         public ListeLivraisons()
         {
             InitializeComponent();
@@ -39,8 +35,7 @@ namespace WpfChantierApp1._2
             {
                 txtBoxMateriauxID.Text = materiaux.MateriauxID.ToString();
                 txtBoxNomMateriaux.Text = materiaux.NomMateriaux;
-                txtBoxDateRecept.Text = materiaux.DateReception.ToString();
-                txtBoxOuvrageID.Text = materiaux.OuvrageID.ToString();
+
             }
         }
 
@@ -49,6 +44,7 @@ namespace WpfChantierApp1._2
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
             {
                 ListViewMateriaux.ItemsSource = dbEntities.Materiauxes.ToList();
+                comboBoxOuvrageID.ItemsSource = dbEntities.Ouvrages.ToList();
             }
         }
 
@@ -56,8 +52,7 @@ namespace WpfChantierApp1._2
         {
             txtBoxMateriauxID.Text = "";
             txtBoxNomMateriaux.Text = "";
-            txtBoxDateRecept.Text = "";
-            txtBoxOuvrageID.Text = "";
+
         }
 
         private void btnModifier_Click(object sender, RoutedEventArgs e)
@@ -71,10 +66,10 @@ namespace WpfChantierApp1._2
                     Materiaux materiauxModifier = dbEntities.Materiauxes.FirstOrDefault(mtr => mtr.MateriauxID == materiauxSelected.MateriauxID);
                     if (materiauxModifier != null)
                     {
-                        // int newID = int.Parse(txtBoxOuvrageID.Text);
+
                         materiauxModifier.NomMateriaux = txtBoxNomMateriaux.Text;
-                        materiauxModifier.DateReception = txtBoxDateRecept.Text;
-                        materiauxModifier.OuvrageID = int.Parse(txtBoxOuvrageID.Text);
+                        materiauxModifier.DateReception = datePkrDateRecept.SelectedDate.Value.ToShortDateString();
+                        materiauxModifier.OuvrageID = int.Parse(comboBoxOuvrageID.SelectedValue.ToString());
 
                         int resultT = dbEntities.SaveChanges();
                         if (resultT > 0)
@@ -84,11 +79,8 @@ namespace WpfChantierApp1._2
                             MessageBox.Show(message);
                         }
                     }
-
                 }
             }
-
-
         }
 
         private void btnSupprimer_Click(object sender, RoutedEventArgs e)
@@ -113,26 +105,29 @@ namespace WpfChantierApp1._2
                             MessageBox.Show(message);
                         }
                     }
-
                 }
             }
-
         }
 
         private void btnAjouter_Click(object sender, RoutedEventArgs e)
         {
+            //string ouvrageIdCombo = comboBoxOuvrageID.SelectedValue.ToString();
+            //int ouvrageSelectedId = int.Parse(ouvrageIdCombo);
 
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
             {
-                //Verifier et debbugger code
+
+                Materiaux lastMateriaux = dbEntities.Materiauxes.ToArray().LastOrDefault();
+                int lastnumber = lastMateriaux.MateriauxID + 1;
+
+
                 Materiaux newMateriel = new Materiaux()
                 {
-
-                   // MateriauxID = dbEntities.Materiauxes.LastOrDefault<Materiaux>().MateriauxID + 1,
+                    MateriauxID = lastnumber,
                     NomMateriaux = txtBoxNomMateriaux.Text,
-                    DateReception = txtBoxDateRecept.Text,
-                    OuvrageID = int.Parse(txtBoxOuvrageID.Text),
-
+                    DateReception = datePkrDateRecept.SelectedDate.Value.ToShortDateString(),
+                    OuvrageID = int.Parse(comboBoxOuvrageID.SelectedValue.ToString()),
+                    
                 };
 
                 if (newMateriel != null)
@@ -148,35 +143,10 @@ namespace WpfChantierApp1._2
                         MessageBox.Show(message);
                     }
 
-
                 }
             }
-
-
         }
     }
 }
 
 
-/*
-private void AfficherMateriel(Materiaux materiauxSelect)
-{
-    int materiauxID = materiauxSelect.MateriauxID;
-    MessageBox.Show("MAteriel selected : " + materiauxSelect.MateriauxID + " " + materiauxSelect.NomMateriaux + "\n" + "var materiauxID = " + materiauxID);
-    using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
-    {
-        var query = from materiaux in dbEntities.Materiauxes
-                    where materiaux.MateriauxID == materiauxID
-                    select new
-                    {
-                        MateriauxID = materiaux.MateriauxID,
-                        NomMateriaux = materiaux.NomMateriaux,
-                        DateReception = materiaux.DateReception,
-                        OuvrageID = materiaux.OuvrageID
-                    };
-
-        ListViewMateriaux.ItemsSource = query.ToList();
-
-    }
-}
-*/

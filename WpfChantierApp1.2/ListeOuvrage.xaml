@@ -102,7 +102,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <TextBlock HorizontalAlignment="Left" Margin="37,411,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFAD0A0A" FontWeight="Bold" FontSize="16"> liste des matériaux pour ce chantier </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="37,411,0,0" TextWrapping="Wrap" Text="liste des matériaux pour ce chantier" VerticalAlignment="Top" Foreground="#FFAD0A0A" FontWeight="Bold" FontSize="16"/>
 
         </Grid>
 

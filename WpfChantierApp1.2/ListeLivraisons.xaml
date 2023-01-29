@@ -19,13 +19,30 @@
 
             <Grid>
                 <Label Content="Materiaux ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="54,71,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtBoxMateriauxID" HorizontalAlignment="Left" Margin="159,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="txtBoxMateriauxID" HorizontalAlignment="Left" Margin="159,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
                 <Label Content="Nom Materiaux" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="54,122,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtBoxNomMateriaux" HorizontalAlignment="Left" Margin="159,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
                 <Label Content="Date Reception" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="490,72,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtBoxDateRecept" HorizontalAlignment="Left" Margin="606,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                <!--<TextBox x:Name="txtBoxDateRecept" HorizontalAlignment="Left" Margin="606,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>-->
+                <DatePicker x:Name="datePkrDateRecept" HorizontalAlignment="Left" Margin="606,76,0,0"  VerticalAlignment="Top" Width="120"/>
+
                 <Label Content="Ouvrage ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="502,124,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtBoxOuvrageID" HorizontalAlignment="Left" Margin="605,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                <!--<TextBox x:Name="txtBoxOuvrageID" HorizontalAlignment="Left" Margin="605,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>-->
+                <ComboBox x:Name="comboBoxOuvrageID" HorizontalAlignment="Left" Margin="605,128,0,0"  Text="1" VerticalAlignment="Top" Width="120"
+                      SelectedValue="{Binding OuvrageID  }"
+                      SelectedValuePath="OuvrageID">
+
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock x:Name="comboTxtBoxEquipeID" Text="{Binding OuvrageID}"  />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+
+                </ComboBox>
+
+
 
 
             </Grid>

@@ -5,6 +5,7 @@
  ok  - Equipe ID cambiar de textbox a Combo box (Binding) - OK 
  ok  - Verificar instanciacion new Employe en el campo de Employe ID y base de datos  - OK
 	
+     -Try Catch ajouter element, verificar seleccion del id en el combobox	
 
 2. Liste des ouvrages :
 
@@ -14,6 +15,8 @@ ok   - Fin Ouvrage cambiar tipo textbox a DatePicker (Binding)  - OK
 ok   - Equipe ID = Ajustar Binding  - OK
 ok   - Equipe ID cambiar de textbox a Combo box (Binding) - OK
    - Botones (funcionales)
+
+     -Try Catch ajouter element, verificar seleccion del id en el combobox	
 
 
 3 Liste Sous Traitansts
@@ -25,12 +28,14 @@ ok   - Equipe ID cambiar de textbox a Combo box (Binding) - OK
    - Botones (funcionales)
    - Add NomCompagnie : DataBase, class, modelo entity.
    - ListView : binding nombre de NomCompagie.
+   - Try Catch ajouter element, verificar seleccion del id en el combobox	
 
-4. Liste Materiaux
+4. Liste Materiaux (ListeLivraisons);
  
-   - Ouvrage ID cambiar de textbox a Combo box (Binding)
-   - Date Reception cambiar tipo textbox a DatePicker (Binding)
-   - Botones (funcionales).
+ ok  - Ouvrage ID cambiar de textbox a Combo box (Binding) -OK
+ ok  - Date Reception cambiar tipo textbox a DatePicker (Binding) -OK
+ ok  - Botones (funcionales) -OK
+     - Try Catch ajouter element, verificar seleccion del id en el combobox	
 
 5. Regles Securite et Assistence 
 
@@ -45,7 +50,7 @@ ok   - Equipe ID cambiar de textbox a Combo box (Binding) - OK
    -  Agregar valores ausente presente de la sesion de empleado en la base de datos 
    -  Ajustar textblock Bienvenida
 
-
+liste des matériaux pour ce chantier
 
 **********************************************************
 
