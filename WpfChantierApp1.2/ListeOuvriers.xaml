@@ -27,7 +27,9 @@
             <TextBox x:Name="txtBoxTelephone" HorizontalAlignment="Left" Margin="413,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
             <Label Content="Equipe ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="308,138,0,0" VerticalAlignment="Top"/>
             <!--<TextBox x:Name="txtBoxEquipeID" HorizontalAlignment="Left" Margin="413,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>-->
-            <ComboBox x:Name="comboBoxEquipeID" HorizontalAlignment="Left" Margin="413,144,0,0"  Text="1" VerticalAlignment="Top" Width="120">
+            <ComboBox x:Name="comboBoxEquipeID" HorizontalAlignment="Left" Margin="413,144,0,0"  Text="1" VerticalAlignment="Top" Width="120"
+                      SelectedValue="{Binding EquipeID}"
+                      SelectedValuePath="EquipeID">
 
                 <ComboBox.ItemTemplate>
                     <DataTemplate>

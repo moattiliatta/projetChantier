@@ -70,33 +70,40 @@ namespace WpfChantierApp1._2
         private void btnAjouter_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("btn ajouter");
+            MessageBox.Show("quipe id from combobox : " + comboBoxEquipeID.SelectedValue.ToString());
+            string equipeIdCombo = comboBoxEquipeID.SelectedValue.ToString();
+            MessageBox.Show("quipe id from combobox : " + equipeIdCombo);
 
-            Employe newEmploye = new Employe()
-            {
-
-                // EmployeID = Employes.LastOrDefault<Employe>().EmployeID + 1,
-                Nom = txtBoxEmployeNom.Text,
-                Prenom = txtBoxEmployePreNom.Text,
-                Telephone = txtBoxTelephone.Text,
-                EmployeMotPasse = txtBoxMotPasse.Text,
-                PosteEmploi = txtBoxPosteEmploi.Text,
-                DateEmbauche = datePkrDateEmbauche.SelectedDate.Value,
-                // EquipeID = int.Parse(txtBoxEquipeID.Text),
-                EquipeID = int.Parse(comboBoxEquipeID.SelectedValue.ToString()),
-
-            };
+            int equipeSelectedId = int.Parse(equipeIdCombo);
 
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
             {
-
                 Employe lastEmploye = dbEntities.Employes.ToArray().LastOrDefault();
-
                 int lastnumber = lastEmploye.EmployeID + 1;
+                MessageBox.Show("last id employe from database : " + lastnumber);
+                Equipe equipeCherche = dbEntities.Equipes.SingleOrDefault(x => x.EquipeID == equipeSelectedId);
+                
+
+                Employe newEmploye = new Employe()
+                {
+
+                    EmployeID = lastEmploye.EmployeID + 1,
+                    Nom = txtBoxEmployeNom.Text,
+                    Prenom = txtBoxEmployePreNom.Text,
+                    DateEmbauche = datePkrDateEmbauche.SelectedDate.Value,
+                    Telephone = txtBoxTelephone.Text,
+                    EquipeID = int.Parse(comboBoxEquipeID.SelectedValue.ToString()),
+                    PosteEmploi = txtBoxPosteEmploi.Text,
+                    EmployeMotPasse = txtBoxMotPasse.Text,
+                    Equipe = equipeCherche,
+                    // EquipeID = int.Parse(txtBoxEquipeID.Text),
+                };
+
 
                 if (newEmploye != null)
                 {
 
-                    newEmploye.EmployeID = lastEmploye.EmployeID + 1;
+                   // newEmploye.EmployeID = lastEmploye.EmployeID + 1;
 
 
                     dbEntities.Employes.Add(newEmploye);
