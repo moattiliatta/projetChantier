@@ -14,7 +14,7 @@
         <Grid>
 
             <Label Content="Employe ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="54,71,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtBoxEmployeID" HorizontalAlignment="Left" Margin="159,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtBoxEmployeID" HorizontalAlignment="Left" Margin="159,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
             <Label Content="Employe nom" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="54,102,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="txtBoxEmployeNom" HorizontalAlignment="Left" Margin="159,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
             <Label Content="Employe Prenom" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="54,135,0,0" VerticalAlignment="Top"/>
@@ -26,21 +26,19 @@
             
             <TextBox x:Name="txtBoxTelephone" HorizontalAlignment="Left" Margin="413,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
             <Label Content="Equipe ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="308,138,0,0" VerticalAlignment="Top"/>
-            <!--<TextBox x:Name="txtBoxEquipeID" HorizontalAlignment="Left" Margin="413,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>-->
+             
             <ComboBox x:Name="comboBoxEquipeID" HorizontalAlignment="Left" Margin="413,144,0,0"  Text="1" VerticalAlignment="Top" Width="120"
-                      SelectedValue="{Binding EquipeID}"
+                      SelectedValue="{Binding EquipeID  }"
                       SelectedValuePath="EquipeID">
 
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" >
-                            <TextBlock  Text="{Binding EquipeID}"  />
+                            <TextBlock x:Name="comboTxtBoxEquipeID" Text="{Binding EquipeID}"  />
                         </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
-                
-                
-                
+       
             </ComboBox>
             
             

@@ -1,9 +1,9 @@
 1. Liste des ouvriers :
-   - Binding textbox 
-   - Botones (funcionales) - VERIFY
+   - Binding textbox - OK
+   - Botones (funcionales) - OK
    - Date Embauche cambiar tipo textbox a DatePicker (Binding)  - OK
    - Equipe ID cambiar de textbox a Combo box (Binding) - OK 
-   - Verificar instanciacion new Employe en el campo de Employe ID y base de datos 
+   - Verificar instanciacion new Employe en el campo de Employe ID y base de datos  - OK
 	
 
 2. Liste des ouvrages :

@@ -31,31 +31,30 @@ namespace WpfChantierApp1._2
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
             {
                 ListViewOuvriers.ItemsSource = dbEntities.Employes.ToList();
+                // remplir notre combobox avec les ID des appareils existants dans la base de données 
                 comboBoxEquipeID.ItemsSource = dbEntities.Equipes.ToList();
             }
         }
 
-        // Verifier intanciation de Employe dans l'atribut Employe ID
         private void btnAjouter_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("btn ajouter");
-            MessageBox.Show("quipe id from combobox : " + comboBoxEquipeID.SelectedValue.ToString());
+            // rechercher et enregistrer l'identifiant de l'équipement qui a été sélectionné
             string equipeIdCombo = comboBoxEquipeID.SelectedValue.ToString();
-            MessageBox.Show("quipe id from combobox : " + equipeIdCombo);
-
             int equipeSelectedId = int.Parse(equipeIdCombo);
 
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
             {
+             /* trouver le dernier enregistrement de l'employé dans la base de données, 
+                enregistrer son ID + 1 afin que nous puissions instancier notre nouvel objet en itérant
+                la valeur des enregistrements et faire correspondre les valeurs de la BD et de nos objets.  */
                 Employe lastEmploye = dbEntities.Employes.ToArray().LastOrDefault();
-                int lastnumber = lastEmploye.EmployeID + 1;
-                MessageBox.Show("last id employe from database : " + lastnumber);
+               
                 Equipe equipeCherche = dbEntities.Equipes.SingleOrDefault(x => x.EquipeID == equipeSelectedId);
-                
 
+                // instance de notre nouvel objet 
                 Employe newEmploye = new Employe()
                 {
-
                     EmployeID = lastEmploye.EmployeID + 1,
                     Nom = txtBoxEmployeNom.Text,
                     Prenom = txtBoxEmployePreNom.Text,
@@ -65,16 +64,10 @@ namespace WpfChantierApp1._2
                     PosteEmploi = txtBoxPosteEmploi.Text,
                     EmployeMotPasse = txtBoxMotPasse.Text,
                     Equipe = equipeCherche,
-                    // EquipeID = int.Parse(txtBoxEquipeID.Text),
                 };
-
 
                 if (newEmploye != null)
                 {
-
-                   // newEmploye.EmployeID = lastEmploye.EmployeID + 1;
-
-
                     dbEntities.Employes.Add(newEmploye);
 
                     int resultat = dbEntities.SaveChanges();
@@ -135,12 +128,9 @@ namespace WpfChantierApp1._2
                         emplModifier.Prenom = txtBoxEmployePreNom.Text;
                         emplModifier.EmployeID = int.Parse(txtBoxEmployeID.Text);
                         emplModifier.Telephone = txtBoxTelephone.Text;
-           
                         emplModifier.PosteEmploi = txtBoxPosteEmploi.Text;
-                        //emplModifier.EquipeID = int.Parse(txtBoxEquipeID.Text);
                         emplModifier.EquipeID = int.Parse(comboBoxEquipeID.SelectedValue.ToString());
                         emplModifier.EmployeMotPasse = txtBoxMotPasse.Text;
-                       // EquipeID = int.Parse(comboBoxEquipeID.SelectedValue.ToString()),
 
                
                         int resultat = dbEntities.SaveChanges();
@@ -163,7 +153,6 @@ namespace WpfChantierApp1._2
             txtBoxEmployeNom.Text = "";
             txtBoxEmployePreNom.Text = "";
             txtBoxTelephone.Text = "";
-           // txtBoxEquipeID.Text = "";
             txtBoxMotPasse.Text = "";
             txtBoxPosteEmploi.Text = "";
 
@@ -178,8 +167,7 @@ namespace WpfChantierApp1._2
                 txtBoxEmployeNom.Text = employe.Nom;
                 txtBoxEmployePreNom.Text = employe.Prenom;
                 txtBoxTelephone.Text = employe.Telephone;
-               // txtBoxEquipeID.Text = employe.EquipeID.ToString();
-                comboBoxEquipeID.SelectedValue = employe.EquipeID.ToString();
+                comboBoxEquipeID.Text = employe.EquipeID.ToString();
                 txtBoxMotPasse.Text = employe.EmployeMotPasse.ToString();
                 txtBoxPosteEmploi.Text = employe.PosteEmploi;
             }
