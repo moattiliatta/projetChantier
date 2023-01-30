@@ -76,3 +76,5 @@ C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfC
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\WpfChantierApp1.2.pdb
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\ChefEquipeInter.g.cs
 C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Debug\ChefEquipeInter.baml
+C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\ChefEquipeInter.g.cs
+C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\ChefEquipeInter.baml

@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Media.Media3D;
 
 namespace WpfChantierApp1._2
 {
@@ -26,14 +27,81 @@ namespace WpfChantierApp1._2
             AfficherSousTraitant();
         }
 
+        public void AfficherSousTraitant()
+        {
+            using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+            {
+                ListViewSousTraitants.ItemsSource = dbEntities.Sous_Traitant.ToList();
+                comboBoxOuvrageID.ItemsSource = dbEntities.Ouvrages.ToList();
+            }
+        }
+
         private void btnAjouter_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("btn Ajouter");
+
+
+            //string soustraitantIdCombo = comboBoxOuvrageID.SelectedValue.ToString();
+            //int OuvrageSelectedId = int.Parse(soustraitantIdCombo);
+
+            using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+            {
+                Sous_Traitant derniereSousTraitant = dbEntities.Sous_Traitant.ToArray().LastOrDefault();
+
+                int lastnumber = derniereSousTraitant.SousTraitantID + 1;
+
+                //Ouvrage ouvrageCherche = dbEntities.Ouvrages.SingleOrDefault(x => x.OuvrageID == OuvrageSelectedId);
+
+
+                Sous_Traitant newSoustraitant = new Sous_Traitant()
+
+                {
+                    SousTraitantID = lastnumber,
+                    DomainSousTraitant = txtBoxDomainSousTraitant.Text,
+                    Date_Debut_SousTraitant = datePkrDebutSousTraitant.SelectedDate.Value.ToShortDateString(),
+                    Date_Fin_SousTraitant = datePkrFinSousTraitant.SelectedDate.Value.ToShortDateString(),
+                    OuvrageID = int.Parse(comboBoxOuvrageID.SelectedValue.ToString()),
+
+                };
+
+                if (newSoustraitant != null)
+                {
+                    dbEntities.Sous_Traitant.Add(newSoustraitant);
+                    int resultat = dbEntities.SaveChanges();
+                    if (resultat > 0)
+                    {
+                        this.AfficherSousTraitant();
+                        string message = $"Le Sous Traitant {newSoustraitant.SousTraitantID} a été enregistré dans le système";
+                        MessageBox.Show(message);
+                    }
+                }
+            }
         }
 
         private void btnSupprimer_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("btn Supprimer");
+
+            Sous_Traitant soustraitantSelected = (Sous_Traitant)ListViewSousTraitants.SelectedItem;
+
+            if (soustraitantSelected != null)
+            {
+                using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+                {
+                    Sous_Traitant soustraitantDeleted = dbEntities.Sous_Traitant.SingleOrDefault(soustr => soustr.SousTraitantID == soustraitantSelected.SousTraitantID);
+
+                    if (soustraitantDeleted != null)
+                    {
+                        dbEntities.Sous_Traitant.Remove(soustraitantDeleted);
+                        int resultat = dbEntities.SaveChanges();
+                        if (resultat > 0)
+                        {
+                            this.AfficherSousTraitant();
+                            string message = $"L'soustraitant {soustraitantDeleted.SousTraitantID} à été supprimé ";
+                            MessageBox.Show(message);
+                        }
+                    }
+                }
+            }
         }
 
         private void btnModifier_Click(object sender, RoutedEventArgs e)
@@ -42,20 +110,20 @@ namespace WpfChantierApp1._2
 
             Sous_Traitant sousTraitantSelected = (Sous_Traitant)ListViewSousTraitants.SelectedItem;
 
-            if(sousTraitantSelected != null)
+            if (sousTraitantSelected != null)
             {
                 using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
                 {
 
                     Sous_Traitant sousTraitModifier = dbEntities.Sous_Traitant.FirstOrDefault(str => str.SousTraitantID == sousTraitantSelected.SousTraitantID);
 
-                    if(sousTraitModifier != null)
+                    if (sousTraitModifier != null)
                     {
                         sousTraitModifier.DomainSousTraitant = txtBoxDomainSousTraitant.Text;
                         // MODIFIER : includ Ouvrage ID into a combo box to avoid furute bugs
-                        sousTraitModifier.OuvrageID = int.Parse(txtBoxOuvrageID.Text);
-                        sousTraitModifier.Date_Debut_SousTraitant = txtBoxDebutSousTraitant.Text;
-                        sousTraitModifier.Date_Fin_SousTraitant = txtBoxFinSousTraitant.Text;
+                        sousTraitModifier.OuvrageID = int.Parse(comboBoxOuvrageID.SelectedValue.ToString());
+                        sousTraitModifier.Date_Debut_SousTraitant = datePkrDebutSousTraitant.Text;
+                        sousTraitModifier.Date_Fin_SousTraitant = datePkrFinSousTraitant.Text;
 
                         int resultat = dbEntities.SaveChanges();
                         if (resultat > 0)
@@ -73,22 +141,32 @@ namespace WpfChantierApp1._2
 
 
         }
- 
+
         private void btnEffacer_Click(object sender, RoutedEventArgs e)
         {
             txtBoxSousTraitantID.Text = "";
             txtBoxDomainSousTraitant.Text = "";
-            txtBoxOuvrageID.Text = "";
-            txtBoxDebutSousTraitant.Text = "";
-            txtBoxFinSousTraitant.Text = "";
+            comboBoxOuvrageID.Text = "";
+            datePkrDebutSousTraitant.Text = "";
+            datePkrFinSousTraitant.Text = "";
         }
 
-        public void AfficherSousTraitant() {
 
-            using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+
+        private void ListViewSousTraitants_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (ListViewSousTraitants.SelectedItem is Sous_Traitant sous_traitant)
             {
-                ListViewSousTraitants.ItemsSource = dbEntities.Sous_Traitant.ToList();
+                datePkrDebutSousTraitant.Text = sous_traitant.Date_Debut_SousTraitant.ToString();
+                datePkrFinSousTraitant.Text = sous_traitant.Date_Fin_SousTraitant.ToString();
+                txtBoxSousTraitantID.Text = sous_traitant.SousTraitantID.ToString();
+                txtBoxDomainSousTraitant.Text = sous_traitant.DomainSousTraitant.ToString();
+                comboBoxOuvrageID.Text = sous_traitant.OuvrageID.ToString();
             }
+
         }
     }
 }
+
+
