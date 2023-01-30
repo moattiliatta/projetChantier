@@ -25,22 +25,28 @@ namespace WpfChantierApp1._2
             AfficherOuvrage();
         }
 
+        /* reçoit les informations de sélection de l'utilisateur */
         private void ListViewOuvrage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //crée un objet ouvrage
             Ouvrage ouvrageSelected = (Ouvrage)ListViewOuvrage.SelectedItem;
+
             int selectedEquipeID = 0;
 
             if (ListViewOuvrage.SelectedItem is Ouvrage ouvrage)
             {
+                //ffiche dans les zones de texte les valeurs sélectionnées.
                 txtBoxOuvrageID.Text = ouvrage.OuvrageID.ToString();
                 txtBoxNomOuvrage.Text = ouvrage.NomOuvrage;
                 txtBoxDescOuvrage.Text = ouvrage.Description_Ouvrage;
+                //récupère l'Id de l'équipe pour chaque sélection 
                 selectedEquipeID = ouvrage.EquipeID.Value;
             }
             AfficherMateriaux(ouvrageSelected);
             AfficherEmployes(selectedEquipeID);
         }
 
+        // Reçoit l'identifiant de l'équipe et renvoie la liste des travailleurs associés. 
         private void AfficherEmployes(int selectedEquipeID)
         {
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
@@ -64,6 +70,7 @@ namespace WpfChantierApp1._2
             }
         }
 
+        // Reçoit un objet de type Ouvrage et renvoie une nomenclature associée au numéro d'identification. 
         private void AfficherMateriaux(Ouvrage ouvrageSelected)
         {
             int ouvrageID = ouvrageSelected.OuvrageID;
@@ -84,6 +91,7 @@ namespace WpfChantierApp1._2
             }
         }
 
+        // se connecte à la BD et affiche sur l'interface les informations relatives à la liste des Ouvrages et Equipes.
         public void AfficherOuvrage()
         {
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
@@ -91,10 +99,10 @@ namespace WpfChantierApp1._2
                 ListViewOuvrage.ItemsSource = dbEntities.Ouvrages.ToList();
                 // remplir notre combobox avec les ID des appareils existants dans la base de données 
                 comboBoxEquipeID.ItemsSource = dbEntities.Equipes.ToList();
-
             }
         }
 
+        // Rechercher la création et l'ajout d'un nouvel enregistrement dans la BD
         private void btnAjouter_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("btn Ajouter");
@@ -104,11 +112,12 @@ namespace WpfChantierApp1._2
 
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
             {
+                // recherche le dernier élément stocké dans la table d'Ouvrages 
                 Ouvrage lastOuvrage = dbEntities.Ouvrages.ToArray().LastOrDefault();
+                // sauvegarde le dernier ID enregistré dans la table + 1 
                 int lastOuvrageID = lastOuvrage.OuvrageID + 1;
 
-                Equipe equipeCherche = dbEntities.Equipes.SingleOrDefault(x => x.EquipeID == equipeSelectedId);
-
+                Equipe equipeCherche = dbEntities.Equipes.SingleOrDefault(x => x.EquipeID == equipeSelectedId); // requête LINQ
 
                 Ouvrage newOuvrage = new Ouvrage()
                 {
@@ -137,6 +146,7 @@ namespace WpfChantierApp1._2
             }
         }
 
+        // Crée un objet de type Ouvrage selon la sélection de l'utilisateur, fait une recherche dans la BD et s'il trouve des correspondances d'ID, le supprime. 
         private void btnSupprimer_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("btn supprimer");
@@ -164,6 +174,7 @@ namespace WpfChantierApp1._2
             }
         }
 
+        // Il crée un objet de type Ouvrage selon la sélection de l'utilisateur, recherche dans la BD les correspondances d'identifiants et modifie les informations de l'enregistrement.
         private void btnModifier_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("btn modifier");
@@ -178,7 +189,6 @@ namespace WpfChantierApp1._2
 
                     if (ouvrModifier != null)
                     {
-
                         ouvrModifier.OuvrageID = int.Parse(txtBoxOuvrageID.Text);
                         ouvrModifier.NomOuvrage = txtBoxNomOuvrage.Text;
                         ouvrModifier.Description_Ouvrage = txtBoxDescOuvrage.Text;
@@ -198,6 +208,7 @@ namespace WpfChantierApp1._2
             }
         }
 
+        // Réinitialise les zones de texte de l'interface avec une chaîne vide.
         private void btnEffacer_Click(object sender, RoutedEventArgs e)
         {
             txtBoxOuvrageID.Text = "";
@@ -206,26 +217,6 @@ namespace WpfChantierApp1._2
             datePkrDebutOuvrage.Text = "";
             datePkrFinOuvrage.Text = "";
             comboBoxEquipeID.Text = "";
-
-        }
-
-        private void ListViewMateriaux_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-            //if (ListViewMateriaux.SelectedItem is Materiaux materiau)
-            //{
-
-            //    //txtBoxMateriauxID.Text = materiau.MateriauxID.ToString();
-            //    //txtBoxMateriauxNom.Text = materiau.NomMateriaux.ToString();
-
-            //    //txtBoxOuvrageID.Text = ouvrage.OuvrageID.ToString();
-            //    //txtBoxNomOuvrage.Text = ouvrage.NomOuvrage;
-            //    //txtBoxDescOuvrage.Text = ouvrage.Description_Ouvrage;
-            //    //txtBoxEquipeId.Text = ouvrage.EquipeID.ToString();
-            //    //txtBoxDebutOuvrage.Text = ouvrage.Date_Debut_Ouvrage.ToString();
-            //    //txtBoxFinOuvrage.Text = ouvrage.Date_Fin_Ouvrage.ToString() ;
-            //}
-
         }
     }
 }

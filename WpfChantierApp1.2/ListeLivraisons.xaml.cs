@@ -26,7 +26,7 @@ namespace WpfChantierApp1._2
             InitializeComponent();
             AfficherMateriaux();
         }
-
+        // affiche dans les boîtes de texte les informations trouvées dans la base de données, 
         private void ListViewMateriaux_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Materiaux materiauxSelected = (Materiaux)ListViewMateriaux.SelectedItem;
@@ -39,6 +39,7 @@ namespace WpfChantierApp1._2
             }
         }
 
+        // affiche dans les contrôleurs ListView et ComboBox les informations stockées dans les tables Matériaux et Ouvrages.
         public void AfficherMateriaux()
         {
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
@@ -47,14 +48,14 @@ namespace WpfChantierApp1._2
                 comboBoxOuvrageID.ItemsSource = dbEntities.Ouvrages.ToList();
             }
         }
-
+        // Réinitialise les zones de texte de l'interface avec une chaîne vide.
         private void btnEffacer_Click(object sender, RoutedEventArgs e)
         {
             txtBoxMateriauxID.Text = "";
             txtBoxNomMateriaux.Text = "";
-
         }
 
+        // Crée un objet de type Matériaux selon la sélection de l'utilisateur, recherche dans la BD les identifiants correspondants et modifie les informations de l'enregistrement.
         private void btnModifier_Click(object sender, RoutedEventArgs e)
         {
             Materiaux materiauxSelected = (Materiaux)ListViewMateriaux.SelectedItem;
@@ -83,6 +84,7 @@ namespace WpfChantierApp1._2
             }
         }
 
+        // Crée un objet de type Matériaux selon la sélection de l'utilisateur, effectue une recherche dans la BD et s'il trouve des correspondances d'ID, il le supprime. 
         private void btnSupprimer_Click(object sender, RoutedEventArgs e)
         {
             Materiaux materiauxSelected = (Materiaux)ListViewMateriaux.SelectedItem;
@@ -109,15 +111,14 @@ namespace WpfChantierApp1._2
             }
         }
 
+        // Crée un objet de type Matériaux selon les informations données par l'utilisateur. 
         private void btnAjouter_Click(object sender, RoutedEventArgs e)
         {
-            //string ouvrageIdCombo = comboBoxOuvrageID.SelectedValue.ToString();
-            //int ouvrageSelectedId = int.Parse(ouvrageIdCombo);
-
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
             {
-
+                // recherche dans la BD le dernier enregistrement de la table des matériaux. 
                 Materiaux lastMateriaux = dbEntities.Materiauxes.ToArray().LastOrDefault();
+                // enregistre l'ID du dernier enregistrement trouvé et lui ajoute 1.
                 int lastnumber = lastMateriaux.MateriauxID + 1;
 
 
