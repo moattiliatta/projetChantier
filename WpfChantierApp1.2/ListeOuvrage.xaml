@@ -5,9 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfChantierApp1._2"
         mc:Ignorable="d"
-        Title="ListeOuvrage" Height="800" Width="800">
+        Title="ListeOuvrage" Height="1000" Width="800">
     <Grid>
-        <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF2D6D6C" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid Grid.Row="0">
             <Label Content="Ouvrage ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="54,71,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="txtBoxOuvrageID" HorizontalAlignment="Left" Margin="159,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
             <Label Content="Nom Ouvrage" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="324,72,0,0" VerticalAlignment="Top"/>
@@ -44,16 +58,10 @@
             <Button x:Name="btnModifier"  Content="modifier" HorizontalAlignment="Left" Margin="227,182,0,0" VerticalAlignment="Top"  Height="28" Width="156" Click="btnModifier_Click"  />
             <Button x:Name="btnEffacer" Content="effacer" HorizontalAlignment="Left" Margin="428,182,0,0" VerticalAlignment="Top"  Height="28" Width="156" Click="btnEffacer_Click" />
             <Label x:Name="listeOuvrages" Content="LES LISTES DES OUVRAGES " HorizontalAlignment="Left" Margin="21,24,0,0" VerticalAlignment="Top" FontSize="16" Foreground="#FF2B58" FontWeight="Bold" Height="28" Width="213"/>
-
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FF2D6D6C" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
         </Grid>
 
-        <ListView x:Name="ListViewOuvrage" Margin="10,233,10,401" SelectionChanged="ListViewOuvrage_SelectionChanged" Height="150" Width="780" >
+        <Grid Grid.Row="1">
+            <ListView x:Name="ListViewOuvrage"  SelectionChanged="ListViewOuvrage_SelectionChanged" Height="190" Width="780" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Ouvrage Id" Width="70" DisplayMemberBinding="{Binding OuvrageID}" />
@@ -65,11 +73,11 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        </Grid>
 
-        <Separator></Separator>
-        <Grid>
-
-            <ListView x:Name="ListViewMateriaux" Margin="140,450,140,234"  Height="100" Width="520"  >
+        <Grid Grid.Row="3">
+            <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Liste des matériaux utilisés dans cet ouvrage" VerticalAlignment="Top" Foreground="#FF2B58" FontWeight="Bold" FontSize="16" Margin="10,0,0,0"/>
+            <ListView x:Name="ListViewMateriaux"  Height="180" Width="520"  >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Matériaux Id" Width="70" DisplayMemberBinding="{Binding MateriauxID }" />
@@ -79,11 +87,12 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <TextBlock HorizontalAlignment="Left" Margin="37,411,0,0" TextWrapping="Wrap" Text="Liste des matériaux utilisés dans cet ouvrage" VerticalAlignment="Top" Foreground="#FFAD0A0A" FontWeight="Bold" FontSize="16"/>
 
+        </Grid>
 
-            <TextBlock HorizontalAlignment="Left" Margin="37,576,0,0" TextWrapping="Wrap" Text="Liste des travailleurs impliqués dans cet ouvrage " VerticalAlignment="Top" Foreground="#FFAD0A0A" FontWeight="Bold" FontSize="16"/>
-            <ListView x:Name="ListViewTravailleurs" Margin="91,622,91,26"  >
+        <Grid Grid.Row="2">      
+            <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Liste des travailleurs impliqués dans cet ouvrage " VerticalAlignment="Top" Foreground="#FF2B58" FontWeight="Bold" FontSize="16" Margin="13,0,0,0"/>
+            <ListView x:Name="ListViewTravailleurs"   Height="190" Width="780" >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Employe ID" Width="70" DisplayMemberBinding="{Binding EmployeID  }" />
@@ -96,6 +105,7 @@
             </ListView>
 
         </Grid>
+
 
     </Grid>
 </Window>
