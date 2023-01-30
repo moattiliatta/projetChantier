@@ -63,9 +63,14 @@ namespace WpfChantierApp1._2
                         admin.ShowDialog();
 
                     }
-                    else if ((btnChef.IsChecked == true) && (employeFound.EquipeID == 2)) //Souperviseur
+
+                    else if ((btnChef.IsChecked == true) && (employeFound.PosteEmploi == "Superviseur")) //Souperviseur
                     {
                         MessageBox.Show("Option Chef sélectionnée");
+                        nomMessage = employeFound.Nom;
+                        MessageBox.Show("Option Admin sélectionnée, bienvenue : " + nomMessage + " Equipe id : " + employeFound.EquipeID);
+                        ChefEquipeInter chef = new ChefEquipeInter(employeFound);
+                        chef.ShowDialog();
 
                     }
                     else if ((btnEmploye.IsChecked == true)) // && (employeFound.EquipeID == 2)) //Travailleurs

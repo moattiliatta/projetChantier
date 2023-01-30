@@ -611,3 +611,393 @@ datePkrDateReception
 comboBoxOuvrageID
 
 
+***************************************************************************************************
+**************************************************************************************************
+**************************************************************************************************
+******************************************************************************************************
+
+        <Grid>
+            <Label Content="Ouvrage ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="54,71,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtBoxOuvrageID" HorizontalAlignment="Left" Margin="159,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
+            <Label Content="Nom Ouvrage" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="324,72,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtBoxNomOuvrage" HorizontalAlignment="Left" Margin="418,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+            <Label Content="Equipe Id" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="558,72,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="comboBoxEquipeID" HorizontalAlignment="Left" Margin="654,75,0,0"  Text="1" VerticalAlignment="Top" Width="120"
+                      SelectedValue="{Binding EquipeID  }"
+                      SelectedValuePath="EquipeID">
+
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock x:Name="comboTxtBoxEquipeID" Text="{Binding EquipeID}"  />
+                            <TextBlock  Text=" - "  />
+                            <TextBlock  Text="{Binding NomDepartement}"  />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+
+            </ComboBox>
+
+            <Label Content="Debut Ouvrage" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="559,109,0,0" VerticalAlignment="Top"/>
+            <DatePicker x:Name="datePkrDebutOuvrage" HorizontalAlignment="Left" Margin="654,113,0,0"  VerticalAlignment="Top" Width="120"/>
+
+            <Label Content="Fin Ouvrage" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="559,141,0,0" VerticalAlignment="Top"/>
+            <DatePicker x:Name="datePkrFinOuvrage" HorizontalAlignment="Left"  Margin="654,149,0,0"  VerticalAlignment="Top" Width="120"/>
+
+            <Label Content="Description Ouvrage" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="31,105,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtBoxDescOuvrage" HorizontalAlignment="Left" Margin="159,118,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="49" Width="379"/>
+
+            <Button x:Name="btnAjouter"  Content="ajouter" HorizontalAlignment="Left" Margin="15,182,0,0" VerticalAlignment="Top"  Height="28" Width="157" Click="btnAjouter_Click"  />
+            <Button x:Name="btnSupprimer"  Content="supprimer" HorizontalAlignment="Left" Margin="625,182,0,0" VerticalAlignment="Top"  Height="28" Width="157" Click="btnSupprimer_Click"/>
+            <Button x:Name="btnModifier"  Content="modifier" HorizontalAlignment="Left" Margin="227,182,0,0" VerticalAlignment="Top"  Height="28" Width="156" Click="btnModifier_Click"  />
+            <Button x:Name="btnEffacer" Content="effacer" HorizontalAlignment="Left" Margin="428,182,0,0" VerticalAlignment="Top"  Height="28" Width="156" Click="btnEffacer_Click" />
+            <Label x:Name="listeOuvrages" Content="LES LISTES DES OUVRAGES " HorizontalAlignment="Left" Margin="21,24,0,0" VerticalAlignment="Top" FontSize="16" Foreground="#FF2B58" FontWeight="Bold" Height="28" Width="213"/>
+
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF2D6D6C" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
+
+        <ListView x:Name="ListViewOuvrage" Margin="10,233,10,401" SelectionChanged="ListViewOuvrage_SelectionChanged" Height="150" Width="780" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Ouvrage Id" Width="70" DisplayMemberBinding="{Binding OuvrageID}" />
+                    <GridViewColumn Header="Nom Ouvrage" Width="100" DisplayMemberBinding="{Binding NomOuvrage}" />
+                    <GridViewColumn Header="Description Ouvrage" Width="280" DisplayMemberBinding="{Binding Description_Ouvrage}" />
+                    <GridViewColumn Header="Equipe Id " Width="90" DisplayMemberBinding="{Binding EquipeID }"  />
+                    <GridViewColumn Header="Debut Ouvrage" Width="135" DisplayMemberBinding="{Binding Date_Debut_Ouvrage}"  />
+                    <GridViewColumn Header="Fin Ouvrage" Width="110" DisplayMemberBinding="{Binding Date_Fin_Ouvrage}"  />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Separator></Separator>
+        <Grid>
+
+            <ListView x:Name="ListViewMateriaux" Margin="140,450,140,234"  Height="100" Width="520"  >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Matériaux Id" Width="70" DisplayMemberBinding="{Binding MateriauxID }" />
+                        <GridViewColumn Header="Nom des matériaux  " Width="170" DisplayMemberBinding="{Binding NomMateriaux }" />
+                        <GridViewColumn Header="Date Reception" Width="180" DisplayMemberBinding="{Binding DateReception }" />
+                        <GridViewColumn Header="Ouvrage Id " Width="90" DisplayMemberBinding="{Binding OuvrageID }"  />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <TextBlock HorizontalAlignment="Left" Margin="37,411,0,0" TextWrapping="Wrap" Text="Liste des matériaux utilisés dans cet ouvrage" VerticalAlignment="Top" Foreground="#FF2B58" FontWeight="Bold" FontSize="16"/>
+
+
+            <TextBlock HorizontalAlignment="Left" Margin="37,576,0,0" TextWrapping="Wrap" Text="Liste des travailleurs impliqués dans cet ouvrage " VerticalAlignment="Top" Foreground="#FF2B58" FontWeight="Bold" FontSize="16"/>
+            <ListView x:Name="ListViewTravailleurs" Margin="91,622,91,26"  >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Employe ID" Width="70" DisplayMemberBinding="{Binding EmployeID  }" />
+                        <GridViewColumn Header="Nom   " Width="140" DisplayMemberBinding="{Binding Nom  }" />
+                        <GridViewColumn Header="Prenom" Width="140" DisplayMemberBinding="{Binding Prenom  }" />
+                        <GridViewColumn Header="Telephone " Width="100" DisplayMemberBinding="{Binding Telephone  }"  />
+                        <GridViewColumn Header="Poste Emploi " Width="120" DisplayMemberBinding="{Binding PosteEmploi  }"  />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </Grid>
+
+*********************************************
+*********************************************
+*********************************************
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace WpfChantierApp1._2
+{
+    /// <summary>
+    /// Interaction logic for ListeOuvrage.xaml
+    /// </summary>
+    public partial class ListeOuvrage : Window
+    {
+        public ListeOuvrage()
+        {
+            InitializeComponent();
+            AfficherOuvrage();
+        }
+
+        /* reçoit les informations de sélection de l'utilisateur */
+        private void ListViewOuvrage_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //crée un objet ouvrage
+            Ouvrage ouvrageSelected = (Ouvrage)ListViewOuvrage.SelectedItem;
+
+            int selectedEquipeID = 0;
+
+            if (ListViewOuvrage.SelectedItem is Ouvrage ouvrage)
+            {
+                //ffiche dans les zones de texte les valeurs sélectionnées.
+                txtBoxOuvrageID.Text = ouvrage.OuvrageID.ToString();
+                txtBoxNomOuvrage.Text = ouvrage.NomOuvrage;
+                txtBoxDescOuvrage.Text = ouvrage.Description_Ouvrage;
+                //récupère l'Id de l'équipe pour chaque sélection 
+                selectedEquipeID = ouvrage.EquipeID.Value;
+            }
+            AfficherMateriaux(ouvrageSelected);
+            AfficherEmployes(selectedEquipeID);
+        }
+
+        // Reçoit l'identifiant de l'équipe et renvoie la liste des travailleurs associés. 
+        private void AfficherEmployes(int selectedEquipeID)
+        {
+            using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+            {
+                var query = from empl in dbEntities.Employes
+                            where empl.EmployeID == selectedEquipeID
+                            select new
+                            {
+                                EmployeID = empl.EmployeID,
+                                Nom = empl.Nom,
+                                Prenom = empl.Prenom,
+                                DateEmbauche = empl.DateEmbauche,
+                                Telephone = empl.Telephone,
+                                EquipeID = empl.EquipeID,
+                                PosteEmploi = empl.PosteEmploi,
+                                EmployeMotPasse = empl.EmployeMotPasse,
+                               // ValiderSanteSecuritaire = empl.ValiderSanteSecuritaire,
+                                Equipe = empl.Equipe
+                            };
+                ListViewTravailleurs.ItemsSource = query.ToList();
+            }
+        }
+
+        // Reçoit un objet de type Ouvrage et renvoie une nomenclature associée au numéro d'identification. 
+        private void AfficherMateriaux(Ouvrage ouvrageSelected)
+        {
+            int ouvrageID = ouvrageSelected.OuvrageID;
+
+            using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+            {
+               // comboBoxOuvrageID.ItemsSource = dbEntities.Ouvrages.ToList();
+                var query = from materiau in dbEntities.Materiauxes
+                            where materiau.OuvrageID == ouvrageID
+                            select new
+                            {
+                                MateriauxID = materiau.OuvrageID,
+                                NomMateriaux = materiau.NomMateriaux,
+                                DateReception = materiau.DateReception,
+                                OuvrageID = materiau.OuvrageID,
+                            };
+                ListViewMateriaux.ItemsSource = query.ToList();
+            }
+        }
+
+        // se connecte à la BD et affiche sur l'interface les informations relatives à la liste des Ouvrages et Equipes.
+        public void AfficherOuvrage()
+        {
+            using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+            {
+                ListViewOuvrage.ItemsSource = dbEntities.Ouvrages.ToList();
+                // remplir notre combobox avec les ID des appareils existants dans la base de données 
+                comboBoxEquipeID.ItemsSource = dbEntities.Equipes.ToList();
+            }
+        }
+
+        // Rechercher la création et l'ajout d'un nouvel enregistrement dans la BD
+        private void btnAjouter_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("btn Ajouter");
+
+            string equipeIdCombo = comboBoxEquipeID.SelectedValue.ToString();
+            int equipeSelectedId = int.Parse(equipeIdCombo);
+
+            using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+            {
+                // recherche le dernier élément stocké dans la table d'Ouvrages 
+                Ouvrage lastOuvrage = dbEntities.Ouvrages.ToArray().LastOrDefault();
+                // sauvegarde le dernier ID enregistré dans la table + 1 
+                int lastOuvrageID = lastOuvrage.OuvrageID + 1;
+
+                Equipe equipeCherche = dbEntities.Equipes.SingleOrDefault(x => x.EquipeID == equipeSelectedId); // requête LINQ
+
+                Ouvrage newOuvrage = new Ouvrage()
+                {
+                    OuvrageID = lastOuvrageID,
+                    NomOuvrage = txtBoxNomOuvrage.Text,
+                    Description_Ouvrage = txtBoxDescOuvrage.Text,
+
+                    EquipeID = int.Parse(comboBoxEquipeID.SelectedValue.ToString()),
+                    Date_Debut_Ouvrage = datePkrDebutOuvrage.SelectedDate.Value.ToString(),
+                    Date_Fin_Ouvrage = datePkrFinOuvrage.SelectedDate.Value.ToString(),
+                    Equipe = equipeCherche,
+                };
+
+                if (newOuvrage != null)
+                {
+                    dbEntities.Ouvrages.Add(newOuvrage);
+
+                    int resultat = dbEntities.SaveChanges();
+                    if (resultat > 0)
+                    {
+                        this.AfficherOuvrage();
+                        string message = $"L'ouvrage {newOuvrage.NomOuvrage} a été enregistré dans le système";
+                        MessageBox.Show(message);
+                    }
+                }
+            }
+        }
+
+        // Crée un objet de type Ouvrage selon la sélection de l'utilisateur, fait une recherche dans la BD et s'il trouve des correspondances d'ID, le supprime. 
+        private void btnSupprimer_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("btn supprimer");
+
+            Ouvrage ouvrageSelected = (Ouvrage)ListViewOuvrage.SelectedItem;
+
+            if (ouvrageSelected != null)
+            {
+                using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+                {
+                    Ouvrage ouvrDeleted = dbEntities.Ouvrages.SingleOrDefault(ouvr => ouvr.OuvrageID == ouvrageSelected.OuvrageID);
+
+                    if (ouvrDeleted != null)
+                    {
+                        dbEntities.Ouvrages.Remove(ouvrDeleted);
+                        int resultat = dbEntities.SaveChanges();
+                        if (resultat > 0)
+                        {
+                            this.AfficherOuvrage();
+                            string message = $"L'ouvrage {ouvrDeleted.NomOuvrage} a ete supprime";
+                            MessageBox.Show(message);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Il crée un objet de type Ouvrage selon la sélection de l'utilisateur, recherche dans la BD les correspondances d'identifiants et modifie les informations de l'enregistrement.
+        private void btnModifier_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("btn modifier");
+
+            Ouvrage ouvrageSelected = (Ouvrage)ListViewOuvrage.SelectedItem;
+
+            if (ouvrageSelected != null)
+            {
+                using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+                {
+                    Ouvrage ouvrModifier = dbEntities.Ouvrages.SingleOrDefault(ouvr => ouvr.OuvrageID == ouvrageSelected.OuvrageID);
+
+                    if (ouvrModifier != null)
+                    {
+                        ouvrModifier.OuvrageID = int.Parse(txtBoxOuvrageID.Text);
+                        ouvrModifier.NomOuvrage = txtBoxNomOuvrage.Text;
+                        ouvrModifier.Description_Ouvrage = txtBoxDescOuvrage.Text;
+                        ouvrModifier.EquipeID = int.Parse(comboBoxEquipeID.SelectedValue.ToString());
+                        ouvrModifier.Date_Debut_Ouvrage = datePkrDebutOuvrage.SelectedDate.Value.ToString();
+                        ouvrModifier.Date_Fin_Ouvrage = datePkrFinOuvrage.SelectedDate.Value.ToString();
+
+                        int resultat = dbEntities.SaveChanges();
+                        if (resultat > 0)
+                        {
+                            this.AfficherOuvrage();
+                            string message = $"L'ouvrage {ouvrModifier.NomOuvrage} a ete modifie";
+                            MessageBox.Show(message);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Réinitialise les zones de texte de l'interface avec une chaîne vide.
+        private void btnEffacer_Click(object sender, RoutedEventArgs e)
+        {
+            txtBoxOuvrageID.Text = "";
+            txtBoxNomOuvrage.Text = "";
+            txtBoxDescOuvrage.Text = "";
+            datePkrDebutOuvrage.Text = "";
+            datePkrFinOuvrage.Text = "";
+            comboBoxEquipeID.Text = "";
+        }
+    }
+}
+
+
+***********************************
+*********************************
+*********************************
+
+
+            // Ouvrage ouvrageSelected = (Ouvrage)ListViewOuvrage.SelectedValue;
+            // Ouvrage ouvrageSelected = ListViewOuvrage.SelectedItem as Ouvrage;
+            //var ouvrageSelected = (Ouvrage)ListViewOuvrage.SelectedItems[0];
+            //MessageBox.Show("Ouvrage description = " + ouvrageSelected.Description_Ouvrage);
+           var xx = ListViewOuvrage.SelectedItems[0];
+
+            ArrayList data = new ArrayList();
+
+           // var description;
+
+            if (ouvrageSelected != null)
+            {
+                MessageBox.Show("Ouvrage description = " + ouvrageSelected.Description_Ouvrage);
+
+            }
+            else
+            {
+                MessageBox.Show("Ouvrage no instanciado");
+
+            }
+
+
+
+
+            //int idOuvrage = (int)ListViewOuvrage.SelectedIndex;
+            // MessageBox.Show("Ouvrage description = " + ouvrageSelected.Description_Ouvrage);
+            //var indexList  = ListViewOuvrage.SelectedItems[0];
+            //MessageBox.Show("ListViewOuvrage.SelectedItems[0] : " + indexList);
+
+            //// MessageBox.Show( "Id Ouvrage (ListViewOuvrage.SelectedValue) : " + ListViewOuvrage.SelectedValue +  "\n\n\n\n" + ListViewOuvrage.SelectedItem);
+            // ListViewItem item = (ListViewItem)ListViewOuvrage.Items[indexList];
+
+            // MessageBox.Show(item[0].Text);
+
+            // // MessageBox.Show("Id Ouvrage : " + idOuvrage +"\n" + "Id Ouvrage (ListViewOuvrage.SelectedValue) : " + ListViewOuvrage.SelectedValue +
+
+            // //"\n" + ListViewOuvrage.SelectedItem);
+
+
+
+            // var item = ListViewOuvrage.SelectedItems[0];
+            //MessageBox.Show("ListViewOuvrage.SelectedItems[0] :  " + item.ToString()) ;
+
+            // MessageBox.Show(ListViewOuvrage.SelectedValuePath);
+
+
+
+
+
+            int selectedEquipeID = 0;
+
+            //if (ListViewOuvrage.SelectedItem is Ouvrage ouvrage)
+            //{
+            //    //ffiche dans les zones de texte les valeurs sélectionnées.
+            //    txtBoxOuvrageID.Text = ouvrage.OuvrageID.ToString();
+            //    txtBoxNomOuvrage.Text = ouvrage.NomOuvrage;
+            //    txtBoxDescOuvrage.Text = ouvrage.Description_Ouvrage;
+            //    //récupère l'Id de l'équipe pour chaque sélection 
+            //    selectedEquipeID = ouvrage.EquipeID.Value;
+
+            //}
+

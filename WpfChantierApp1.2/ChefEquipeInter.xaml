@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfChantierApp1._2"
         mc:Ignorable="d"
-        Title="ChefEquipeInter" Height="800" Width="800">
+        Title="ChefEquipeInter" Height="980" Width="850">
     <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black"/>
@@ -14,13 +21,12 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        
         <Grid Grid.Row="0">
+
+            <Label x:Name="listeOuvrages" Content="LES LISTES DES OUVRAGES : " HorizontalAlignment="Left" Margin="21,12,0,0" VerticalAlignment="Top" FontSize="16" Foreground="#FF2B58" FontWeight="Bold" Height="28" Width="213"/>
+            <!--<TextBlock Foreground="Aqua" Margin="31,39,-10,-15" > Equipe : </TextBlock>-->
+            <TextBlock x:Name="txtBlockNomEquipe"  Foreground="Aqua" Margin="31,39,-10,-15" Text="{Binding NomDepartement}" />
+
             <Label Content="Ouvrage ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="54,71,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="txtBoxOuvrageID" HorizontalAlignment="Left" Margin="159,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
             <Label Content="Nom Ouvrage" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="324,72,0,0" VerticalAlignment="Top"/>
@@ -40,7 +46,9 @@
                         </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
+
             </ComboBox>
+
             <Label Content="Debut Ouvrage" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="559,109,0,0" VerticalAlignment="Top"/>
             <DatePicker x:Name="datePkrDebutOuvrage" HorizontalAlignment="Left" Margin="654,113,0,0"  VerticalAlignment="Top" Width="120"/>
 
@@ -50,33 +58,35 @@
             <Label Content="Description Ouvrage" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="31,105,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="txtBoxDescOuvrage" HorizontalAlignment="Left" Margin="159,118,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="49" Width="379"/>
 
-            <Button x:Name="btnAjouter"  Content="ajouter" HorizontalAlignment="Left" Margin="15,182,0,0" VerticalAlignment="Top"  Height="28" Width="157" Click="btnAjouter_Click"  />
-            <Button x:Name="btnSupprimer"  Content="supprimer" HorizontalAlignment="Left" Margin="625,182,0,0" VerticalAlignment="Top"  Height="28" Width="157" Click="btnSupprimer_Click"/>
-            <Button x:Name="btnModifier"  Content="modifier" HorizontalAlignment="Left" Margin="227,182,0,0" VerticalAlignment="Top"  Height="28" Width="156" Click="btnModifier_Click"  />
-            <Button x:Name="btnEffacer" Content="effacer" HorizontalAlignment="Left" Margin="428,182,0,0" VerticalAlignment="Top"  Height="28" Width="156" Click="btnEffacer_Click" />
-            <Label x:Name="listeOuvrages" Content="LES LISTES DES OUVRAGES " HorizontalAlignment="Left" Margin="21,24,0,0" VerticalAlignment="Top" FontSize="16" Foreground="#FF2B58" FontWeight="Bold" Height="28" Width="213"/>
+            <Button x:Name="btnAfficher"  Content="Afficher" HorizontalAlignment="Left" Margin="15,182,0,0" VerticalAlignment="Top"  Height="28" Width="100" Click="btnAfficher_Click"  />
+            <Button x:Name="btnAjouter"  Content="ajouter" HorizontalAlignment="Left" Margin="179,182,0,0" VerticalAlignment="Top"  Height="28" Width="100"  />
+            <Button x:Name="btnSupprimer"  Content="supprimer" HorizontalAlignment="Left" Margin="714,182,0,0" VerticalAlignment="Top"  Height="28" Width="100" />
+            <Button x:Name="btnModifier"  Content="modifier" HorizontalAlignment="Left" Margin="361,182,0,0" VerticalAlignment="Top"  Height="28" Width="100"  />
+            <Button x:Name="btnEffacer" Content="effacer" HorizontalAlignment="Left" Margin="546,182,0,0" VerticalAlignment="Top"  Height="28" Width="100" />
+
+            <!--<TextBlock Foreground="Aqua" Margin="286,224,214,-24" > Nom du superviseur :</TextBlock>-->
+            <TextBlock x:Name="txtBlockNomUser"  Foreground="Aqua" Margin="286,224,214,-24" Text="{Binding Prenom }" />
 
         </Grid>
 
         <Grid Grid.Row="1">
-                <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Liste des matériaux utilisés dans cet ouvrage" VerticalAlignment="Top" Foreground="#FF2B58" FontWeight="Bold" FontSize="16"/>
-                <ListView x:Name="ListViewOuvrages"  Height="200" Width="780" >
+            <ListView x:Name="ListViewOuvrage" Height="190" Width="780" >
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Ouvrage Id" Width="70" DisplayMemberBinding="{Binding OuvrageID}" />
-                        <GridViewColumn Header="Nom Ouvrage" Width="100" DisplayMemberBinding="{Binding NomOuvrage}" />
-                        <GridViewColumn Header="Description Ouvrage" Width="280" DisplayMemberBinding="{Binding Description_Ouvrage}" />
-                        <GridViewColumn Header="Equipe Id " Width="90" DisplayMemberBinding="{Binding EquipeID }"  />
-                        <GridViewColumn Header="Debut Ouvrage" Width="135" DisplayMemberBinding="{Binding Date_Debut_Ouvrage}"  />
-                        <GridViewColumn Header="Fin Ouvrage" Width="110" DisplayMemberBinding="{Binding Date_Fin_Ouvrage}"  />
+                        <GridViewColumn x:Name="gridViewColumnOuvrageID" Header="Ouvrage Id" Width="70" DisplayMemberBinding="{Binding OuvrageID }" />
+                        <GridViewColumn x:Name="gridViewColumnOuvrageNom" Header="Nom Ouvrage" Width="100" DisplayMemberBinding="{Binding NomOuvrage }" />
+                        <GridViewColumn x:Name="gridViewColumnOuvrageDescr"  Header="Description Ouvrage" Width="280" DisplayMemberBinding="{Binding Description_Ouvrage }" />
+                        <GridViewColumn x:Name="gridViewColumnOuvraeEquipeId"  Header="Equipe Id " Width="90" DisplayMemberBinding="{Binding EquipeID  }"  />
+                        <GridViewColumn x:Name="gridViewColumnOuvrageDebutDate"  Header="Debut Ouvrage" Width="135" DisplayMemberBinding="{Binding Date_Debut_Ouvrage }"  />
+                        <GridViewColumn x:Name="gridViewColumnOuvrageFinDate" Header="Fin Ouvrage" Width="110" DisplayMemberBinding="{Binding Date_Fin_Ouvrage }"  />
                     </GridView>
                 </ListView.View>
             </ListView>
         </Grid>
 
-
-        <Grid Grid.Row="2">
-            <ListView x:Name="ListViewMateriaux" Margin="140,450,140,234"  Height="100" Width="520"  >
+        <Grid Grid.Row="3">
+            <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Liste des matériaux utilisés dans cet ouvrage" VerticalAlignment="Top" Foreground="#FF2B58" FontWeight="Bold" FontSize="16" Margin="10,0,0,0"/>
+            <ListView x:Name="ListViewMateriaux"  Height="180" Width="520"  >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Matériaux Id" Width="70" DisplayMemberBinding="{Binding MateriauxID }" />
@@ -86,11 +96,12 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-           
 
+        </Grid>
 
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Liste des travailleurs impliqués dans cet ouvrage " VerticalAlignment="Top" Foreground="#FF2B58" FontWeight="Bold" FontSize="16"/>
-            <ListView x:Name="ListViewTravailleurs" Height="170" Width="780">
+        <Grid Grid.Row="2">
+            <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Liste des travailleurs impliqués dans cet ouvrage " VerticalAlignment="Top" Foreground="#FF2B58" FontWeight="Bold" FontSize="16" Margin="13,0,0,0"/>
+            <ListView x:Name="ListViewTravailleurs"   Height="190" Width="780" >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Employe ID" Width="70" DisplayMemberBinding="{Binding EmployeID  }" />
@@ -101,9 +112,8 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-        </Grid>
 
-      
+        </Grid>
 
 
     </Grid>
