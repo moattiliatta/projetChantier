@@ -123,8 +123,7 @@ namespace WpfChantierApp1._2
                     Employe emplModifier = dbEntities.Employes.FirstOrDefault(empl => empl.EmployeID == employeSelected.EmployeID); // **** LINQ  **** 
 
                     if (emplModifier != null)
-                    {
-                      
+                    {                     
                         emplModifier.DateEmbauche = datePkrDateEmbauche.SelectedDate.Value;
                         emplModifier.Nom = txtBoxEmployeNom.Text;
                         emplModifier.Prenom = txtBoxEmployePreNom.Text;
@@ -157,7 +156,6 @@ namespace WpfChantierApp1._2
             txtBoxTelephone.Text = "";
             txtBoxMotPasse.Text = "";
             txtBoxPosteEmploi.Text = "";
-
         }
 
         private void ListViewOuvriers_SelectionChanged_1(object sender, SelectionChangedEventArgs e)

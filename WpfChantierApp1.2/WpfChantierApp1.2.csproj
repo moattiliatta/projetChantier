@@ -82,6 +82,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChefEquipeInter.xaml.cs">
+      <DependentUpon>ChefEquipeInter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataModelChantierApp.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -132,6 +135,10 @@
     </Compile>
     <Compile Include="User.cs" />
     <Page Include="AdministrationInter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChefEquipeInter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

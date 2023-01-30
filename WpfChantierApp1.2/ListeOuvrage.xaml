@@ -69,7 +69,7 @@
         <Separator></Separator>
         <Grid>
 
-            <ListView x:Name="ListViewMateriaux" Margin="140,450,140,234"  Height="100" Width="520" SelectionChanged="ListViewMateriaux_SelectionChanged" >
+            <ListView x:Name="ListViewMateriaux" Margin="140,450,140,234"  Height="100" Width="520"  >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Matériaux Id" Width="70" DisplayMemberBinding="{Binding MateriauxID }" />
