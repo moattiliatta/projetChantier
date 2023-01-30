@@ -38,8 +38,6 @@ namespace WpfChantierApp1._2
             bool autentifier = authentificateur(nomUser, psswrdUser);
             string nomMessage;
 
-            // Employe employeFinder = new Employe(nomUser, psswrdUser);
-
             if ((nomUser != null) && (psswrdUser != null) && (autentifier))
             {
                 // connexion à la base de données 
@@ -101,8 +99,6 @@ namespace WpfChantierApp1._2
         private bool authentificateur(string nomUser, string psswrdUser)
         {
             bool existe = false;
-
-            //Employe employeFinder = new Employe(nomUser, psswrdUser);
 
             // connexion à la base de données 
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
