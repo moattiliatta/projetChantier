@@ -108,6 +108,7 @@ namespace WpfChantierApp1._2
             MessageBox.Show("btn Ajouter");
 
             string equipeIdCombo = comboBoxEquipeID.SelectedValue.ToString();
+
             int equipeSelectedId = int.Parse(equipeIdCombo);
 
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
