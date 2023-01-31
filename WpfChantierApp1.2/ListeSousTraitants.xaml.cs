@@ -116,32 +116,45 @@ namespace WpfChantierApp1._2
 
             if (sousTraitantSelected != null)
             {
-                using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+
+                try
                 {
-
-                    Sous_Traitant sousTraitModifier = dbEntities.Sous_Traitant.FirstOrDefault(str => str.SousTraitantID == sousTraitantSelected.SousTraitantID);
-
-                    if (sousTraitModifier != null)
+                    if (string.IsNullOrEmpty(txtBoxDomainSousTraitant.Text) || comboBoxOuvrageID.SelectedValue == null || string.IsNullOrEmpty(datePkrDebutSousTraitant.Text) || string.IsNullOrEmpty(datePkrFinSousTraitant.Text))
                     {
-                        sousTraitModifier.DomainSousTraitant = txtBoxDomainSousTraitant.Text;
-                        // MODIFIER : includ Ouvrage ID into a combo box to avoid furute bugs
-                        sousTraitModifier.OuvrageID = int.Parse(comboBoxOuvrageID.SelectedValue.ToString());
-                        sousTraitModifier.Date_Debut_SousTraitant = datePkrDebutSousTraitant.Text;
-                        sousTraitModifier.Date_Fin_SousTraitant = datePkrFinSousTraitant.Text;
+                        throw new Exception("Veuillez remplir tous les champs requis.");
+                    }
 
-                        int resultat = dbEntities.SaveChanges();
-                        if (resultat > 0)
+                    using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+                    {
+
+                        Sous_Traitant sousTraitModifier = dbEntities.Sous_Traitant.FirstOrDefault(str => str.SousTraitantID == sousTraitantSelected.SousTraitantID);
+
+                        if (sousTraitModifier != null)
                         {
-                            this.AfficherSousTraitant();
-                            string message = $"Le soustratan avec ID # : {sousTraitModifier.SousTraitantID} \n dans le domain : {sousTraitModifier.DomainSousTraitant} a ete modifie";
-                            MessageBox.Show(message);
+                            sousTraitModifier.DomainSousTraitant = txtBoxDomainSousTraitant.Text;
+                            // MODIFIER : includ Ouvrage ID into a combo box to avoid furute bugs
+                            sousTraitModifier.OuvrageID = int.Parse(comboBoxOuvrageID.SelectedValue.ToString());
+                            sousTraitModifier.Date_Debut_SousTraitant = datePkrDebutSousTraitant.Text;
+                            sousTraitModifier.Date_Fin_SousTraitant = datePkrFinSousTraitant.Text;
+
+                            int resultat = dbEntities.SaveChanges();
+                            if (resultat > 0)
+                            {
+                                this.AfficherSousTraitant();
+                                string message = $"Le soustratan avec ID # : {sousTraitModifier.SousTraitantID} \n dans le domain : {sousTraitModifier.DomainSousTraitant} a ete modifie";
+                                MessageBox.Show(message);
+                            }
+
                         }
 
                     }
 
                 }
+                catch (Exception ex)
+                { MessageBox.Show(ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error); }
 
             }
+
 
 
         }
