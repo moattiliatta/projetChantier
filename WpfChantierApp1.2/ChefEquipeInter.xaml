@@ -33,21 +33,7 @@
             <TextBox x:Name="txtBoxNomOuvrage" HorizontalAlignment="Left" Margin="418,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
 
             <Label Content="Equipe Id" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="558,72,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="comboBoxEquipeID" HorizontalAlignment="Left" Margin="654,75,0,0"  Text="1" VerticalAlignment="Top" Width="120"
-                      SelectedValue="{Binding EquipeID  }"
-                      SelectedValuePath="EquipeID">
-
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal" >
-                            <TextBlock x:Name="comboTxtBoxEquipeID" Text="{Binding EquipeID}"  />
-                            <TextBlock  Text=" - "  />
-                            <TextBlock  Text="{Binding NomDepartement}"  />
-                        </StackPanel>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-
-            </ComboBox>
+            <TextBox x:Name="txtBoxEquipeID" HorizontalAlignment="Left" Margin="654,75,0,0"   VerticalAlignment="Top" Width="115" IsReadOnly="True" Text="{Binding EquipeID }"/>
 
             <Label Content="Debut Ouvrage" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="559,109,0,0" VerticalAlignment="Top"/>
             <DatePicker x:Name="datePkrDebutOuvrage" HorizontalAlignment="Left" Margin="654,113,0,0"  VerticalAlignment="Top" Width="120"/>
@@ -59,10 +45,10 @@
             <TextBox x:Name="txtBoxDescOuvrage" HorizontalAlignment="Left" Margin="159,118,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="49" Width="379"/>
 
             <Button x:Name="btnAfficher"  Content="Afficher" HorizontalAlignment="Left" Margin="15,182,0,0" VerticalAlignment="Top"  Height="28" Width="100" Click="btnAfficher_Click"  />
-            <Button x:Name="btnAjouter"  Content="ajouter" HorizontalAlignment="Left" Margin="179,182,0,0" VerticalAlignment="Top"  Height="28" Width="100"  />
-            <Button x:Name="btnSupprimer"  Content="supprimer" HorizontalAlignment="Left" Margin="714,182,0,0" VerticalAlignment="Top"  Height="28" Width="100" />
-            <Button x:Name="btnModifier"  Content="modifier" HorizontalAlignment="Left" Margin="361,182,0,0" VerticalAlignment="Top"  Height="28" Width="100"  />
-            <Button x:Name="btnEffacer" Content="effacer" HorizontalAlignment="Left" Margin="546,182,0,0" VerticalAlignment="Top"  Height="28" Width="100" />
+            <Button x:Name="btnAjouter"  Content="ajouter" HorizontalAlignment="Left" Margin="179,182,0,0" VerticalAlignment="Top"  Height="28" Width="100" Click="btnAjouter_Click"  />
+            <Button x:Name="btnSupprimer"  Content="supprimer" HorizontalAlignment="Left" Margin="714,182,0,0" VerticalAlignment="Top"  Height="28" Width="100" Click="btnSupprimer_Click" />
+            <Button x:Name="btnModifier"  Content="modifier" HorizontalAlignment="Left" Margin="361,182,0,0" VerticalAlignment="Top"  Height="28" Width="100" Click="btnModifier_Click"  />
+            <Button x:Name="btnEffacer" Content="effacer" HorizontalAlignment="Left" Margin="546,182,0,0" VerticalAlignment="Top"  Height="28" Width="100" Click="btnEffacer_Click" />
 
             <!--<TextBlock Foreground="Aqua" Margin="286,224,214,-24" > Nom du superviseur :</TextBlock>-->
             <TextBlock x:Name="txtBlockNomUser"  Foreground="Aqua" Margin="286,224,214,-24" Text="{Binding Prenom }" />
@@ -70,7 +56,7 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <ListView x:Name="ListViewOuvrage" Height="190" Width="780" >
+            <ListView x:Name="ListViewOuvrage" Height="190" Width="780" SelectionChanged="ListViewOuvrage_SelectionChanged"  >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn x:Name="gridViewColumnOuvrageID" Header="Ouvrage Id" Width="70" DisplayMemberBinding="{Binding OuvrageID }" />
