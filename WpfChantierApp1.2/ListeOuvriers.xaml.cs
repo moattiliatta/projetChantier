@@ -54,31 +54,39 @@ namespace WpfChantierApp1._2
                
                 Equipe equipeCherche = dbEntities.Equipes.SingleOrDefault(x => x.EquipeID == equipeSelectedId);
 
-                // instance de notre nouvel objet 
-                Employe newEmploye = new Employe()
+                //  contrôle d'exception, vérifiez que tous les champs d'information de l'interface sont correctement remplis. 
+                try
                 {
-                    EmployeID = lastEmploye.EmployeID + 1,
-                    Nom = txtBoxEmployeNom.Text,
-                    Prenom = txtBoxEmployePreNom.Text,
-                    DateEmbauche = datePkrDateEmbauche.SelectedDate.Value,
-                    Telephone = txtBoxTelephone.Text,
-                    EquipeID = int.Parse(comboBoxEquipeID.SelectedValue.ToString()),
-                    PosteEmploi = txtBoxPosteEmploi.Text,
-                    EmployeMotPasse = txtBoxMotPasse.Text,
-                    Equipe = equipeCherche,
-                };
-
-                if (newEmploye != null)
-                {
-                    dbEntities.Employes.Add(newEmploye);
-
-                    int resultat = dbEntities.SaveChanges();
-                    if (resultat > 0)
+                    // instance de notre nouvel objet 
+                    Employe newEmploye = new Employe()
                     {
-                        this.AfficherEmployes();
-                        string message = $"L'employé {newEmploye.Nom} a été enregistré dans le système";
-                        MessageBox.Show(message);
+                        EmployeID = lastEmploye.EmployeID + 1,
+                        Nom = txtBoxEmployeNom.Text,
+                        Prenom = txtBoxEmployePreNom.Text,
+                        DateEmbauche = datePkrDateEmbauche.SelectedDate.Value,
+                        Telephone = txtBoxTelephone.Text,
+                        EquipeID = int.Parse(comboBoxEquipeID.SelectedValue.ToString()),
+                        PosteEmploi = txtBoxPosteEmploi.Text,
+                        EmployeMotPasse = txtBoxMotPasse.Text,
+                        Equipe = equipeCherche,
+                    };
+
+                    if (newEmploye != null)
+                    {
+                        dbEntities.Employes.Add(newEmploye);
+
+                        int resultat = dbEntities.SaveChanges();
+                        if (resultat > 0)
+                        {
+                            this.AfficherEmployes();
+                            string message = $"L'employé {newEmploye.Nom} a été enregistré dans le système";
+                            MessageBox.Show(message);
+                        }
                     }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString() + "\n\nATTENTION: \nVérifiez que tous les champs sont correctement remplis.  ");
                 }
             }
         }

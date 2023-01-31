@@ -63,16 +63,21 @@ namespace WpfChantierApp1._2
 
         private void AfficherOuvrage()
         {
+           // ObservableCollection<Ouvrage> ouvrlist = new ObservableCollection<Ouvrage>();
             Ouvrage monOuvrage = null;
 
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
             {
+
+                //ListViewOuvrage = dbEntities.Ouvrages.FirstOrDefault(x => x.EquipeID == this.equipeID); // requête LINQ
                 foreach (Ouvrage o in dbEntities.Ouvrages)
                 {
                     if (o.EquipeID == this.equipeID)
                     {
                         monOuvrage = o;
+                        //monOuvrage = dbEntities.Ouvrages.FirstOrDefault(x => x.EquipeID == this.equipeID); // requête LINQ
                         ouvrlist.Add(monOuvrage);
+                        //ListViewOuvrage = dbEntities.Ouvrages.SingleOrDefault(x => x.EquipeID == this.equipeID); // requête LINQ
                     }
                 }
 
@@ -158,30 +163,37 @@ namespace WpfChantierApp1._2
                 int lastOuvrageID = lastOuvrage.OuvrageID + 1;
 
                 Equipe equipeCherche = dbEntities.Equipes.SingleOrDefault(x => x.EquipeID == equipeSelectedId); // requête LINQ
-
-                Ouvrage newOuvrage = new Ouvrage()
+            //  contrôle d'exception, vérifiez que tous les champs d'information de l'interface sont correctement remplis. 
+                try
                 {
-                    OuvrageID = lastOuvrageID,
-                    NomOuvrage = txtBoxNomOuvrage.Text,
-                    Description_Ouvrage = txtBoxDescOuvrage.Text,
-
-                    EquipeID = this.equipeID,
-                    Date_Debut_Ouvrage = datePkrDebutOuvrage.SelectedDate.Value.ToString(),
-                    Date_Fin_Ouvrage = datePkrFinOuvrage.SelectedDate.Value.ToString(),
-                    Equipe = equipeCherche,
-                };
-
-                if (newOuvrage != null)
-                {
-                    dbEntities.Ouvrages.Add(newOuvrage);
-
-                    int resultat = dbEntities.SaveChanges();
-                    if (resultat > 0)
+                    Ouvrage newOuvrage = new Ouvrage()
                     {
-                        this.AfficherOuvrage();
-                        string message = $"L'ouvrage {newOuvrage.NomOuvrage} a été enregistré dans le système";
-                        MessageBox.Show(message);
+                        OuvrageID = lastOuvrageID,
+                        NomOuvrage = txtBoxNomOuvrage.Text,
+                        Description_Ouvrage = txtBoxDescOuvrage.Text,
+
+                        EquipeID = this.equipeID,
+                        Date_Debut_Ouvrage = datePkrDebutOuvrage.SelectedDate.Value.ToString(),
+                        Date_Fin_Ouvrage = datePkrFinOuvrage.SelectedDate.Value.ToString(),
+                        Equipe = equipeCherche,
+                    };
+
+                    if (newOuvrage != null)
+                    {
+                        dbEntities.Ouvrages.Add(newOuvrage);
+
+                        int resultat = dbEntities.SaveChanges();
+                        if (resultat > 0)
+                        {
+                            this.AfficherOuvrage();
+                            string message = $"L'ouvrage {newOuvrage.NomOuvrage} a été enregistré dans le système";
+                            MessageBox.Show(message);
+                        }
                     }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString() + "\n\nATTENTION: \nVérifiez que tous les champs sont correctement remplis.  ");
                 }
             }
         }

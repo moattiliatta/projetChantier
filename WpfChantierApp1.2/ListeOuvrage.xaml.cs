@@ -118,33 +118,41 @@ namespace WpfChantierApp1._2
                 int lastOuvrageID = lastOuvrage.OuvrageID + 1;
 
                 Equipe equipeCherche = dbEntities.Equipes.SingleOrDefault(x => x.EquipeID == equipeSelectedId); // requête LINQ
-
-                Ouvrage newOuvrage = new Ouvrage()
+                //  contrôle d'exception, vérifiez que tous les champs d'information de l'interface sont correctement remplis. 
+                try
                 {
-                    OuvrageID = lastOuvrageID,
-                    NomOuvrage = txtBoxNomOuvrage.Text,
-                    Description_Ouvrage = txtBoxDescOuvrage.Text,
-
-                    EquipeID = int.Parse(comboBoxEquipeID.SelectedValue.ToString()),
-                    Date_Debut_Ouvrage = datePkrDebutOuvrage.SelectedDate.Value.ToString(),
-                    Date_Fin_Ouvrage = datePkrFinOuvrage.SelectedDate.Value.ToString(),
-                    Equipe = equipeCherche,
-                };
-
-                if (newOuvrage != null)
-                {
-                    dbEntities.Ouvrages.Add(newOuvrage);
-
-                    int resultat = dbEntities.SaveChanges();
-                    if (resultat > 0)
+                    Ouvrage newOuvrage = new Ouvrage()
                     {
-                        this.AfficherOuvrage();
-                        string message = $"L'ouvrage {newOuvrage.NomOuvrage} a été enregistré dans le système";
-                        MessageBox.Show(message);
+                        OuvrageID = lastOuvrageID,
+                        NomOuvrage = txtBoxNomOuvrage.Text,
+                        Description_Ouvrage = txtBoxDescOuvrage.Text,
+
+                        EquipeID = int.Parse(comboBoxEquipeID.SelectedValue.ToString()),
+                        Date_Debut_Ouvrage = datePkrDebutOuvrage.SelectedDate.Value.ToString(),
+                        Date_Fin_Ouvrage = datePkrFinOuvrage.SelectedDate.Value.ToString(),
+                        Equipe = equipeCherche,
+                    };
+
+                    if (newOuvrage != null)
+                    {
+                        dbEntities.Ouvrages.Add(newOuvrage);
+                        int resultat = dbEntities.SaveChanges();
+                        if (resultat > 0)
+                        {
+                            this.AfficherOuvrage();
+                            string message = $"L'ouvrage {newOuvrage.NomOuvrage} a été enregistré dans le système";
+                            MessageBox.Show(message);
+                        }
                     }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString() + "\n\nATTENTION: \nVérifiez que tous les champs sont correctement remplis.  ");
                 }
             }
         }
+
+
 
         // Crée un objet de type Ouvrage selon la sélection de l'utilisateur, fait une recherche dans la BD et s'il trouve des correspondances d'ID, le supprime. 
         private void btnSupprimer_Click(object sender, RoutedEventArgs e)

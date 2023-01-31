@@ -39,7 +39,6 @@ namespace WpfChantierApp1._2
         private void btnAjouter_Click(object sender, RoutedEventArgs e)
         {
 
-
             //string soustraitantIdCombo = comboBoxOuvrageID.SelectedValue.ToString();
             //int OuvrageSelectedId = int.Parse(soustraitantIdCombo);
 
@@ -51,28 +50,33 @@ namespace WpfChantierApp1._2
 
                 //Ouvrage ouvrageCherche = dbEntities.Ouvrages.SingleOrDefault(x => x.OuvrageID == OuvrageSelectedId);
 
-
-                Sous_Traitant newSoustraitant = new Sous_Traitant()
-
+                //  contrôle d'exception, vérifiez que tous les champs d'information de l'interface sont correctement remplis.
+                try
                 {
-                    SousTraitantID = lastnumber,
-                    DomainSousTraitant = txtBoxDomainSousTraitant.Text,
-                    Date_Debut_SousTraitant = datePkrDebutSousTraitant.SelectedDate.Value.ToShortDateString(),
-                    Date_Fin_SousTraitant = datePkrFinSousTraitant.SelectedDate.Value.ToShortDateString(),
-                    OuvrageID = int.Parse(comboBoxOuvrageID.SelectedValue.ToString()),
-
-                };
-
-                if (newSoustraitant != null)
-                {
-                    dbEntities.Sous_Traitant.Add(newSoustraitant);
-                    int resultat = dbEntities.SaveChanges();
-                    if (resultat > 0)
+                    Sous_Traitant newSoustraitant = new Sous_Traitant()
                     {
-                        this.AfficherSousTraitant();
-                        string message = $"Le Sous Traitant {newSoustraitant.SousTraitantID} a été enregistré dans le système";
-                        MessageBox.Show(message);
+                        SousTraitantID = lastnumber,
+                        DomainSousTraitant = txtBoxDomainSousTraitant.Text,
+                        Date_Debut_SousTraitant = datePkrDebutSousTraitant.SelectedDate.Value.ToShortDateString(),
+                        Date_Fin_SousTraitant = datePkrFinSousTraitant.SelectedDate.Value.ToShortDateString(),
+                        OuvrageID = int.Parse(comboBoxOuvrageID.SelectedValue.ToString()),
+                    };
+
+                    if (newSoustraitant != null)
+                    {
+                        dbEntities.Sous_Traitant.Add(newSoustraitant);
+                        int resultat = dbEntities.SaveChanges();
+                        if (resultat > 0)
+                        {
+                            this.AfficherSousTraitant();
+                            string message = $"Le Sous Traitant {newSoustraitant.SousTraitantID} a été enregistré dans le système";
+                            MessageBox.Show(message);
+                        }
                     }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString() + "\n\nATTENTION: \nVérifiez que tous les champs sont correctement remplis.  ");
                 }
             }
         }

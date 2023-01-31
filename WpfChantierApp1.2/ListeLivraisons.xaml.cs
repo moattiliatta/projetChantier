@@ -121,30 +121,35 @@ namespace WpfChantierApp1._2
                 // enregistre l'ID du dernier enregistrement trouvé et lui ajoute 1.
                 int lastnumber = lastMateriaux.MateriauxID + 1;
 
-
-                Materiaux newMateriel = new Materiaux()
+                //  contrôle d'exception, vérifiez que tous les champs d'information de l'interface sont correctement remplis. 
+                try
                 {
-                    MateriauxID = lastnumber,
-                    NomMateriaux = txtBoxNomMateriaux.Text,
-                    DateReception = datePkrDateRecept.SelectedDate.Value.ToShortDateString(),
-                    OuvrageID = int.Parse(comboBoxOuvrageID.SelectedValue.ToString()),
-                    
-                };
-
-                if (newMateriel != null)
-                {
-                    dbEntities.Materiauxes.Add(newMateriel);
-
-                    int resultT = dbEntities.SaveChanges();
-
-                    if (resultT > 0)
+                    Materiaux newMateriel = new Materiaux()
                     {
-                        this.AfficherMateriaux();
-                        string message = $"le materiel {newMateriel.NomMateriaux} a été enregistré dans le système";
-                        MessageBox.Show(message);
-                    }
+                        MateriauxID = lastnumber,
+                        NomMateriaux = txtBoxNomMateriaux.Text,
+                        DateReception = datePkrDateRecept.SelectedDate.Value.ToShortDateString(),
+                        OuvrageID = int.Parse(comboBoxOuvrageID.SelectedValue.ToString()),
+                    };
 
+                    if (newMateriel != null)
+                    {
+                        dbEntities.Materiauxes.Add(newMateriel);
+
+                        int resultT = dbEntities.SaveChanges();
+
+                        if (resultT > 0)
+                        {
+                            this.AfficherMateriaux();
+                            string message = $"le materiel {newMateriel.NomMateriaux} a été enregistré dans le système";
+                            MessageBox.Show(message);
+                        }
+                    }
                 }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString() + "\n\nATTENTION: \nVérifiez que tous les champs sont correctement remplis.  ");
+                }              
             }
         }
     }
