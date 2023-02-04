@@ -55,10 +55,7 @@ namespace WpfChantierApp1._2
 
         }
 
-        private void btnRegleSecurite_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Regle Securite sélectionnée, est en cours de développement ");
-        }
+
 
         private void btnListOuvriers_Click(object sender, RoutedEventArgs e)
         {
@@ -72,7 +69,6 @@ namespace WpfChantierApp1._2
         {
             string message = "Bienvenue : ";
             txtBlockPrenom.Text = message + employeSession.Prenom + " " +employeSession.Nom;
-           // MessageBox.Show(employeSession.Prenom + employeSession.EmployeID);
 
         }
     }

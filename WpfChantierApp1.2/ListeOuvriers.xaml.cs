@@ -138,10 +138,11 @@ namespace WpfChantierApp1._2
                         emplModifier.EmployeID = int.Parse(txtBoxEmployeID.Text);
                         emplModifier.Telephone = txtBoxTelephone.Text;
                         emplModifier.PosteEmploi = txtBoxPosteEmploi.Text;
+
+                        /* Reference object error when update */
                         emplModifier.EquipeID = int.Parse(comboBoxEquipeID.SelectedValue.ToString());
                         emplModifier.EmployeMotPasse = txtBoxMotPasse.Text;
-
-               
+              
                         int resultat = dbEntities.SaveChanges();
                         if (resultat > 0)
                         {
@@ -152,7 +153,6 @@ namespace WpfChantierApp1._2
                     }
                 }
             }
-
         }
 
         private void btnEffacer_Click(object sender, RoutedEventArgs e)

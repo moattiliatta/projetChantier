@@ -133,7 +133,6 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>DataModelChantierApp.tt</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
     <Page Include="AdministrationInter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -151,10 +150,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ListeOuvriers.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ListePeintres.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,9 +173,6 @@
     </Compile>
     <Compile Include="ListeOuvriers.xaml.cs">
       <DependentUpon>ListeOuvriers.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ListePeintres.xaml.cs">
-      <DependentUpon>ListePeintres.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListeSousTraitants.xaml.cs">
       <DependentUpon>ListeSousTraitants.xaml</DependentUpon>

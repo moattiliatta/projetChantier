@@ -73,6 +73,8 @@ namespace WpfChantierApp1._2
         // Reçoit un objet de type Ouvrage et renvoie une nomenclature associée au numéro d'identification. 
         private void AfficherMateriaux(Ouvrage ouvrageSelected)
         {
+
+            /*VERIFY ERROR OBJECT REFERENCE*/
             int ouvrageID = ouvrageSelected.OuvrageID;
 
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())

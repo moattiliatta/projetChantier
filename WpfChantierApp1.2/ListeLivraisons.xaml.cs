@@ -35,7 +35,6 @@ namespace WpfChantierApp1._2
             {
                 txtBoxMateriauxID.Text = materiaux.MateriauxID.ToString();
                 txtBoxNomMateriaux.Text = materiaux.NomMateriaux;
-
             }
         }
 
@@ -67,7 +66,6 @@ namespace WpfChantierApp1._2
                     Materiaux materiauxModifier = dbEntities.Materiauxes.FirstOrDefault(mtr => mtr.MateriauxID == materiauxSelected.MateriauxID);
                     if (materiauxModifier != null)
                     {
-
                         materiauxModifier.NomMateriaux = txtBoxNomMateriaux.Text;
                         materiauxModifier.DateReception = datePkrDateRecept.SelectedDate.Value.ToShortDateString();
                         materiauxModifier.OuvrageID = int.Parse(comboBoxOuvrageID.SelectedValue.ToString());
