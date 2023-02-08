@@ -37,87 +37,19 @@ ok   - Equipe ID cambiar de textbox a Combo box (Binding) - OK
  ok  - Botones (funcionales) -OK
      - Try Catch ajouter element, verificar seleccion del id en el combobox	
 
-5. Regles Securite et Assistence 
 
-   - Desarrollar interface.
 
-6. Chef Equipe
+5. Chef Equipe
 
-   - Desarrollar interface.
+   - Desarrollar interface, controladores y eventos
+   - Conneccion a la BD
+   - Sesion personalizada (conexion de usuario a la BD, Equipo, Proyectos y Empleados )
+   - Ajustar los eventos de los botones y la lista (Biding)
+   - Crear conexion entre el evento de seleccion de la lista principal(proyectos) y las dos listas secundarias (Empleados, materiales)
 
-7. Control Sante Securite
-
-   -  Agregar valores ausente presente de la sesion de empleado en la base de datos 
-   -  Ajustar textblock Bienvenida
-
-liste des matériaux pour ce chantier
-
-**********************************************************
-
-            <ComboBox x:Name="comboBoxEquipeID" HorizontalAlignment="Left" Margin="413,144,0,0"  Text="1" VerticalAlignment="Top" Width="120"
-                      SelectedValue="{Binding EquipeID  }"
-                      SelectedValuePath="EquipeID">
-
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal" >
-                            <TextBlock x:Name="comboTxtBoxEquipeID" Text="{Binding EquipeID}"  />
-                        </StackPanel>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-       
-            </ComboBox>
-
-***********************************************************
-
-  <DatePicker x:Name="datePkrDateEmbauche" HorizontalAlignment="Left" Margin="413,79,0,0"  VerticalAlignment="Top" Width="120"/>
-
-**********************************************************
-
-        public Ouvrage()
-        {
-            this.Materiauxes = new HashSet<Materiaux>();
-            this.Fournirs = new HashSet<Fournir>();
-            this.Realisers = new HashSet<Realiser>();
-            this.Sous_Traitant = new HashSet<Sous_Traitant>();
-        }
-    
-        public int OuvrageID { get; set; }
-        public string NomOuvrage { get; set; }
-        public string Description_Ouvrage { get; set; }
-        public Nullable<int> EquipeID { get; set; }
-        public string Date_Debut_Ouvrage { get; set; }
-        public string Date_Fin_Ouvrage { get; set; }
-    
-        public virtual Equipe Equipe { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Materiaux> Materiauxes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Fournir> Fournirs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Realiser> Realisers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sous_Traitant> Sous_Traitant { get; set; }
+6. Corregir bugs
+  
+  - Verificar que todos los campos de entrada de todas las interfaces sean debidamente rellenados por el usuario
 
 
 
-
-    public partial class Fournir
-    {
-        public int MateriauxID { get; set; }
-        public Nullable<int> OuvrageID { get; set; }
-        public string DateReception { get; set; }
-    
-        public virtual Materiaux Materiaux { get; set; }
-        public virtual Ouvrage Ouvrage { get; set; }
-    }
-
-
-        public int MateriauxID { get; set; }
-        public string NomMateriaux { get; set; }
-        public string DateReception { get; set; }
-        public Nullable<int> OuvrageID { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Fournir> Fournirs { get; set; }
-        public virtual Ouvrage Ouvrage { get; set; }
