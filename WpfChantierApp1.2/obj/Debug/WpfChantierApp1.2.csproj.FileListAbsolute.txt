@@ -12,7 +12,6 @@ C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\WpfCh
 C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\AdministrationInter.g.cs
 C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\ListeLivraisons.g.cs
 C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\ListeOuvriers.g.cs
-C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\ListePeintres.g.cs
 C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\ListeSousTraitants.g.cs
 C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\MainWindow.g.cs
 C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\SanteSecuriteInterface.g.cs
@@ -23,7 +22,6 @@ C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\WpfCh
 C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\AdministrationInter.baml
 C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\ListeLivraisons.baml
 C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\ListeOuvriers.baml
-C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\ListePeintres.baml
 C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\ListeSousTraitants.baml
 C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\MainWindow.baml
 C:\Users\Moatt\Documents\GitHub\projetChantier\WpfChantierApp1.2\obj\Debug\SanteSecuriteInterface.baml
