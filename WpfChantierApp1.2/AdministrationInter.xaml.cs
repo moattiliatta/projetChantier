@@ -27,7 +27,6 @@ namespace WpfChantierApp1._2
             this.employeSession = employeSession;
             InitializeComponent();
             AfficherEmployeSession();
-
         }
 
 
@@ -36,7 +35,6 @@ namespace WpfChantierApp1._2
             MessageBox.Show("Liste Ouvrages sélectionnée");
             ListeOuvrage ouvrage = new ListeOuvrage();
             ouvrage.ShowDialog();
-
         }
 
         private void btnListSoutraitent_Click(object sender, RoutedEventArgs e)
@@ -44,17 +42,14 @@ namespace WpfChantierApp1._2
             MessageBox.Show("Liste Soutraitent sélectionnée");
             ListeSousTraitants soustraitent = new ListeSousTraitants();
             soustraitent.ShowDialog();
-
         }
 
         private void btnLivraison_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Liste Livraison sélectionnée");
+            MessageBox.Show("Liste materiaux sélectionnée");
             ListeLivraisons livraisons = new ListeLivraisons();
             livraisons.ShowDialog();
-
         }
-
 
 
         private void btnListOuvriers_Click(object sender, RoutedEventArgs e)
@@ -62,13 +57,12 @@ namespace WpfChantierApp1._2
             MessageBox.Show("Liste Ouvriers sélectionnée");
             ListeOuvriers ouvriers = new ListeOuvriers();
             ouvriers.ShowDialog();
-
         }
 
         private void AfficherEmployeSession()
         {
             string message = "Bienvenue : ";
-            txtBlockPrenom.Text = message + employeSession.Prenom + " " +employeSession.Nom;
+            txtBlockPrenom.Text = message + employeSession.Prenom + " " + employeSession.Nom;
 
         }
     }

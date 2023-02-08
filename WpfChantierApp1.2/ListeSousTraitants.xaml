@@ -14,7 +14,7 @@
 
             <Grid>
                 <Label Content="Sous Traitant ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="54,76,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtBoxSousTraitantID" HorizontalAlignment="Left" Margin="159,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="txtBoxSousTraitantID" HorizontalAlignment="Left" Margin="159,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
                 <Label Content="Domain Sous Traitant" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="33,109,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtBoxDomainSousTraitant" HorizontalAlignment="Left" Margin="159,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
                 <Label Content="Ouvrage ID" Foreground="LavenderBlush" HorizontalAlignment="Left" Margin="490,72,0,0" VerticalAlignment="Top"/>

@@ -41,13 +41,9 @@
                             </StackPanel>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
-
                 </ComboBox>
-
-
-
-
             </Grid>
+           
 
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -65,12 +61,9 @@
                     <GridViewColumn Header="Nom Materiaux" Width="150" DisplayMemberBinding="{Binding NomMateriaux }"  />
                     <GridViewColumn Header="Date Reception " Width="150" DisplayMemberBinding="{Binding DateReception }"  />
                     <GridViewColumn Header="Ouvrage ID" Width="150" DisplayMemberBinding="{Binding OuvrageID }"  />
-
-
                 </GridView>
             </ListView.View>
         </ListView>
-
 
     </Grid>
 

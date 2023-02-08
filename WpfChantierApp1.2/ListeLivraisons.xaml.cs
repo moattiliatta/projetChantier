@@ -57,28 +57,37 @@ namespace WpfChantierApp1._2
         // Crée un objet de type Matériaux selon la sélection de l'utilisateur, recherche dans la BD les identifiants correspondants et modifie les informations de l'enregistrement.
         private void btnModifier_Click(object sender, RoutedEventArgs e)
         {
-            Materiaux materiauxSelected = (Materiaux)ListViewMateriaux.SelectedItem;
+            bool verifierOK = verifierChamps();
 
-            if (materiauxSelected != null)
+            if (verifierOK)
             {
-                using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
-                {
-                    Materiaux materiauxModifier = dbEntities.Materiauxes.FirstOrDefault(mtr => mtr.MateriauxID == materiauxSelected.MateriauxID);
-                    if (materiauxModifier != null)
-                    {
-                        materiauxModifier.NomMateriaux = txtBoxNomMateriaux.Text;
-                        materiauxModifier.DateReception = datePkrDateRecept.SelectedDate.Value.ToShortDateString();
-                        materiauxModifier.OuvrageID = int.Parse(comboBoxOuvrageID.SelectedValue.ToString());
+                Materiaux materiauxSelected = (Materiaux)ListViewMateriaux.SelectedItem;
 
-                        int resultT = dbEntities.SaveChanges();
-                        if (resultT > 0)
+                if (materiauxSelected != null)
+                {
+                    using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+                    {
+                        Materiaux materiauxModifier = dbEntities.Materiauxes.FirstOrDefault(mtr => mtr.MateriauxID == materiauxSelected.MateriauxID);
+                        if (materiauxModifier != null)
                         {
-                            this.AfficherMateriaux();
-                            string message = $"le materiel {materiauxModifier.NomMateriaux} a ete modifie";
-                            MessageBox.Show(message);
+                            materiauxModifier.NomMateriaux = txtBoxNomMateriaux.Text;
+                            materiauxModifier.DateReception = datePkrDateRecept.SelectedDate.Value.ToShortDateString();
+                            materiauxModifier.OuvrageID = int.Parse(comboBoxOuvrageID.SelectedValue.ToString());
+
+                            int resultT = dbEntities.SaveChanges();
+                            if (resultT > 0)
+                            {
+                                this.AfficherMateriaux();
+                                string message = $"le materiel {materiauxModifier.NomMateriaux} a ete modifie";
+                                MessageBox.Show(message);
+                            }
                         }
                     }
                 }
+            }
+            else {
+
+                MessageBox.Show("ATTENTION: \nVérifiez que tous les champs sont correctement remplis.");
             }
         }
 
@@ -112,44 +121,72 @@ namespace WpfChantierApp1._2
         // Crée un objet de type Matériaux selon les informations données par l'utilisateur. 
         private void btnAjouter_Click(object sender, RoutedEventArgs e)
         {
-            using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
+            bool verifierOK = verifierChamps();
+
+            if (verifierOK)
             {
-                // recherche dans la BD le dernier enregistrement de la table des matériaux. 
-                Materiaux lastMateriaux = dbEntities.Materiauxes.ToArray().LastOrDefault();
-                // enregistre l'ID du dernier enregistrement trouvé et lui ajoute 1.
-                int lastnumber = lastMateriaux.MateriauxID + 1;
-
-                //  contrôle d'exception, vérifiez que tous les champs d'information de l'interface sont correctement remplis. 
-                try
+                using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
                 {
-                    Materiaux newMateriel = new Materiaux()
+                    // recherche dans la BD le dernier enregistrement de la table des matériaux. 
+                    Materiaux lastMateriaux = dbEntities.Materiauxes.ToArray().LastOrDefault();
+                    // enregistre l'ID du dernier enregistrement trouvé et lui ajoute 1.
+                    int lastnumber = lastMateriaux.MateriauxID + 1;
+
+                    //  contrôle d'exception, vérifiez que tous les champs d'information de l'interface sont correctement remplis. 
+                    try
                     {
-                        MateriauxID = lastnumber,
-                        NomMateriaux = txtBoxNomMateriaux.Text,
-                        DateReception = datePkrDateRecept.SelectedDate.Value.ToShortDateString(),
-                        OuvrageID = int.Parse(comboBoxOuvrageID.SelectedValue.ToString()),
-                    };
-
-                    if (newMateriel != null)
-                    {
-                        dbEntities.Materiauxes.Add(newMateriel);
-
-                        int resultT = dbEntities.SaveChanges();
-
-                        if (resultT > 0)
+                        Materiaux newMateriel = new Materiaux()
                         {
-                            this.AfficherMateriaux();
-                            string message = $"le materiel {newMateriel.NomMateriaux} a été enregistré dans le système";
-                            MessageBox.Show(message);
+                            MateriauxID = lastnumber,
+                            NomMateriaux = txtBoxNomMateriaux.Text,
+                            DateReception = datePkrDateRecept.SelectedDate.Value.ToShortDateString(),
+                            OuvrageID = int.Parse(comboBoxOuvrageID.SelectedValue.ToString()),
+                        };
+
+                        if (newMateriel != null)
+                        {
+                            dbEntities.Materiauxes.Add(newMateriel);
+
+                            int resultT = dbEntities.SaveChanges();
+
+                            if (resultT > 0)
+                            {
+                                this.AfficherMateriaux();
+                                string message = $"le materiel {newMateriel.NomMateriaux} a été enregistré dans le système";
+                                MessageBox.Show(message);
+                            }
                         }
                     }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString() + "\n\nATTENTION: \nVérifiez que tous les champs sont correctement remplis.  ");
+                    }
                 }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.ToString() + "\n\nATTENTION: \nVérifiez que tous les champs sont correctement remplis.  ");
-                }              
+            }
+            else
+            {
+                MessageBox.Show("ATTENTION: \nVérifiez que tous les champs sont correctement remplis.");
             }
         }
+
+
+        // fonction booléenne qui renvoie la réponse vraie si tous les champs ont été remplis correctement
+        private bool verifierChamps()
+        {
+            bool bienRempli;
+
+            if (string.IsNullOrEmpty(txtBoxNomMateriaux.Text) || datePkrDateRecept.SelectedDate == null || comboBoxOuvrageID.SelectedIndex == -1)
+            {
+                bienRempli = false;     
+            }
+            else
+            {
+                bienRempli = true;
+            }
+            return bienRempli;
+        }
+
+
     }
 }
 
