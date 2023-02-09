@@ -86,7 +86,6 @@ namespace WpfChantierApp1._2
             }
         }
 
-
         private void ListViewOuvrage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Ouvrage ouvrageSelected = (Ouvrage)ListViewOuvrage.SelectedItem;
@@ -266,5 +265,10 @@ namespace WpfChantierApp1._2
                 }
             }
         }
+
+
+
+
+
     }
 }

@@ -202,7 +202,7 @@ namespace WpfChantierApp1._2
         {
             bool bienRempli;
 
-            if(string.IsNullOrEmpty(txtBoxEmployeNom.Text) || txtBoxEmployePreNom.Text == null || datePkrDateEmbauche.SelectedDate == null || txtBoxTelephone.Text == null || comboBoxEquipeID.SelectedIndex == -1 || txtBoxPosteEmploi.Text == null || txtBoxMotPasse.Text == null)
+            if(string.IsNullOrEmpty(txtBoxEmployeNom.Text) || string.IsNullOrEmpty(txtBoxEmployePreNom.Text)  || datePkrDateEmbauche.SelectedDate == null || string.IsNullOrEmpty(txtBoxTelephone.Text) || comboBoxEquipeID.SelectedIndex == -1 || string.IsNullOrEmpty(txtBoxPosteEmploi.Text)  || string.IsNullOrEmpty(txtBoxMotPasse.Text))
             {
                 bienRempli= false;
             }
