@@ -131,16 +131,18 @@ namespace WpfChantierApp1._2
         {
             MessageBox.Show("btn modifier");
 
+            bool verifierOK = verifierChamps();
+
             Employe employeSelected = (Employe)ListViewOuvriers.SelectedItem;
 
-            if (employeSelected != null)
+            if (employeSelected != null && verifierOK)
             {
                 using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
                 {
                     Employe emplModifier = dbEntities.Employes.FirstOrDefault(empl => empl.EmployeID == employeSelected.EmployeID); // **** LINQ  **** 
 
                     if (emplModifier != null)
-                    {                     
+                    {
                         emplModifier.DateEmbauche = datePkrDateEmbauche.SelectedDate.Value;
                         emplModifier.Nom = txtBoxEmployeNom.Text;
                         emplModifier.Prenom = txtBoxEmployePreNom.Text;
@@ -151,7 +153,7 @@ namespace WpfChantierApp1._2
                         /* Reference object error when update */
                         emplModifier.EquipeID = int.Parse(comboBoxEquipeID.SelectedValue.ToString());
                         emplModifier.EmployeMotPasse = txtBoxMotPasse.Text;
-              
+
                         int resultat = dbEntities.SaveChanges();
                         if (resultat > 0)
                         {
@@ -162,6 +164,11 @@ namespace WpfChantierApp1._2
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("ATTENTION: \n Vérifiez que tous les champs sont correctement remplis");
+            }
+
         }
 
         private void btnEffacer_Click(object sender, RoutedEventArgs e)

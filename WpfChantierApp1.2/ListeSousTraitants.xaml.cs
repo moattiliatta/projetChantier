@@ -118,18 +118,13 @@ namespace WpfChantierApp1._2
         {
             MessageBox.Show("btn Modifier");
 
+            bool verifierOK = verifierChamps();
             Sous_Traitant sousTraitantSelected = (Sous_Traitant)ListViewSousTraitants.SelectedItem;
 
-            if (sousTraitantSelected != null)
+            if (sousTraitantSelected != null && verifierOK)
             {
-
                 try
                 {
-                    if (string.IsNullOrEmpty(txtBoxDomainSousTraitant.Text) || comboBoxOuvrageID.SelectedValue == null || string.IsNullOrEmpty(datePkrDebutSousTraitant.Text) || string.IsNullOrEmpty(datePkrFinSousTraitant.Text))
-                    {
-                        throw new Exception("Veuillez remplir tous les champs requis.");
-                    }
-
                     using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
                     {
 
@@ -160,9 +155,10 @@ namespace WpfChantierApp1._2
                 { MessageBox.Show(ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error); }
 
             }
-
-
-
+            else
+            {
+                MessageBox.Show("ATTENTION: \n Vérifiez que tous les champs sont correctement remplis");
+            }
         }
 
         private void btnEffacer_Click(object sender, RoutedEventArgs e)
@@ -173,8 +169,6 @@ namespace WpfChantierApp1._2
             datePkrDebutSousTraitant.Text = "";
             datePkrFinSousTraitant.Text = "";
         }
-
-
 
         private void ListViewSousTraitants_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
