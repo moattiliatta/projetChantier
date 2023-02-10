@@ -196,10 +196,10 @@ namespace WpfChantierApp1._2
         private void btnModifier_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("btn modifier");
-
+            bool verifierOK = verifierChamps();
             Ouvrage ouvrageSelected = (Ouvrage)ListViewOuvrage.SelectedItem;
 
-            if (ouvrageSelected != null)
+            if (ouvrageSelected != null && verifierOK)
             {
                 using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
                 {
@@ -223,6 +223,10 @@ namespace WpfChantierApp1._2
                         }
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("ATTENTION: \n Vérifiez que tous les champs sont correctement remplis");
             }
         }
 
