@@ -32,17 +32,20 @@ namespace WpfChantierApp1._2
             Ouvrage ouvrageSelected = (Ouvrage)ListViewOuvrage.SelectedItem;
 
             int selectedEquipeID = 0;
+            int selectedOuvrageID = 0;
 
             if (ListViewOuvrage.SelectedItem is Ouvrage ouvrage)
             {
-                //ffiche dans les zones de texte les valeurs sélectionnées.
+                ////ffiche dans les zones de texte les valeurs sélectionnées.
+                //selectedOuvrageID = int.Parse( txtBoxOuvrageID.Text);
+                selectedOuvrageID = ouvrage.OuvrageID.Value;
                 txtBoxOuvrageID.Text = ouvrage.OuvrageID.ToString();
                 txtBoxNomOuvrage.Text = ouvrage.NomOuvrage;
                 txtBoxDescOuvrage.Text = ouvrage.Description_Ouvrage;
                 //récupère l'Id de l'équipe pour chaque sélection 
                 selectedEquipeID = ouvrage.EquipeID.Value;
             }
-            AfficherMateriaux(ouvrageSelected);
+            AfficherMateriaux(ouvrageSelected,selectedOuvrageID);
             AfficherEmployes(selectedEquipeID);
         }
 
@@ -71,11 +74,12 @@ namespace WpfChantierApp1._2
         }
 
         // Reçoit un objet de type Ouvrage et renvoie une nomenclature associée au numéro d'identification. 
-        private void AfficherMateriaux(Ouvrage ouvrageSelected)
+        private void AfficherMateriaux(Ouvrage ouvrageSelected,int selectedOuvrageID)
         {
 
             /*VERIFY ERROR OBJECT REFERENCE*/
-            int ouvrageID = ouvrageSelected.OuvrageID;
+            //     int ouvrageID = ouvrageSelected.OuvrageID;
+            int ouvrageID = selectedOuvrageID;
 
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
             {
