@@ -1,0 +1,2 @@
+C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Release\WpfChantierApp1.2.csproj.AssemblyReference.cache
+C:\Users\Nelson\Dropbox\PC\Desktop\DEVELOPPEMENT-APPLICATIOS\projetChantier\WpfChantierApp1.2\obj\Release\WpfChantierApp1.2.csproj.SuggestedBindingRedirects.cache
