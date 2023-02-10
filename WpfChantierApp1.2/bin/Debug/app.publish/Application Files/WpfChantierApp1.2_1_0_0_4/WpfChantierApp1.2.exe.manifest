@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="WpfChantierApp1.2.exe" version="1.0.0.4" publicKeyToken="d64ed13f2f831ebe" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="WpfChantierApp1.2" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="WpfChantierApp1.2.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EntityFramework.dll" size="4991352">
+      <assemblyIdentity name="EntityFramework" version="6.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>/0K8pwRgXhh6u0VSOGixUSjWrxworUCkV51QfTSpU7I=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EntityFramework.SqlServer.dll" size="591752">
+      <assemblyIdentity name="EntityFramework.SqlServer" version="6.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>qWDdTS8PN7PAn/uVZ8MkJrh5ExDX65NcBMgZw9Rr1J4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WpfChantierApp1.2.exe" size="125928">
+      <assemblyIdentity name="WpfChantierApp1.2" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>bVt2c1U5I52b4/LP++YPKe1Fcd6Jx/GBvuuQlVE2QSA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="DataModelChantierApp.Context.tt" size="22944">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Ew3yoJL8//2zaktH931gBqFSYQrxU4O3rM9KxtmZJ30=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="DataModelChantierApp.tt" size="25289">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>8JL7cTPfpKvUpvbxR4PPjz+d/MusFKlmszCsSAPPx2k=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ProjetChantier.mdf" size="8388608" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>vVy9uISbRaNuW3Sxuhe7cAkl+X+D4agGvAqDj2uKdy0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ProjetChantier_log.ldf" size="8388608" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>osz85zJ3sIgZha2O8OOQTh/qk1N0zSWp4xVlZDj4Wfs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="WpfChantierApp1.2.exe.config" size="1288">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>a2z2iqg7nd79yvlhxtkx/FrX+xf7g3b3uhLVWo33Z1c=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=DESKTOP-T7R5QPF\Nelson" issuerKeyHash="ef6021a470b7d1ddb70505d8971e427196a3569f" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>wY2t1Ql+6O+Wg7wfhhqn2iCA2j9YOHty0UIK4hwyf1U=</DigestValue></Reference></SignedInfo><SignatureValue>UjGmEmL1EdV/8Zh5jKuTIujOGgTGPAZAClCzu7sfAGrKdYWXoV3ydwQXiydWEIGQ5IDOSXWn4ZdkccmYisIvKFpAZW7Hb5xnYu4o0mJNcauxcJaiVPxFXk7cTnJp4SGVpNPUULU5H5hoRcSRcSzTPNMfLZVvBtuBAJ/6tMgYXJY=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>xoRjzNujgWR0fQurWMc5AVv7SqT4m0fNQIFDETIVMssphBeRDjEIg8na39XsmEOC390h3hnV9FDiHo6ijQI+O53c/6lGVuTopkIcHToWFWbLs1iPN9P8rqubMvgFWy8g4rRe9up2oNkXiOUzlGpv78ZagYIfDSX4jzZzUYLmZgU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="557f321ce20a42d1727b38583fda8020daa71a861fbc8396efe87e09d5ad8dc1" Description="" Url=""><as:assemblyIdentity name="WpfChantierApp1.2.exe" version="1.0.0.4" publicKeyToken="d64ed13f2f831ebe" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-T7R5QPF\Nelson</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>ngCaLZ3d9rDizuMLyI6cwqW1nI3FVaXlgk8DNGwYngE=</DigestValue></Reference></SignedInfo><SignatureValue>BmJj1tsbeMb1VwgSZ3nQlfRij+O4g7Kfb5aSL3v2VrN9SPFFnS++i9LBevTjswFYpn2TlD8O5YuXURbZ9otJeEdW/DIhTxiNrNoes1WyttIsL3MtOBNNyfOBLfuDK/0p56a4MGMiUgdY5VEKuGUbFng+ptunlRei5pW8b6QQzE4=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>xoRjzNujgWR0fQurWMc5AVv7SqT4m0fNQIFDETIVMssphBeRDjEIg8na39XsmEOC390h3hnV9FDiHo6ijQI+O53c/6lGVuTopkIcHToWFWbLs1iPN9P8rqubMvgFWy8g4rRe9up2oNkXiOUzlGpv78ZagYIfDSX4jzZzUYLmZgU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB8TCCAVqgAwIBAgIQR09smgyldINMCVOY252ouDANBgkqhkiG9w0BAQsFADA3MTUwMwYDVQQDHiwARABFAFMASwBUAE8AUAAtAFQANwBSADUAUQBQAEYAXABOAGUAbABzAG8AbjAeFw0yMzAyMTAwMTAwMzJaFw0yNDAyMTAwNzAwMzJaMDcxNTAzBgNVBAMeLABEAEUAUwBLAFQATwBQAC0AVAA3AFIANQBRAFAARgBcAE4AZQBsAHMAbwBuMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGhGPM26OBZHR9C6tYxzkBW/tKpPibR81AgUMRMhUyyymEF5EOMQiDydrf1eyYQ4Lf3SHeGdX0UOIejqKNAj47ndz/qUZW5OimQhwdOhYVZsuzWI830/yuq5sy+AVbLyDitF726nag2ReI5TOUam/vxlqBgh8NJfiPNnNRguZmBQIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAISvaJ/kHWvErdxfeTNCOzNeYEOyrgrzz8a2eZ9RmHvkgEBb7QdOw3MzfcIj7KTS5xiouEirXyd46y93W5HoXGZ1eXJ6Uh2w9jqON+Dr80eCY7NYVpOIULH39xAwsiHOFKGSnI3Qmj8GcLF3pCbOj9L9U19gNw+E3CPKoqNmcg2v</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
