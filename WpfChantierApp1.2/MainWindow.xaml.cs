@@ -61,7 +61,6 @@ namespace WpfChantierApp1._2
                         // Instanciation de l'AdministrationInterface
                         AdministrationInter admin = new AdministrationInter(employeFound);
                         admin.ShowDialog();
-
                     }
 
                     else if ((btnChef.IsChecked == true) && (employeFound.PosteEmploi == "Superviseur")) //Souperviseur
