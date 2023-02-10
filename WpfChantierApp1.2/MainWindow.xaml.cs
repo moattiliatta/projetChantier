@@ -88,6 +88,11 @@ namespace WpfChantierApp1._2
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("Veuillez entrer les informations correctes");
+            }
+
         }
 
         // l'événement supprime les informations dans l'interface
