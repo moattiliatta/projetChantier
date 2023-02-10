@@ -28,24 +28,24 @@ namespace WpfChantierApp1._2
         /* reçoit les informations de sélection de l'utilisateur */
         private void ListViewOuvrage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //crée un objet ouvrage
-            Ouvrage ouvrageSelected = (Ouvrage)ListViewOuvrage.SelectedItem;
-
             int selectedEquipeID = 0;
             int selectedOuvrageID = 0;
 
             if (ListViewOuvrage.SelectedItem is Ouvrage ouvrage)
             {
-                ////ffiche dans les zones de texte les valeurs sélectionnées.
-                //selectedOuvrageID = int.Parse( txtBoxOuvrageID.Text);
-                selectedOuvrageID = ouvrage.OuvrageID.Value;
+                //ffiche dans les zones de texte les valeurs sélectionnées.
+                
                 txtBoxOuvrageID.Text = ouvrage.OuvrageID.ToString();
                 txtBoxNomOuvrage.Text = ouvrage.NomOuvrage;
                 txtBoxDescOuvrage.Text = ouvrage.Description_Ouvrage;
-                //récupère l'Id de l'équipe pour chaque sélection 
+                //récupère l'Id de l'équipe et l'ouvrage pour chaque sélection 
+                selectedOuvrageID = ouvrage.OuvrageID;
                 selectedEquipeID = ouvrage.EquipeID.Value;
             }
-            AfficherMateriaux(ouvrageSelected,selectedOuvrageID);
+
+            //MessageBox.Show("selectedOuvrageID : " + selectedOuvrageID + " Type : " + selectedOuvrageID.GetType());
+
+            AfficherMateriaux(selectedOuvrageID);
             AfficherEmployes(selectedEquipeID);
         }
 
@@ -74,16 +74,13 @@ namespace WpfChantierApp1._2
         }
 
         // Reçoit un objet de type Ouvrage et renvoie une nomenclature associée au numéro d'identification. 
-        private void AfficherMateriaux(Ouvrage ouvrageSelected,int selectedOuvrageID)
+        private void AfficherMateriaux(int selectedOuvrageID)
         {
-
-            /*VERIFY ERROR OBJECT REFERENCE*/
-            //     int ouvrageID = ouvrageSelected.OuvrageID;
             int ouvrageID = selectedOuvrageID;
 
             using (ProjetChantierEntities dbEntities = new ProjetChantierEntities())
             {
-               // comboBoxOuvrageID.ItemsSource = dbEntities.Ouvrages.ToList();
+                // comboBoxOuvrageID.ItemsSource = dbEntities.Ouvrages.ToList();
                 var query = from materiau in dbEntities.Materiauxes
                             where materiau.OuvrageID == ouvrageID
                             select new
@@ -167,7 +164,6 @@ namespace WpfChantierApp1._2
             }
         }
 
-
         // Crée un objet de type Ouvrage selon la sélection de l'utilisateur, fait une recherche dans la BD et s'il trouve des correspondances d'ID, le supprime. 
         private void btnSupprimer_Click(object sender, RoutedEventArgs e)
         {
@@ -249,7 +245,7 @@ namespace WpfChantierApp1._2
         {
             bool bienRempli;
 
-            if (string.IsNullOrEmpty(txtBoxNomOuvrage.Text) || txtBoxDescOuvrage.Text == null || txtBoxOuvrageID.Text == null || comboBoxEquipeID.SelectedIndex == -1 || datePkrDebutOuvrage.SelectedDate == null || datePkrFinOuvrage == null)
+            if (string.IsNullOrEmpty(txtBoxNomOuvrage.Text) || string.IsNullOrEmpty(txtBoxDescOuvrage.Text) || string.IsNullOrEmpty(txtBoxOuvrageID.Text) || comboBoxEquipeID.SelectedIndex == -1 || datePkrDebutOuvrage.SelectedDate == null || datePkrFinOuvrage == null)
             {
                 bienRempli = false;
             }
