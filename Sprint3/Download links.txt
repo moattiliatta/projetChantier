@@ -1,0 +1,26 @@
+
+>>>>>>>>>>>>>>>>>>>>   liens de téléchargement   <<<<<<<<<<<<<<<<<<<<<<<<
+
+
+
+********************* GitHub - DVD format 
+  https://github.com/moattiliatta/projetChantier/tree/main/Sprint3/Executable%20App
+
+
+********************* GitHub - WEBformat 
+ https://github.com/moattiliatta/projetChantier/tree/main/Sprint3/Exe%20App%20Web
+
+
+********************* Google Drive:
+
+vous pouvez trouver et télécharger toutes les données dans le dossier google drive,
+les fichiers sont stockés sous la description suivante : 
+
+ - Executable WEBformat : ChantierApp.rar
+ - Images informations base de données : Data BD
+ - Videos informatifs : Videos explicatives.rar
+
+   LIEN <<<<<<<<<<<<<<<<<
+ 
+	 https://drive.google.com/drive/folders/1qdCAonBRr-cgH_SH1SxVMNd861szxIiK
+
